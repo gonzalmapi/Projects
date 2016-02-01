@@ -2,10 +2,12 @@
 using System.Collections.Generic;
 using System.Linq;
 using System.Web;
+using System.Xml;
 
-namespace Airliners.net.Models
+namespace MerCadona.App_Code.Controlador
 {
-    public class FotoModel
+    public class Controlador_Fichero
     {
+
     }
 }

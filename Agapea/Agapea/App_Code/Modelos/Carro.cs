@@ -3,9 +3,9 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Web;
 
-namespace Airliners.net.Models
+namespace Agapea.App_Code.Modelos
 {
-    public class AlbumModel
+    public class Carro
     {
     }
 }
