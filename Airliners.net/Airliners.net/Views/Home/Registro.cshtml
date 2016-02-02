@@ -1,0 +1,32 @@
+﻿@model Airliners.net.Models.Usuario
+
+@{
+    ViewBag.Title = "Registro";
+    Layout = null;
+}
+<html>
+<head>
+    <meta name="viewport" content="width=device-width" />
+    <title>Registro</title>
+</head>
+<body>
+    @using (Html.BeginForm())
+    {
+        <p>Nombre y apellidos: @Html.TextBoxFor(x=>x.Nombre)</p>
+        <p>Email: @Html.TextBoxFor(x => x.Email)</p>
+        <p>Sexo (Hombre o Mujer): @Html.TextBoxFor(x => x.Sexo)</p>
+        <p>Edad: @Html.TextBoxFor(x => x.Edad)</p>
+        <p>Pais: @Html.TextBoxFor(x => x.Pais)</p>
+        <p>Nombre de Usuario: @Html.TextBoxFor(x => x.Alias)</p>
+        <p>Contraseña: @Html.PasswordFor(x => x.Contraseña)</p>
+        <p>Ocupacion: @Html.TextBoxFor(x => x.Ocupacion)</p>
+        <p>Hobbies: @Html.TextBoxFor(x => x.Hobbies)</p>
+        <p>Pagina Web Personal: @Html.TextBoxFor(x => x.URLPersonal)</p>
+        <p>Otra Informacíon: @Html.TextBoxFor(x => x.Otros)</p>
+        <p>Nombre y apellidos: @Html.TextBoxFor(x => x.Nombre)</p>
+        <input type="submit" value="Registrar" />
+    }
+</body>
+</html>
+
+

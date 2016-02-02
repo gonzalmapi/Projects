@@ -1,12 +1,21 @@
 ﻿<?xml version="1.0" encoding="utf-8"?><Database Name="Airliners.net" Class="AirlinersDBDataContext" xmlns="http://schemas.microsoft.com/linqtosql/dbml/2007">
   <Connection Mode="WebSettings" ConnectionString="Data Source=(localdb)\ProjectsV12;Initial Catalog=Airliners.net;Integrated Security=True;Connect Timeout=30" SettingsObjectName="System.Configuration.ConfigurationManager.ConnectionStrings" SettingsPropertyName="Airliners_netConnectionString" Provider="System.Data.SqlClient" />
-  <Table Name="dbo.Album" Member="Albums">
-    <Type Name="Album">
-      <Column Name="Id" Type="System.Int32" DbType="Int NOT NULL" IsPrimaryKey="true" CanBeNull="false" />
-      <Column Name="Id_Foto" Type="System.Int32" DbType="Int NOT NULL" CanBeNull="false" />
-      <Column Name="Nombre_Usu" Type="System.String" DbType="VarChar(50) NOT NULL" CanBeNull="false" />
-      <Association Name="Foto_Album" Member="Foto" ThisKey="Id_Foto" OtherKey="Id" Type="Foto" IsForeignKey="true" />
-      <Association Name="Usuario_Album" Member="Usuario" ThisKey="Nombre_Usu" OtherKey="Nombre" Type="Usuario" IsForeignKey="true" />
+  <Table Name="dbo.Usuario" Member="Usuarios">
+    <Type Name="Usuario">
+      <Column Name="Nombre" Type="System.String" DbType="VarChar(50) NOT NULL" IsPrimaryKey="true" CanBeNull="false" />
+      <Column Name="Email" Type="System.String" DbType="VarChar(50) NOT NULL" CanBeNull="false" />
+      <Column Name="Sexo" Type="System.String" DbType="VarChar(50) NOT NULL" CanBeNull="false" />
+      <Column Name="Edad" Type="System.Int32" DbType="Int NOT NULL" CanBeNull="false" />
+      <Column Name="Pais" Type="System.String" DbType="VarChar(MAX) NOT NULL" CanBeNull="false" />
+      <Column Name="Alias" Type="System.String" DbType="VarChar(50) NOT NULL" CanBeNull="false" />
+      <Column Name="Contraseña" Type="System.String" DbType="NChar(10) NOT NULL" CanBeNull="false" />
+      <Column Name="Ocupacion" Type="System.String" DbType="VarChar(50)" CanBeNull="true" />
+      <Column Name="Hobbies" Type="System.String" DbType="VarChar(MAX)" CanBeNull="true" />
+      <Column Name="Ciudad" Type="System.String" DbType="VarChar(50)" CanBeNull="true" />
+      <Column Name="URLPersonal" Type="System.String" DbType="VarChar(50)" CanBeNull="true" />
+      <Column Name="Otros" Type="System.String" DbType="VarChar(50)" CanBeNull="true" />
+      <Association Name="Usuario_Foto" Member="Fotos" ThisKey="Nombre" OtherKey="Fotografo" Type="Foto" />
+      <Association Name="Usuario_Album" Member="Albums" ThisKey="Nombre" OtherKey="Nombre_Usu" Type="Album" />
     </Type>
   </Table>
   <Table Name="dbo.Foto" Member="Fotos">
@@ -23,24 +32,13 @@
       <Association Name="Usuario_Foto" Member="Usuario" ThisKey="Fotografo" OtherKey="Nombre" Type="Usuario" IsForeignKey="true" />
     </Type>
   </Table>
-  <Table Name="dbo.Usuario" Member="Usuarios">
-    <Type Name="Usuario">
-      <Column Name="Nombre" Type="System.String" DbType="VarChar(50) NOT NULL" IsPrimaryKey="true" CanBeNull="false" />
-      <Column Name="Email" Type="System.String" DbType="VarChar(50) NOT NULL" CanBeNull="false" />
-      <Column Name="Mostrar" Type="System.Int32" DbType="Int NOT NULL" CanBeNull="false" />
-      <Column Name="Permitir" Type="System.Int32" DbType="Int NOT NULL" CanBeNull="false" />
-      <Column Name="Sexo" Type="System.String" DbType="VarChar(50) NOT NULL" CanBeNull="false" />
-      <Column Name="Edad" Type="System.Int32" DbType="Int NOT NULL" CanBeNull="false" />
-      <Column Name="Pais" Type="System.String" DbType="VarChar(MAX) NOT NULL" CanBeNull="false" />
-      <Column Name="Alias" Type="System.String" DbType="VarChar(50) NOT NULL" CanBeNull="false" />
-      <Column Name="Contraseña" Type="System.String" DbType="NChar(10) NOT NULL" CanBeNull="false" />
-      <Column Name="Ocupacion" Type="System.String" DbType="VarChar(50)" CanBeNull="true" />
-      <Column Name="Hobbies" Type="System.String" DbType="VarChar(MAX)" CanBeNull="true" />
-      <Column Name="Ciudad" Type="System.String" DbType="VarChar(50)" CanBeNull="true" />
-      <Column Name="URLPersonal" Type="System.String" DbType="VarChar(50)" CanBeNull="true" />
-      <Column Name="Otros" Type="System.String" DbType="VarChar(50)" CanBeNull="true" />
-      <Association Name="Usuario_Album" Member="Albums" ThisKey="Nombre" OtherKey="Nombre_Usu" Type="Album" />
-      <Association Name="Usuario_Foto" Member="Fotos" ThisKey="Nombre" OtherKey="Fotografo" Type="Foto" />
+  <Table Name="dbo.Album" Member="Albums">
+    <Type Name="Album">
+      <Column Name="Id" Type="System.Int32" DbType="Int NOT NULL" IsPrimaryKey="true" CanBeNull="false" />
+      <Column Name="Id_Foto" Type="System.Int32" DbType="Int NOT NULL" CanBeNull="false" />
+      <Column Name="Nombre_Usu" Type="System.String" DbType="VarChar(50) NOT NULL" CanBeNull="false" />
+      <Association Name="Foto_Album" Member="Foto" ThisKey="Id_Foto" OtherKey="Id" Type="Foto" IsForeignKey="true" />
+      <Association Name="Usuario_Album" Member="Usuario" ThisKey="Nombre_Usu" OtherKey="Nombre" Type="Usuario" IsForeignKey="true" />
     </Type>
   </Table>
 </Database>

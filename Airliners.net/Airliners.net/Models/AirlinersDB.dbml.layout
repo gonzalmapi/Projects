@@ -2,43 +2,43 @@
 <ordesignerObjectsDiagram dslVersion="1.0.0.0" absoluteBounds="0, 0, 11, 8.5" name="AirlinersDB">
   <DataContextMoniker Name="/AirlinersDBDataContext" />
   <nestedChildShapes>
-    <classShape Id="9d74b35d-b882-4df5-8c22-86981731e3dd" absoluteBounds="4.125, 2.25, 2, 1.3862939453125">
-      <DataClassMoniker Name="/AirlinersDBDataContext/Album" />
-      <nestedChildShapes>
-        <elementListCompartment Id="6c16236b-c649-4e45-a4f8-66eed3dfb82e" absoluteBounds="4.14, 2.71, 1.9700000000000002, 0.8262939453125" name="DataPropertiesCompartment" titleTextColor="Black" itemTextColor="Black" />
-      </nestedChildShapes>
-    </classShape>
-    <classShape Id="e7543f2f-b96e-4c89-a08b-d5bb571a02a0" absoluteBounds="7.25, 1.5, 2, 2.3478011067708335">
-      <DataClassMoniker Name="/AirlinersDBDataContext/Foto" />
-      <nestedChildShapes>
-        <elementListCompartment Id="43cb8cef-7b5c-4858-a4ae-af08872c83d1" absoluteBounds="7.265, 1.96, 1.9700000000000002, 1.7878011067708335" name="DataPropertiesCompartment" titleTextColor="Black" itemTextColor="Black" />
-      </nestedChildShapes>
-    </classShape>
-    <associationConnector edgePoints="[(7.25 : 2.94314697265625); (6.125 : 2.94314697265625)]" fixedFrom="Algorithm" fixedTo="Algorithm">
-      <AssociationMoniker Name="/AirlinersDBDataContext/Foto/Foto_Album" />
-      <nodes>
-        <classShapeMoniker Id="e7543f2f-b96e-4c89-a08b-d5bb571a02a0" />
-        <classShapeMoniker Id="9d74b35d-b882-4df5-8c22-86981731e3dd" />
-      </nodes>
-    </associationConnector>
-    <classShape Id="33ee98ad-55eb-4f49-b202-44f7d301b79a" absoluteBounds="1.75, 2.625, 2, 3.5016097005208326">
+    <classShape Id="ec5352ad-15ed-4ee7-a288-7a0e2ddcf9b6" absoluteBounds="2.25, 2, 2, 3.1170068359375">
       <DataClassMoniker Name="/AirlinersDBDataContext/Usuario" />
       <nestedChildShapes>
-        <elementListCompartment Id="d7bd63ab-be29-4961-9158-74b465bc8129" absoluteBounds="1.7650000000000001, 3.085, 1.9700000000000002, 2.941609700520833" name="DataPropertiesCompartment" titleTextColor="Black" itemTextColor="Black" />
+        <elementListCompartment Id="e3c81114-0271-42fd-a289-628bb9d71879" absoluteBounds="2.265, 2.46, 1.9700000000000002, 2.5570068359375" name="DataPropertiesCompartment" titleTextColor="Black" itemTextColor="Black" />
       </nestedChildShapes>
     </classShape>
-    <associationConnector edgePoints="[(3.75 : 3.13064697265625); (4.125 : 3.13064697265625)]" fixedFrom="Algorithm" fixedTo="Algorithm">
-      <AssociationMoniker Name="/AirlinersDBDataContext/Usuario/Usuario_Album" />
-      <nodes>
-        <classShapeMoniker Id="33ee98ad-55eb-4f49-b202-44f7d301b79a" />
-        <classShapeMoniker Id="9d74b35d-b882-4df5-8c22-86981731e3dd" />
-      </nodes>
-    </associationConnector>
-    <associationConnector edgePoints="[(3.75 : 3.77329752604167); (7.25 : 3.77329752604167)]" fixedFrom="Algorithm" fixedTo="Algorithm">
+    <classShape Id="cc0c8dfb-bdeb-4b56-8694-c82364890955" absoluteBounds="6.75, 3.25, 2, 2.3478011067708335">
+      <DataClassMoniker Name="/AirlinersDBDataContext/Foto" />
+      <nestedChildShapes>
+        <elementListCompartment Id="04a7e7c2-1290-4cc8-b918-6c382fde8d0a" absoluteBounds="6.765, 3.71, 1.9700000000000002, 1.7878011067708335" name="DataPropertiesCompartment" titleTextColor="Black" itemTextColor="Black" />
+      </nestedChildShapes>
+    </classShape>
+    <associationConnector edgePoints="[(4.25 : 4.18350341796875); (6.75 : 4.18350341796875)]" fixedFrom="Algorithm" fixedTo="Algorithm">
       <AssociationMoniker Name="/AirlinersDBDataContext/Usuario/Usuario_Foto" />
       <nodes>
-        <classShapeMoniker Id="33ee98ad-55eb-4f49-b202-44f7d301b79a" />
-        <classShapeMoniker Id="e7543f2f-b96e-4c89-a08b-d5bb571a02a0" />
+        <classShapeMoniker Id="ec5352ad-15ed-4ee7-a288-7a0e2ddcf9b6" />
+        <classShapeMoniker Id="cc0c8dfb-bdeb-4b56-8694-c82364890955" />
+      </nodes>
+    </associationConnector>
+    <classShape Id="0afa2f3e-39af-46aa-9efd-7b18c75adac5" absoluteBounds="4.875, 0.875, 2, 1.3862939453125">
+      <DataClassMoniker Name="/AirlinersDBDataContext/Album" />
+      <nestedChildShapes>
+        <elementListCompartment Id="e27d6a5d-3cf2-4e6f-b904-7ee65a21c17b" absoluteBounds="4.89, 1.335, 1.9700000000000002, 0.8262939453125" name="DataPropertiesCompartment" titleTextColor="Black" itemTextColor="Black" />
+      </nestedChildShapes>
+    </classShape>
+    <associationConnector edgePoints="[(7.8125005 : 3.25); (7.8125005 : 1.56814697265625); (6.875 : 1.56814697265625)]" fixedFrom="Algorithm" fixedTo="Algorithm">
+      <AssociationMoniker Name="/AirlinersDBDataContext/Foto/Foto_Album" />
+      <nodes>
+        <classShapeMoniker Id="cc0c8dfb-bdeb-4b56-8694-c82364890955" />
+        <classShapeMoniker Id="0afa2f3e-39af-46aa-9efd-7b18c75adac5" />
+      </nodes>
+    </associationConnector>
+    <associationConnector edgePoints="[(3.25 : 2); (3.25 : 1.4374995); (4.875 : 1.4374995)]" fixedFrom="Algorithm" fixedTo="Algorithm">
+      <AssociationMoniker Name="/AirlinersDBDataContext/Usuario/Usuario_Album" />
+      <nodes>
+        <classShapeMoniker Id="ec5352ad-15ed-4ee7-a288-7a0e2ddcf9b6" />
+        <classShapeMoniker Id="0afa2f3e-39af-46aa-9efd-7b18c75adac5" />
       </nodes>
     </associationConnector>
   </nestedChildShapes>

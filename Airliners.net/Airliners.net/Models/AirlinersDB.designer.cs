@@ -30,15 +30,15 @@ namespace Airliners.net.Models
 		
     #region Extensibility Method Definitions
     partial void OnCreated();
-    partial void InsertAlbum(Album instance);
-    partial void UpdateAlbum(Album instance);
-    partial void DeleteAlbum(Album instance);
-    partial void InsertFoto(Foto instance);
-    partial void UpdateFoto(Foto instance);
-    partial void DeleteFoto(Foto instance);
     partial void InsertUsuario(Usuario instance);
     partial void UpdateUsuario(Usuario instance);
     partial void DeleteUsuario(Usuario instance);
+    partial void InsertFoto(Foto instance);
+    partial void UpdateFoto(Foto instance);
+    partial void DeleteFoto(Foto instance);
+    partial void InsertAlbum(Album instance);
+    partial void UpdateAlbum(Album instance);
+    partial void DeleteAlbum(Album instance);
     #endregion
 		
 		public AirlinersDBDataContext() : 
@@ -71,11 +71,11 @@ namespace Airliners.net.Models
 			OnCreated();
 		}
 		
-		public System.Data.Linq.Table<Album> Albums
+		public System.Data.Linq.Table<Usuario> Usuarios
 		{
 			get
 			{
-				return this.GetTable<Album>();
+				return this.GetTable<Usuario>();
 			}
 		}
 		
@@ -87,183 +87,349 @@ namespace Airliners.net.Models
 			}
 		}
 		
-		public System.Data.Linq.Table<Usuario> Usuarios
+		public System.Data.Linq.Table<Album> Albums
 		{
 			get
 			{
-				return this.GetTable<Usuario>();
+				return this.GetTable<Album>();
 			}
 		}
 	}
 	
-	[global::System.Data.Linq.Mapping.TableAttribute(Name="dbo.Album")]
-	public partial class Album : INotifyPropertyChanging, INotifyPropertyChanged
+	[global::System.Data.Linq.Mapping.TableAttribute(Name="dbo.Usuario")]
+	public partial class Usuario : INotifyPropertyChanging, INotifyPropertyChanged
 	{
 		
 		private static PropertyChangingEventArgs emptyChangingEventArgs = new PropertyChangingEventArgs(String.Empty);
 		
-		private int _Id;
+		private string _Nombre;
 		
-		private int _Id_Foto;
+		private string _Email;
 		
-		private string _Nombre_Usu;
+		private string _Sexo;
 		
-		private EntityRef<Foto> _Foto;
+		private int _Edad;
 		
-		private EntityRef<Usuario> _Usuario;
+		private string _Pais;
+		
+		private string _Alias;
+		
+		private string _Contraseña;
+		
+		private string _Ocupacion;
+		
+		private string _Hobbies;
+		
+		private string _Ciudad;
+		
+		private string _URLPersonal;
+		
+		private string _Otros;
+		
+		private EntitySet<Foto> _Fotos;
+		
+		private EntitySet<Album> _Albums;
 		
     #region Extensibility Method Definitions
     partial void OnLoaded();
     partial void OnValidate(System.Data.Linq.ChangeAction action);
     partial void OnCreated();
-    partial void OnIdChanging(int value);
-    partial void OnIdChanged();
-    partial void OnId_FotoChanging(int value);
-    partial void OnId_FotoChanged();
-    partial void OnNombre_UsuChanging(string value);
-    partial void OnNombre_UsuChanged();
+    partial void OnNombreChanging(string value);
+    partial void OnNombreChanged();
+    partial void OnEmailChanging(string value);
+    partial void OnEmailChanged();
+    partial void OnSexoChanging(string value);
+    partial void OnSexoChanged();
+    partial void OnEdadChanging(int value);
+    partial void OnEdadChanged();
+    partial void OnPaisChanging(string value);
+    partial void OnPaisChanged();
+    partial void OnAliasChanging(string value);
+    partial void OnAliasChanged();
+    partial void OnContraseñaChanging(string value);
+    partial void OnContraseñaChanged();
+    partial void OnOcupacionChanging(string value);
+    partial void OnOcupacionChanged();
+    partial void OnHobbiesChanging(string value);
+    partial void OnHobbiesChanged();
+    partial void OnCiudadChanging(string value);
+    partial void OnCiudadChanged();
+    partial void OnURLPersonalChanging(string value);
+    partial void OnURLPersonalChanged();
+    partial void OnOtrosChanging(string value);
+    partial void OnOtrosChanged();
     #endregion
 		
-		public Album()
+		public Usuario()
 		{
-			this._Foto = default(EntityRef<Foto>);
-			this._Usuario = default(EntityRef<Usuario>);
+			this._Fotos = new EntitySet<Foto>(new Action<Foto>(this.attach_Fotos), new Action<Foto>(this.detach_Fotos));
+			this._Albums = new EntitySet<Album>(new Action<Album>(this.attach_Albums), new Action<Album>(this.detach_Albums));
 			OnCreated();
 		}
 		
-		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_Id", DbType="Int NOT NULL", IsPrimaryKey=true)]
-		public int Id
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_Nombre", DbType="VarChar(50) NOT NULL", CanBeNull=false, IsPrimaryKey=true)]
+		public string Nombre
 		{
 			get
 			{
-				return this._Id;
+				return this._Nombre;
 			}
 			set
 			{
-				if ((this._Id != value))
+				if ((this._Nombre != value))
 				{
-					this.OnIdChanging(value);
+					this.OnNombreChanging(value);
 					this.SendPropertyChanging();
-					this._Id = value;
-					this.SendPropertyChanged("Id");
-					this.OnIdChanged();
+					this._Nombre = value;
+					this.SendPropertyChanged("Nombre");
+					this.OnNombreChanged();
 				}
 			}
 		}
 		
-		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_Id_Foto", DbType="Int NOT NULL")]
-		public int Id_Foto
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_Email", DbType="VarChar(50) NOT NULL", CanBeNull=false)]
+		public string Email
 		{
 			get
 			{
-				return this._Id_Foto;
+				return this._Email;
 			}
 			set
 			{
-				if ((this._Id_Foto != value))
+				if ((this._Email != value))
 				{
-					if (this._Foto.HasLoadedOrAssignedValue)
-					{
-						throw new System.Data.Linq.ForeignKeyReferenceAlreadyHasValueException();
-					}
-					this.OnId_FotoChanging(value);
+					this.OnEmailChanging(value);
 					this.SendPropertyChanging();
-					this._Id_Foto = value;
-					this.SendPropertyChanged("Id_Foto");
-					this.OnId_FotoChanged();
+					this._Email = value;
+					this.SendPropertyChanged("Email");
+					this.OnEmailChanged();
 				}
 			}
 		}
 		
-		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_Nombre_Usu", DbType="VarChar(50) NOT NULL", CanBeNull=false)]
-		public string Nombre_Usu
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_Sexo", DbType="VarChar(50) NOT NULL", CanBeNull=false)]
+		public string Sexo
 		{
 			get
 			{
-				return this._Nombre_Usu;
+				return this._Sexo;
 			}
 			set
 			{
-				if ((this._Nombre_Usu != value))
+				if ((this._Sexo != value))
 				{
-					if (this._Usuario.HasLoadedOrAssignedValue)
-					{
-						throw new System.Data.Linq.ForeignKeyReferenceAlreadyHasValueException();
-					}
-					this.OnNombre_UsuChanging(value);
+					this.OnSexoChanging(value);
 					this.SendPropertyChanging();
-					this._Nombre_Usu = value;
-					this.SendPropertyChanged("Nombre_Usu");
-					this.OnNombre_UsuChanged();
+					this._Sexo = value;
+					this.SendPropertyChanged("Sexo");
+					this.OnSexoChanged();
 				}
 			}
 		}
 		
-		[global::System.Data.Linq.Mapping.AssociationAttribute(Name="Foto_Album", Storage="_Foto", ThisKey="Id_Foto", OtherKey="Id", IsForeignKey=true)]
-		public Foto Foto
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_Edad", DbType="Int NOT NULL")]
+		public int Edad
 		{
 			get
 			{
-				return this._Foto.Entity;
+				return this._Edad;
 			}
 			set
 			{
-				Foto previousValue = this._Foto.Entity;
-				if (((previousValue != value) 
-							|| (this._Foto.HasLoadedOrAssignedValue == false)))
+				if ((this._Edad != value))
 				{
+					this.OnEdadChanging(value);
 					this.SendPropertyChanging();
-					if ((previousValue != null))
-					{
-						this._Foto.Entity = null;
-						previousValue.Albums.Remove(this);
-					}
-					this._Foto.Entity = value;
-					if ((value != null))
-					{
-						value.Albums.Add(this);
-						this._Id_Foto = value.Id;
-					}
-					else
-					{
-						this._Id_Foto = default(int);
-					}
-					this.SendPropertyChanged("Foto");
+					this._Edad = value;
+					this.SendPropertyChanged("Edad");
+					this.OnEdadChanged();
 				}
 			}
 		}
 		
-		[global::System.Data.Linq.Mapping.AssociationAttribute(Name="Usuario_Album", Storage="_Usuario", ThisKey="Nombre_Usu", OtherKey="Nombre", IsForeignKey=true)]
-		public Usuario Usuario
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_Pais", DbType="VarChar(MAX) NOT NULL", CanBeNull=false)]
+		public string Pais
 		{
 			get
 			{
-				return this._Usuario.Entity;
+				return this._Pais;
 			}
 			set
 			{
-				Usuario previousValue = this._Usuario.Entity;
-				if (((previousValue != value) 
-							|| (this._Usuario.HasLoadedOrAssignedValue == false)))
+				if ((this._Pais != value))
 				{
+					this.OnPaisChanging(value);
 					this.SendPropertyChanging();
-					if ((previousValue != null))
-					{
-						this._Usuario.Entity = null;
-						previousValue.Albums.Remove(this);
-					}
-					this._Usuario.Entity = value;
-					if ((value != null))
-					{
-						value.Albums.Add(this);
-						this._Nombre_Usu = value.Nombre;
-					}
-					else
-					{
-						this._Nombre_Usu = default(string);
-					}
-					this.SendPropertyChanged("Usuario");
+					this._Pais = value;
+					this.SendPropertyChanged("Pais");
+					this.OnPaisChanged();
 				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_Alias", DbType="VarChar(50) NOT NULL", CanBeNull=false)]
+		public string Alias
+		{
+			get
+			{
+				return this._Alias;
+			}
+			set
+			{
+				if ((this._Alias != value))
+				{
+					this.OnAliasChanging(value);
+					this.SendPropertyChanging();
+					this._Alias = value;
+					this.SendPropertyChanged("Alias");
+					this.OnAliasChanged();
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_Contraseña", DbType="NChar(10) NOT NULL", CanBeNull=false)]
+		public string Contraseña
+		{
+			get
+			{
+				return this._Contraseña;
+			}
+			set
+			{
+				if ((this._Contraseña != value))
+				{
+					this.OnContraseñaChanging(value);
+					this.SendPropertyChanging();
+					this._Contraseña = value;
+					this.SendPropertyChanged("Contraseña");
+					this.OnContraseñaChanged();
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_Ocupacion", DbType="VarChar(50)")]
+		public string Ocupacion
+		{
+			get
+			{
+				return this._Ocupacion;
+			}
+			set
+			{
+				if ((this._Ocupacion != value))
+				{
+					this.OnOcupacionChanging(value);
+					this.SendPropertyChanging();
+					this._Ocupacion = value;
+					this.SendPropertyChanged("Ocupacion");
+					this.OnOcupacionChanged();
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_Hobbies", DbType="VarChar(MAX)")]
+		public string Hobbies
+		{
+			get
+			{
+				return this._Hobbies;
+			}
+			set
+			{
+				if ((this._Hobbies != value))
+				{
+					this.OnHobbiesChanging(value);
+					this.SendPropertyChanging();
+					this._Hobbies = value;
+					this.SendPropertyChanged("Hobbies");
+					this.OnHobbiesChanged();
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_Ciudad", DbType="VarChar(50)")]
+		public string Ciudad
+		{
+			get
+			{
+				return this._Ciudad;
+			}
+			set
+			{
+				if ((this._Ciudad != value))
+				{
+					this.OnCiudadChanging(value);
+					this.SendPropertyChanging();
+					this._Ciudad = value;
+					this.SendPropertyChanged("Ciudad");
+					this.OnCiudadChanged();
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_URLPersonal", DbType="VarChar(50)")]
+		public string URLPersonal
+		{
+			get
+			{
+				return this._URLPersonal;
+			}
+			set
+			{
+				if ((this._URLPersonal != value))
+				{
+					this.OnURLPersonalChanging(value);
+					this.SendPropertyChanging();
+					this._URLPersonal = value;
+					this.SendPropertyChanged("URLPersonal");
+					this.OnURLPersonalChanged();
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_Otros", DbType="VarChar(50)")]
+		public string Otros
+		{
+			get
+			{
+				return this._Otros;
+			}
+			set
+			{
+				if ((this._Otros != value))
+				{
+					this.OnOtrosChanging(value);
+					this.SendPropertyChanging();
+					this._Otros = value;
+					this.SendPropertyChanged("Otros");
+					this.OnOtrosChanged();
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.AssociationAttribute(Name="Usuario_Foto", Storage="_Fotos", ThisKey="Nombre", OtherKey="Fotografo")]
+		public EntitySet<Foto> Fotos
+		{
+			get
+			{
+				return this._Fotos;
+			}
+			set
+			{
+				this._Fotos.Assign(value);
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.AssociationAttribute(Name="Usuario_Album", Storage="_Albums", ThisKey="Nombre", OtherKey="Nombre_Usu")]
+		public EntitySet<Album> Albums
+		{
+			get
+			{
+				return this._Albums;
+			}
+			set
+			{
+				this._Albums.Assign(value);
 			}
 		}
 		
@@ -285,6 +451,30 @@ namespace Airliners.net.Models
 			{
 				this.PropertyChanged(this, new PropertyChangedEventArgs(propertyName));
 			}
+		}
+		
+		private void attach_Fotos(Foto entity)
+		{
+			this.SendPropertyChanging();
+			entity.Usuario = this;
+		}
+		
+		private void detach_Fotos(Foto entity)
+		{
+			this.SendPropertyChanging();
+			entity.Usuario = null;
+		}
+		
+		private void attach_Albums(Album entity)
+		{
+			this.SendPropertyChanging();
+			entity.Usuario = this;
+		}
+		
+		private void detach_Albums(Album entity)
+		{
+			this.SendPropertyChanging();
+			entity.Usuario = null;
 		}
 	}
 	
@@ -587,388 +777,174 @@ namespace Airliners.net.Models
 		}
 	}
 	
-	[global::System.Data.Linq.Mapping.TableAttribute(Name="dbo.Usuario")]
-	public partial class Usuario : INotifyPropertyChanging, INotifyPropertyChanged
+	[global::System.Data.Linq.Mapping.TableAttribute(Name="dbo.Album")]
+	public partial class Album : INotifyPropertyChanging, INotifyPropertyChanged
 	{
 		
 		private static PropertyChangingEventArgs emptyChangingEventArgs = new PropertyChangingEventArgs(String.Empty);
 		
-		private string _Nombre;
+		private int _Id;
 		
-		private string _Email;
+		private int _Id_Foto;
 		
-		private int _Mostrar;
+		private string _Nombre_Usu;
 		
-		private int _Permitir;
+		private EntityRef<Foto> _Foto;
 		
-		private string _Sexo;
-		
-		private int _Edad;
-		
-		private string _Pais;
-		
-		private string _Alias;
-		
-		private string _Contraseña;
-		
-		private string _Ocupacion;
-		
-		private string _Hobbies;
-		
-		private string _Ciudad;
-		
-		private string _URLPersonal;
-		
-		private string _Otros;
-		
-		private EntitySet<Album> _Albums;
-		
-		private EntitySet<Foto> _Fotos;
+		private EntityRef<Usuario> _Usuario;
 		
     #region Extensibility Method Definitions
     partial void OnLoaded();
     partial void OnValidate(System.Data.Linq.ChangeAction action);
     partial void OnCreated();
-    partial void OnNombreChanging(string value);
-    partial void OnNombreChanged();
-    partial void OnEmailChanging(string value);
-    partial void OnEmailChanged();
-    partial void OnMostrarChanging(int value);
-    partial void OnMostrarChanged();
-    partial void OnPermitirChanging(int value);
-    partial void OnPermitirChanged();
-    partial void OnSexoChanging(string value);
-    partial void OnSexoChanged();
-    partial void OnEdadChanging(int value);
-    partial void OnEdadChanged();
-    partial void OnPaisChanging(string value);
-    partial void OnPaisChanged();
-    partial void OnAliasChanging(string value);
-    partial void OnAliasChanged();
-    partial void OnContraseñaChanging(string value);
-    partial void OnContraseñaChanged();
-    partial void OnOcupacionChanging(string value);
-    partial void OnOcupacionChanged();
-    partial void OnHobbiesChanging(string value);
-    partial void OnHobbiesChanged();
-    partial void OnCiudadChanging(string value);
-    partial void OnCiudadChanged();
-    partial void OnURLPersonalChanging(string value);
-    partial void OnURLPersonalChanged();
-    partial void OnOtrosChanging(string value);
-    partial void OnOtrosChanged();
+    partial void OnIdChanging(int value);
+    partial void OnIdChanged();
+    partial void OnId_FotoChanging(int value);
+    partial void OnId_FotoChanged();
+    partial void OnNombre_UsuChanging(string value);
+    partial void OnNombre_UsuChanged();
     #endregion
 		
-		public Usuario()
+		public Album()
 		{
-			this._Albums = new EntitySet<Album>(new Action<Album>(this.attach_Albums), new Action<Album>(this.detach_Albums));
-			this._Fotos = new EntitySet<Foto>(new Action<Foto>(this.attach_Fotos), new Action<Foto>(this.detach_Fotos));
+			this._Foto = default(EntityRef<Foto>);
+			this._Usuario = default(EntityRef<Usuario>);
 			OnCreated();
 		}
 		
-		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_Nombre", DbType="VarChar(50) NOT NULL", CanBeNull=false, IsPrimaryKey=true)]
-		public string Nombre
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_Id", DbType="Int NOT NULL", IsPrimaryKey=true)]
+		public int Id
 		{
 			get
 			{
-				return this._Nombre;
+				return this._Id;
 			}
 			set
 			{
-				if ((this._Nombre != value))
+				if ((this._Id != value))
 				{
-					this.OnNombreChanging(value);
+					this.OnIdChanging(value);
 					this.SendPropertyChanging();
-					this._Nombre = value;
-					this.SendPropertyChanged("Nombre");
-					this.OnNombreChanged();
+					this._Id = value;
+					this.SendPropertyChanged("Id");
+					this.OnIdChanged();
 				}
 			}
 		}
 		
-		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_Email", DbType="VarChar(50) NOT NULL", CanBeNull=false)]
-		public string Email
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_Id_Foto", DbType="Int NOT NULL")]
+		public int Id_Foto
 		{
 			get
 			{
-				return this._Email;
+				return this._Id_Foto;
 			}
 			set
 			{
-				if ((this._Email != value))
+				if ((this._Id_Foto != value))
 				{
-					this.OnEmailChanging(value);
+					if (this._Foto.HasLoadedOrAssignedValue)
+					{
+						throw new System.Data.Linq.ForeignKeyReferenceAlreadyHasValueException();
+					}
+					this.OnId_FotoChanging(value);
 					this.SendPropertyChanging();
-					this._Email = value;
-					this.SendPropertyChanged("Email");
-					this.OnEmailChanged();
+					this._Id_Foto = value;
+					this.SendPropertyChanged("Id_Foto");
+					this.OnId_FotoChanged();
 				}
 			}
 		}
 		
-		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_Mostrar", DbType="Int NOT NULL")]
-		public int Mostrar
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_Nombre_Usu", DbType="VarChar(50) NOT NULL", CanBeNull=false)]
+		public string Nombre_Usu
 		{
 			get
 			{
-				return this._Mostrar;
+				return this._Nombre_Usu;
 			}
 			set
 			{
-				if ((this._Mostrar != value))
+				if ((this._Nombre_Usu != value))
 				{
-					this.OnMostrarChanging(value);
+					if (this._Usuario.HasLoadedOrAssignedValue)
+					{
+						throw new System.Data.Linq.ForeignKeyReferenceAlreadyHasValueException();
+					}
+					this.OnNombre_UsuChanging(value);
 					this.SendPropertyChanging();
-					this._Mostrar = value;
-					this.SendPropertyChanged("Mostrar");
-					this.OnMostrarChanged();
+					this._Nombre_Usu = value;
+					this.SendPropertyChanged("Nombre_Usu");
+					this.OnNombre_UsuChanged();
 				}
 			}
 		}
 		
-		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_Permitir", DbType="Int NOT NULL")]
-		public int Permitir
+		[global::System.Data.Linq.Mapping.AssociationAttribute(Name="Foto_Album", Storage="_Foto", ThisKey="Id_Foto", OtherKey="Id", IsForeignKey=true)]
+		public Foto Foto
 		{
 			get
 			{
-				return this._Permitir;
+				return this._Foto.Entity;
 			}
 			set
 			{
-				if ((this._Permitir != value))
+				Foto previousValue = this._Foto.Entity;
+				if (((previousValue != value) 
+							|| (this._Foto.HasLoadedOrAssignedValue == false)))
 				{
-					this.OnPermitirChanging(value);
 					this.SendPropertyChanging();
-					this._Permitir = value;
-					this.SendPropertyChanged("Permitir");
-					this.OnPermitirChanged();
+					if ((previousValue != null))
+					{
+						this._Foto.Entity = null;
+						previousValue.Albums.Remove(this);
+					}
+					this._Foto.Entity = value;
+					if ((value != null))
+					{
+						value.Albums.Add(this);
+						this._Id_Foto = value.Id;
+					}
+					else
+					{
+						this._Id_Foto = default(int);
+					}
+					this.SendPropertyChanged("Foto");
 				}
 			}
 		}
 		
-		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_Sexo", DbType="VarChar(50) NOT NULL", CanBeNull=false)]
-		public string Sexo
+		[global::System.Data.Linq.Mapping.AssociationAttribute(Name="Usuario_Album", Storage="_Usuario", ThisKey="Nombre_Usu", OtherKey="Nombre", IsForeignKey=true)]
+		public Usuario Usuario
 		{
 			get
 			{
-				return this._Sexo;
+				return this._Usuario.Entity;
 			}
 			set
 			{
-				if ((this._Sexo != value))
+				Usuario previousValue = this._Usuario.Entity;
+				if (((previousValue != value) 
+							|| (this._Usuario.HasLoadedOrAssignedValue == false)))
 				{
-					this.OnSexoChanging(value);
 					this.SendPropertyChanging();
-					this._Sexo = value;
-					this.SendPropertyChanged("Sexo");
-					this.OnSexoChanged();
+					if ((previousValue != null))
+					{
+						this._Usuario.Entity = null;
+						previousValue.Albums.Remove(this);
+					}
+					this._Usuario.Entity = value;
+					if ((value != null))
+					{
+						value.Albums.Add(this);
+						this._Nombre_Usu = value.Nombre;
+					}
+					else
+					{
+						this._Nombre_Usu = default(string);
+					}
+					this.SendPropertyChanged("Usuario");
 				}
-			}
-		}
-		
-		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_Edad", DbType="Int NOT NULL")]
-		public int Edad
-		{
-			get
-			{
-				return this._Edad;
-			}
-			set
-			{
-				if ((this._Edad != value))
-				{
-					this.OnEdadChanging(value);
-					this.SendPropertyChanging();
-					this._Edad = value;
-					this.SendPropertyChanged("Edad");
-					this.OnEdadChanged();
-				}
-			}
-		}
-		
-		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_Pais", DbType="VarChar(MAX) NOT NULL", CanBeNull=false)]
-		public string Pais
-		{
-			get
-			{
-				return this._Pais;
-			}
-			set
-			{
-				if ((this._Pais != value))
-				{
-					this.OnPaisChanging(value);
-					this.SendPropertyChanging();
-					this._Pais = value;
-					this.SendPropertyChanged("Pais");
-					this.OnPaisChanged();
-				}
-			}
-		}
-		
-		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_Alias", DbType="VarChar(50) NOT NULL", CanBeNull=false)]
-		public string Alias
-		{
-			get
-			{
-				return this._Alias;
-			}
-			set
-			{
-				if ((this._Alias != value))
-				{
-					this.OnAliasChanging(value);
-					this.SendPropertyChanging();
-					this._Alias = value;
-					this.SendPropertyChanged("Alias");
-					this.OnAliasChanged();
-				}
-			}
-		}
-		
-		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_Contraseña", DbType="NChar(10) NOT NULL", CanBeNull=false)]
-		public string Contraseña
-		{
-			get
-			{
-				return this._Contraseña;
-			}
-			set
-			{
-				if ((this._Contraseña != value))
-				{
-					this.OnContraseñaChanging(value);
-					this.SendPropertyChanging();
-					this._Contraseña = value;
-					this.SendPropertyChanged("Contraseña");
-					this.OnContraseñaChanged();
-				}
-			}
-		}
-		
-		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_Ocupacion", DbType="VarChar(50)")]
-		public string Ocupacion
-		{
-			get
-			{
-				return this._Ocupacion;
-			}
-			set
-			{
-				if ((this._Ocupacion != value))
-				{
-					this.OnOcupacionChanging(value);
-					this.SendPropertyChanging();
-					this._Ocupacion = value;
-					this.SendPropertyChanged("Ocupacion");
-					this.OnOcupacionChanged();
-				}
-			}
-		}
-		
-		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_Hobbies", DbType="VarChar(MAX)")]
-		public string Hobbies
-		{
-			get
-			{
-				return this._Hobbies;
-			}
-			set
-			{
-				if ((this._Hobbies != value))
-				{
-					this.OnHobbiesChanging(value);
-					this.SendPropertyChanging();
-					this._Hobbies = value;
-					this.SendPropertyChanged("Hobbies");
-					this.OnHobbiesChanged();
-				}
-			}
-		}
-		
-		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_Ciudad", DbType="VarChar(50)")]
-		public string Ciudad
-		{
-			get
-			{
-				return this._Ciudad;
-			}
-			set
-			{
-				if ((this._Ciudad != value))
-				{
-					this.OnCiudadChanging(value);
-					this.SendPropertyChanging();
-					this._Ciudad = value;
-					this.SendPropertyChanged("Ciudad");
-					this.OnCiudadChanged();
-				}
-			}
-		}
-		
-		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_URLPersonal", DbType="VarChar(50)")]
-		public string URLPersonal
-		{
-			get
-			{
-				return this._URLPersonal;
-			}
-			set
-			{
-				if ((this._URLPersonal != value))
-				{
-					this.OnURLPersonalChanging(value);
-					this.SendPropertyChanging();
-					this._URLPersonal = value;
-					this.SendPropertyChanged("URLPersonal");
-					this.OnURLPersonalChanged();
-				}
-			}
-		}
-		
-		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_Otros", DbType="VarChar(50)")]
-		public string Otros
-		{
-			get
-			{
-				return this._Otros;
-			}
-			set
-			{
-				if ((this._Otros != value))
-				{
-					this.OnOtrosChanging(value);
-					this.SendPropertyChanging();
-					this._Otros = value;
-					this.SendPropertyChanged("Otros");
-					this.OnOtrosChanged();
-				}
-			}
-		}
-		
-		[global::System.Data.Linq.Mapping.AssociationAttribute(Name="Usuario_Album", Storage="_Albums", ThisKey="Nombre", OtherKey="Nombre_Usu")]
-		public EntitySet<Album> Albums
-		{
-			get
-			{
-				return this._Albums;
-			}
-			set
-			{
-				this._Albums.Assign(value);
-			}
-		}
-		
-		[global::System.Data.Linq.Mapping.AssociationAttribute(Name="Usuario_Foto", Storage="_Fotos", ThisKey="Nombre", OtherKey="Fotografo")]
-		public EntitySet<Foto> Fotos
-		{
-			get
-			{
-				return this._Fotos;
-			}
-			set
-			{
-				this._Fotos.Assign(value);
 			}
 		}
 		
@@ -990,30 +966,6 @@ namespace Airliners.net.Models
 			{
 				this.PropertyChanged(this, new PropertyChangedEventArgs(propertyName));
 			}
-		}
-		
-		private void attach_Albums(Album entity)
-		{
-			this.SendPropertyChanging();
-			entity.Usuario = this;
-		}
-		
-		private void detach_Albums(Album entity)
-		{
-			this.SendPropertyChanging();
-			entity.Usuario = null;
-		}
-		
-		private void attach_Fotos(Foto entity)
-		{
-			this.SendPropertyChanging();
-			entity.Usuario = this;
-		}
-		
-		private void detach_Fotos(Foto entity)
-		{
-			this.SendPropertyChanging();
-			entity.Usuario = null;
 		}
 	}
 }
