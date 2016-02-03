@@ -12,6 +12,7 @@
 <body>
     @using (Html.BeginForm())
     {
+        @Html.ValidationSummary();
         <p>Nombre y apellidos: @Html.TextBoxFor(x=>x.Nombre)</p>
         <p>Email: @Html.TextBoxFor(x => x.Email)</p>
         <p>Sexo (Hombre o Mujer): @Html.TextBoxFor(x => x.Sexo)</p>
