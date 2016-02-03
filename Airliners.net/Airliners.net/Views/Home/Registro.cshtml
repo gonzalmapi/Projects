@@ -1,12 +1,13 @@
 ﻿@model Airliners.net.Models.UsuarioRegistro
 
 @{
-    ViewBag.Title = "Registro de Usuario"
+    ViewBag.Title = "Registro de Usuario";
+    Layout = "~/Views/Shared/_Layout.cshtml";
 }
 
 
 
-@using (Html.BeginForm()) 
+@using (Html.BeginForm("Registro","Home",FormMethod.Post)) 
 {
     @Html.AntiForgeryToken()
     
