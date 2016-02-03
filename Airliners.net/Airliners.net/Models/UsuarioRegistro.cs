@@ -41,6 +41,10 @@ namespace Airliners.net.Models
         [Display(Name = "Country")]
         public string country { get; set; }
 
+        [Required(ErrorMessage = "City required")]
+        [Display(Name = "City")]
+        public string city { get; set; }
+
         [Required(ErrorMessage = "Gender required")]
         [Display(Name = "Gender")]
         public string gender { get; set; }
