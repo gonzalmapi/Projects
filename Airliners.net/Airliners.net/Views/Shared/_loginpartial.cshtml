@@ -1,22 +1,13 @@
 ﻿@using System.Web;
-        @if (Request.IsAuthenticated)
-        {
-            using (Html.BeginForm("LogOff", "Home", FormMethod.Post, new { id = "logoutForm", @class = "navbar-right" }))
-            {
-                @Html.AntiForgeryToken()
-
-                <ul class="nav navbar-nav navbar-right">
-                    <li>
-                        @Html.ActionLink("Hello "+Session["usuario"]+"!", "Index", "Manage", routeValues: null, htmlAttributes: new { title = "Manage" })
-                    </li>
-                    <li><a href="javascript:document.getElementById('logoutForm').submit()">Log off</a></li>
-                </ul>
-            }
-        }
-        else
-        {
+      @if (Session["usuario"] == null)
+      {
         <ul class="nav navbar-nav navbar-right">
             <li>@Html.ActionLink("Register", "Registro", "Home", routeValues: null, htmlAttributes: new { id = "registerLink" })</li>
             <li>@Html.ActionLink("Log in", "Login", "Home", routeValues: null, htmlAttributes: new { id = "loginLink" })</li>
         </ul>
-        }
+      }
+       @if (Session["usuario"] != null) {
+        <ul class="nav navbar-nav navbar-right">
+            <li>@Html.ActionLink("Logout", "Login", "Home", routeValues: null, htmlAttributes: new { id = "logout" })</li>
+        </ul>
+          }

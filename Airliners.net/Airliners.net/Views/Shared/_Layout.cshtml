@@ -24,8 +24,10 @@
                     <li>@Html.ActionLink("Home", "Index", "Home")</li>
                     <li>@Html.ActionLink("About", "About", "Home")</li>
                     <li>@Html.ActionLink("Contact", "Contact", "Home")</li>
-                    <li>@Html.ActionLink((String)@Session["usuario"], "ActualizarUsuario","Usuario")</li>
-                    
+                    @if (Session["usuario"] != null)
+                    {
+                    <li>@Html.ActionLink((String)@Session["usuario"], "ActualizarUsuario", "Usuario")</li>
+                    }
                 </ul>
                 @Html.Partial("_Loginpartial");
             </div>
