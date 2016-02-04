@@ -120,6 +120,7 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="App_Start\RouteConfig.cs" />
+    <Compile Include="Controllers\FotoController.cs" />
     <Compile Include="Controllers\HomeController.cs" />
     <Compile Include="Global.asax.cs">
       <DependentUpon>Global.asax</DependentUpon>
@@ -129,6 +130,7 @@
       <DesignTime>True</DesignTime>
       <DependentUpon>AirlinersDB.dbml</DependentUpon>
     </Compile>
+    <Compile Include="Models\AddFoto.cs" />
     <Compile Include="Models\UsuarioLogin.cs" />
     <Compile Include="Models\UsuarioRegistro.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
@@ -153,6 +155,7 @@
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />
+    <Folder Include="Views\Foto\" />
   </ItemGroup>
   <ItemGroup>
     <Service Include="{3259AA49-8AA1-44D3-9025-A0B520596A8C}" />

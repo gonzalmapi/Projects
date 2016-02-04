@@ -6,6 +6,7 @@ using System.ComponentModel.DataAnnotations;
 
 namespace Airliners.net.Models
 {
+[Serializable]
     public class UsuarioLogin
     {
         [Required(ErrorMessage = "Username Requiered")]

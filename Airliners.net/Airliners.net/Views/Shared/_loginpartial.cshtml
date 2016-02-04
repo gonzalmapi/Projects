@@ -1,4 +1,4 @@
-﻿@using Airliners.net.Models;
+﻿@using System.Web;
         @if (Request.IsAuthenticated)
         {
             using (Html.BeginForm("LogOff", "Home", FormMethod.Post, new { id = "logoutForm", @class = "navbar-right" }))
@@ -7,7 +7,7 @@
 
                 <ul class="nav navbar-nav navbar-right">
                     <li>
-                        @Html.ActionLink("Hello " + "!", "Index", "Manage", routeValues: null, htmlAttributes: new { title = "Manage" })
+                        @Html.ActionLink("Hello "+Session["usuario"]+"!", "Index", "Manage", routeValues: null, htmlAttributes: new { title = "Manage" })
                     </li>
                     <li><a href="javascript:document.getElementById('logoutForm').submit()">Log off</a></li>
                 </ul>
