@@ -102,6 +102,7 @@
     <Content Include="Models\AirlinersDB.dbml">
       <Generator>MSLinqToSQLGenerator</Generator>
       <LastGenOutput>AirlinersDB.designer.cs</LastGenOutput>
+      <SubType>Designer</SubType>
     </Content>
     <None Include="Scripts\jquery-1.10.2.intellisense.js" />
     <Content Include="Scripts\bootstrap.js" />
@@ -125,12 +126,12 @@
     <Compile Include="Global.asax.cs">
       <DependentUpon>Global.asax</DependentUpon>
     </Compile>
+    <Compile Include="Models\AddFoto.cs" />
     <Compile Include="Models\AirlinersDB.designer.cs">
       <AutoGen>True</AutoGen>
       <DesignTime>True</DesignTime>
       <DependentUpon>AirlinersDB.dbml</DependentUpon>
     </Compile>
-    <Compile Include="Models\AddFoto.cs" />
     <Compile Include="Models\UsuarioLogin.cs" />
     <Compile Include="Models\UsuarioRegistro.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
@@ -144,8 +145,8 @@
     <Content Include="Views\Home\Index.cshtml" />
     <Content Include="Views\Home\Registro.cshtml" />
     <Content Include="Views\Home\Login.cshtml" />
-    <Content Include="Views\Home\LogSucces.cshtml" />
     <Content Include="Views\Shared\_Loginpartial.cshtml" />
+    <Content Include="Views\Shared\UserBar.cshtml" />
     <None Include="Web.Debug.config">
       <DependentUpon>Web.config</DependentUpon>
     </None>

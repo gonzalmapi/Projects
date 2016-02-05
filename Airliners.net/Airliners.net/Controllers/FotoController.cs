@@ -8,10 +8,6 @@ namespace Airliners.net.Controllers
 {
     public class FotoController : Controller
     {
-        // GET: Foto
-        public ActionResult Index()
-        {
-            return View();
-        }
+        
     }
 }

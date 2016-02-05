@@ -26,14 +26,16 @@
                     <li>@Html.ActionLink("Contact", "Contact", "Home")</li>
                     @if (Session["usuario"] != null)
                     {
-                    <li>@Html.ActionLink((String)@Session["usuario"], "ActualizarUsuario", "Usuario")</li>
+                        <li>@Html.ActionLink((String)@Session["usuario"],"")</li>
                     }
                 </ul>
                 @Html.Partial("_Loginpartial");
+                @Html.Partial("UserBar");                   
             </div>
         </div>
+        
     </div>
-
+   
     <div class="container body-content">
         @RenderBody()
         <hr />

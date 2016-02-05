@@ -23,7 +23,7 @@ namespace Airliners.net.Models
 
         [Required(ErrorMessage = "Date required")]
         [Display(Name = "Date")]
-        public string date { get; set; }
+        public DateTime date { get; set; }
 
         [Required(ErrorMessage = "User required")]
         [Display(Name = "User")]
