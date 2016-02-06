@@ -3,23 +3,22 @@
   <Table Name="dbo.Album" Member="Albums">
     <Type Name="Album">
       <Column Name="Nombre" Type="System.String" DbType="NVarChar(50) NOT NULL" CanBeNull="false" />
-      <Column Name="Id_Foto" Type="System.Int32" DbType="Int NOT NULL" CanBeNull="false" />
+      <Column Name="Nombre_Foto" Type="System.String" DbType="VarChar(50) NOT NULL" CanBeNull="false" />
       <Column Name="Nombre_Usu" Type="System.String" DbType="VarChar(50) NOT NULL" CanBeNull="false" />
-      <Association Name="Foto_Album" Member="Foto" ThisKey="Id_Foto" OtherKey="Id" Type="Foto" IsForeignKey="true" />
+      <Association Name="Foto_Album" Member="Foto" ThisKey="Nombre_Foto" OtherKey="Nombre" Type="Foto" IsForeignKey="true" />
       <Association Name="Usuario_Album" Member="Usuario" ThisKey="Nombre_Usu" OtherKey="Nombre" Type="Usuario" IsForeignKey="true" />
     </Type>
   </Table>
   <Table Name="dbo.Foto" Member="Fotos">
     <Type Name="Foto">
-      <Column Name="Id" Type="System.Int32" DbType="Int NOT NULL" IsPrimaryKey="true" CanBeNull="false" />
-      <Column Name="Aerolinea" Type="System.String" DbType="VarChar(50) NOT NULL" CanBeNull="false" />
-      <Column Name="Avion" Type="System.String" DbType="VarChar(50) NOT NULL" CanBeNull="false" />
-      <Column Name="Lugar" Type="System.String" DbType="VarChar(50) NOT NULL" CanBeNull="false" />
+      <Column Name="Aerolinea" Type="System.String" DbType="VarChar(MAX) NOT NULL" CanBeNull="false" />
+      <Column Name="Avion" Type="System.String" DbType="VarChar(MAX) NOT NULL" CanBeNull="false" />
+      <Column Name="Lugar" Type="System.String" DbType="VarChar(MAX) NOT NULL" CanBeNull="false" />
       <Column Name="Fecha" Type="System.DateTime" DbType="Date NOT NULL" CanBeNull="false" />
       <Column Name="Notas" Type="System.String" DbType="VarChar(MAX)" CanBeNull="true" />
       <Column Name="Fotografo" Type="System.String" DbType="VarChar(50) NOT NULL" CanBeNull="false" />
-      <Column Name="Picture" Type="System.Data.Linq.Binary" DbType="Image NOT NULL" CanBeNull="false" UpdateCheck="Never" />
-      <Association Name="Foto_Album" Member="Albums" ThisKey="Id" OtherKey="Id_Foto" Type="Album" />
+      <Column Name="Nombre" Type="System.String" DbType="VarChar(50) NOT NULL" IsPrimaryKey="true" CanBeNull="false" />
+      <Association Name="Foto_Album" Member="Albums" ThisKey="Nombre" OtherKey="Nombre_Foto" Type="Album" />
       <Association Name="Usuario_Foto" Member="Usuario" ThisKey="Fotografo" OtherKey="Nombre" Type="Usuario" IsForeignKey="true" />
     </Type>
   </Table>

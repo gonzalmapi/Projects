@@ -99,7 +99,7 @@ namespace Airliners.net.Models
 		
 		private string _Nombre;
 		
-		private int _Id_Foto;
+		private string _Nombre_Foto;
 		
 		private string _Nombre_Usu;
 		
@@ -123,18 +123,18 @@ namespace Airliners.net.Models
 			}
 		}
 		
-		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_Id_Foto", DbType="Int NOT NULL")]
-		public int Id_Foto
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_Nombre_Foto", DbType="VarChar(50) NOT NULL", CanBeNull=false)]
+		public string Nombre_Foto
 		{
 			get
 			{
-				return this._Id_Foto;
+				return this._Nombre_Foto;
 			}
 			set
 			{
-				if ((this._Id_Foto != value))
+				if ((this._Nombre_Foto != value))
 				{
-					this._Id_Foto = value;
+					this._Nombre_Foto = value;
 				}
 			}
 		}
@@ -162,8 +162,6 @@ namespace Airliners.net.Models
 		
 		private static PropertyChangingEventArgs emptyChangingEventArgs = new PropertyChangingEventArgs(String.Empty);
 		
-		private int _Id;
-		
 		private string _Aerolinea;
 		
 		private string _Avion;
@@ -176,7 +174,7 @@ namespace Airliners.net.Models
 		
 		private string _Fotografo;
 		
-		private System.Data.Linq.Binary _Picture;
+		private string _Nombre;
 		
 		private EntityRef<Usuario> _Usuario;
 		
@@ -184,8 +182,6 @@ namespace Airliners.net.Models
     partial void OnLoaded();
     partial void OnValidate(System.Data.Linq.ChangeAction action);
     partial void OnCreated();
-    partial void OnIdChanging(int value);
-    partial void OnIdChanged();
     partial void OnAerolineaChanging(string value);
     partial void OnAerolineaChanged();
     partial void OnAvionChanging(string value);
@@ -198,8 +194,8 @@ namespace Airliners.net.Models
     partial void OnNotasChanged();
     partial void OnFotografoChanging(string value);
     partial void OnFotografoChanged();
-    partial void OnPictureChanging(System.Data.Linq.Binary value);
-    partial void OnPictureChanged();
+    partial void OnNombreChanging(string value);
+    partial void OnNombreChanged();
     #endregion
 		
 		public Foto()
@@ -208,27 +204,7 @@ namespace Airliners.net.Models
 			OnCreated();
 		}
 		
-		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_Id", DbType="Int NOT NULL", IsPrimaryKey=true)]
-		public int Id
-		{
-			get
-			{
-				return this._Id;
-			}
-			set
-			{
-				if ((this._Id != value))
-				{
-					this.OnIdChanging(value);
-					this.SendPropertyChanging();
-					this._Id = value;
-					this.SendPropertyChanged("Id");
-					this.OnIdChanged();
-				}
-			}
-		}
-		
-		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_Aerolinea", DbType="VarChar(50) NOT NULL", CanBeNull=false)]
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_Aerolinea", DbType="VarChar(MAX) NOT NULL", CanBeNull=false)]
 		public string Aerolinea
 		{
 			get
@@ -248,7 +224,7 @@ namespace Airliners.net.Models
 			}
 		}
 		
-		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_Avion", DbType="VarChar(50) NOT NULL", CanBeNull=false)]
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_Avion", DbType="VarChar(MAX) NOT NULL", CanBeNull=false)]
 		public string Avion
 		{
 			get
@@ -268,7 +244,7 @@ namespace Airliners.net.Models
 			}
 		}
 		
-		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_Lugar", DbType="VarChar(50) NOT NULL", CanBeNull=false)]
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_Lugar", DbType="VarChar(MAX) NOT NULL", CanBeNull=false)]
 		public string Lugar
 		{
 			get
@@ -352,22 +328,22 @@ namespace Airliners.net.Models
 			}
 		}
 		
-		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_Picture", DbType="Image NOT NULL", CanBeNull=false, UpdateCheck=UpdateCheck.Never)]
-		public System.Data.Linq.Binary Picture
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_Nombre", DbType="VarChar(50) NOT NULL", CanBeNull=false, IsPrimaryKey=true)]
+		public string Nombre
 		{
 			get
 			{
-				return this._Picture;
+				return this._Nombre;
 			}
 			set
 			{
-				if ((this._Picture != value))
+				if ((this._Nombre != value))
 				{
-					this.OnPictureChanging(value);
+					this.OnNombreChanging(value);
 					this.SendPropertyChanging();
-					this._Picture = value;
-					this.SendPropertyChanged("Picture");
-					this.OnPictureChanged();
+					this._Nombre = value;
+					this.SendPropertyChanged("Nombre");
+					this.OnNombreChanged();
 				}
 			}
 		}
