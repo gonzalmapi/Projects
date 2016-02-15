@@ -1,0 +1,33 @@
+﻿<!DOCTYPE html>
+<html>
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8"/>
+    <title></title>
+	<meta charset="utf-8" />
+    <script>
+        function hacerPeticion() {
+            var nuevoTag = document.createElement("script");
+            var url = "http://api.apertium.org/json/translate?q="+window.encodeURI(document.getElementById("txtSpanish").value) +
+                                   "&langpair=es%7Cen&callback=mostrarDatos";
+            nuevoTag.setAttribute("src", url);
+            nuevoTag.setAttribute("type", "application/javascript");
+            document.getElementsByTagName("head")[0].appendChild(nuevoTag);
+        }
+        function mostrarDatos(objetoJSON) {
+            //en parametro contexto='txtEnglish' o 'txtSpanish'
+            //dentro de objetoJSON accedo a .responseData <---{"translatedText": "..."}
+            var texto = objetoJSON.responseData["translatedText"];
+            document.getElementById("txtEnglish").value = texto;
+        }
+    </script>
+</head>
+<body>
+    <textarea id="txtSpanish" cols="25" rows="10"></textarea><br />
+    <textarea id="txtEnglish" rows="10" cols="25" contenteditable="false"></textarea><br />
+    <button id="Traducir">Traducir</button>
+    <script>
+        document.getElementById("Traducir").addEventListener("click", hacerPeticion, false);
+
+    </script>
+</body>
+</html>

@@ -1,0 +1,3 @@
+﻿1>------ Operación Compilar iniciada: proyecto: Agapea, configuración: Debug Any CPU ------
+1>C:\Users\Gonzalo\Documents\Visual Studio 2015\Projects\Agapea\Agapea\App_Code\Controladores\Controlador_Acceso_Fichero.cs(16,33,16,35): error CS1009: Unrecognized escape sequence
+========== Compilar: 0 correctos, 1 incorrectos, 0 actualizados, 0 omitidos ==========

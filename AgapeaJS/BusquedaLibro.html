@@ -1,0 +1,56 @@
+﻿<!DOCTYPE html>
+
+<html lang="en" xmlns="http://www.w3.org/1999/xhtml">
+<head>
+    <meta charset="utf-8" />
+    <title></title>
+</head>
+<body>
+    <div>
+        <table style="width:100%;">
+            <tr>
+                <td><h1>Busqueda:</h1></td>
+                <td>
+                    <input id="cajaBusqueda" type="text" />
+                </td>
+                <td>
+
+                    <input id="BtnBusqueda" type="button" value="Buscar.." />
+                </td>
+            </tr>
+            <tr>
+                <td>
+                    <input id="opcTitulo" name="opciones" type="radio" checked="checked"/> Titulo
+                </td>
+                <td>
+                    <input id="opcIsbn" name="opciones" type="radio"/>ISBN
+                </td>
+                <td>
+                    <input id="opcAutor" name="opciones" type="radio"/>Autor
+                </td>
+            </tr>
+        </table>
+    </div>
+    <div id="resultado"></div>
+    <script>
+        var petAjax;
+        function HacerPeticionAjax() {
+            petAjax = new window.XMLHttpRequest();
+            petAjax.onreadystatechange = function () {
+                if (this.readyState == 4 && this.status == 200) {
+                    document.getElementById("resultado").appendChild(document.createTextNode(this.responseText));
+                }
+            }
+            var url = "http://localhost/busqueda.aspx?" +
+            Array.prototype.slice.call(document.getElementsByName("opciones"), 0).find(function (el, pos, arr) { if (el.checked == true) { return el } }).id.replace("opc", "") +
+            "=" +
+            document.getElementById("cajaBusqueda").value;
+            petAjax.open("GET", url, true);
+            petAjax.send(null);
+        }
+        document.getElementById("BtnBusqueda").addEventListener("click", HacerPeticionAjax, false);
+    </script>
+
+
+</body>
+</html>

@@ -1,0 +1,340 @@
+﻿<!DOCTYPE html>
+<html>
+<head>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+    <title></title>
+    <meta charset="utf-8" />
+</head>
+<body>
+    <img src="Imagenes/Logo.jpg" />
+    <br /><br />
+    <table style="width:100%;">
+        <tr>
+            <td>&nbsp;</td>
+            <td><h2>Registro Formulario Clientes</h2></td>
+            <td>&nbsp;</td>
+        </tr>
+        <tr>
+            <td><input id="BtnParticular" type="button" value="Particulares" /></td>
+            <td>&nbsp;</td>
+            <td><input id="BtnEmpresa" type="button" value="Empresa" /></td>
+        </tr>
+        <tr>
+            <td><h3>Datos de Usuario</h3></td>
+            <td>&nbsp;</td>
+            <td>&nbsp;</td>
+        </tr>
+
+        <table style="width:100%;">
+            <tr>
+                <td>&nbsp;</td>
+                <td>Tratamiento</td>
+                <td>
+                    <select id="Tratamiento">
+                        <option selected="selected">Sr</option>
+                        <option>Sra</option>
+                    </select>
+                </td>
+            </tr>
+            <tr>
+                <td>&nbsp;</td>
+                <td>Nombre *</td>
+                <td><input id="Nombre" type="text" required /></td>
+                <td>&nbsp;</td>
+            </tr>
+            <tr>
+                <td>&nbsp;</td>
+                <td>Apellidos *</td>
+                <td><input id="Apellidos" type="text" required /></td>
+                <td>&nbsp;</td>
+            </tr>
+            <tr>
+                <td>&nbsp;</td>
+                <td>Documento de Identidad *</td>
+                <td>
+                    <select id="Documento">
+                        <option selected="selected">DNI</option>
+                        <option>CIF</option>
+                    </select>
+                </td>
+                <td><input id="IDCard" type="text" required /></td>
+                <td>&nbsp;</td>
+            </tr>
+            <tr>
+                <td>&nbsp;</td>
+                <td>Fecha de Nacimiento *</td>
+                <td>
+                    <select id="Día">
+                        <option selected="selected">1</option>
+                        <option>2</option>
+                        <option>3</option>
+                        <option>4</option>
+                        <option>5</option>
+                        <option>6</option>
+                        <option>7</option>
+                        <option>8</option>
+                        <option>9</option>
+                        <option>10</option>
+                        <option>11</option>
+                        <option>12</option>
+                        <option>13</option>
+                        <option>14</option>
+                        <option>15</option>
+                        <option>16</option>
+                        <option>17</option>
+                        <option>18</option>
+                        <option>19</option>
+                        <option>20</option>
+                        <option>21</option>
+                        <option>22</option>
+                        <option>23</option>
+                        <option>24</option>
+                        <option>25</option>
+                        <option>26</option>
+                        <option>27</option>
+                        <option>28</option>
+                        <option>29</option>
+                        <option>30</option>
+                        <option>31</option>
+                    </select>
+                </td>
+                <td>
+                    <select id="Mes">
+                        <option selected="selected">Enero</option>
+                        <option>Febrero</option>
+                        <option>Marzo</option>
+                        <option>Abril</option>
+                        <option>Mayo</option>
+                        <option>Junio</option>
+                        <option>Julio</option>
+                        <option>Agosto</option>
+                        <option>Septiebre</option>
+                        <option>Octubre</option>
+                        <option>Noviembre</option>
+                        <option>Diciembre</option>
+                    </select>
+                </td>
+                <td>
+                    <select id="Anyo">
+                        <option selected="selected">1999</option>
+                        <option>1998</option>
+                        <option>1997</option>
+                        <option>1996</option>
+                        <option>1995</option>
+                        <option>1994</option>
+                        <option>1993</option>
+                        <option>1992</option>
+                        <option>1991</option>
+                        <option>1990</option>
+                        <option>1989</option>
+                        <option>1988</option>
+                        <option>1987</option>
+                        <option>1986</option>
+                        <option>1985</option>
+                        <option>1984</option>
+                        <option>1983</option>
+                        <option>1982</option>
+                        <option>1981</option>
+                        <option>1980</option>
+                        <option>1979</option>
+                        <option>1978</option>
+                        <option>1977</option>
+                        <option>1976</option>
+                        <option>1975</option>
+                        <option>1974</option>
+                        <option>1973</option>
+                        <option>1972</option>
+                        <option>1971</option>
+                        <option>1970</option>
+                        <option>1969</option>
+                    </select>
+                </td>
+            </tr>
+        </table>
+        <tr>
+            <td><h3>Datos de Accesso</h3></td>
+            <td>&nbsp;</td>
+            <td>&nbsp;</td>
+        </tr>
+
+        <table style="width:100%;">
+            <tr>
+                <td>Email *</td>
+                <td><input id="Email" type="text" required /></td>
+                <td>&nbsp;</td>
+            </tr>
+            <tr>
+                <td>Contraseña *</td>
+                <td><input id="Passw" type="password" required /></td>
+                <td>&nbsp;</td>
+            </tr>
+            <tr>
+                <td>Repetir Contraseña </td>
+                <td><input id="Reppassw type=" password"/>&nbsp;</td>
+                <td>&nbsp;</td>
+            </tr>
+            <tr>
+                <td>&nbsp;</td>
+                <td><input id="Recordar" type="checkbox" /></td>
+                <td>Recordar Contraseña</td>
+            </tr>
+        </table>
+
+        <tr>
+            <td><h3>Direccion de entrega</h3></td>
+            <td>&nbsp;</td>
+            <td>&nbsp;</td>
+        </tr>
+        <table style="width:100%;">
+        <tr>
+            <td>Tipo de via *</td>
+            <td><select id="Via">
+    <option value="calle" selected="selected">Calle</option>
+                    <option value="Avenida">Avenida</option>
+                    <option value="Plaza">Plaza</option>
+</select></td>
+            <td>&nbsp;</td>
+            </tr>
+        <tr>
+            <td>Nombre de la Vía *</td>
+            <td><input id="domicilio" type="text" required /></td>
+            <td>&nbsp;</td>
+            </tr>
+        <tr>
+            <td>Numero /Km *</td>
+            <td><input id="numero" type="text" required /></td>
+            <td>Urbanizacion</td>
+            <td><input id="Opcional" type="text"/></td>
+            </tr>
+            <tr>
+                <td>Bloque</td>
+                <td><input id="bloque" type="text"/></td>
+                <td>Escalera</td>
+                <td><input id="Escalera" type="text" /></td>
+                <td>Piso</td>
+                <td><input id="piso" type="text" /></td>
+                <td>Puerta</td>
+                <td><input id="Puerta" type="text" /></td>
+            </tr>
+            <tr>
+                <td>CP *</td>
+                <td><input id="CP" type="text" required contenteditable="false" /></td>
+                <td>&nbsp;</td>
+            </tr>
+            <tr>
+                <td>Provincia *</td>
+                <td><select id="provincia">
+                    </select></td>
+                <td>&nbsp;</td>
+            </tr>
+            <tr>
+                <td> Localidad *</td>
+                <td><select required></select></td>
+                <td>&nbsp;</td>
+            </tr>
+            <tr>
+                <td>Telefono *</td>
+                <td><input id="Telefono" type="text" required /></td>
+                <td>&nbsp;</td>
+            </tr>
+            <tr>
+                <td>Informacion para el repartidor</td>
+                <td><textarea id="TextArea1" rows="5" cols="20"></textarea></td>
+                <td>&nbsp;</td>
+            </tr>
+        </table>
+        <tr>
+            <td><a href="http://www.carrefour.es">Cancelar</a></td>
+            <td><input id="btnEnviar" type="button" value="Enviar" /></td>
+        </tr>
+    </table>
+    <script>
+       document.getElementById("btnEnviar").addEventListener("click", Enviar, false);
+       function Enviar() {
+           //Validacion
+           function CajaTexto() {
+               this.validado = false
+               this.contenido = ""
+           }
+
+           CajaTexto.prototype.validar = function (id) {
+               var patron = "";
+               var numero = "";
+               var indicador = "";
+
+               switch (id) {
+                   case "Nombre":
+                       patron = "[A-Z a-z]{3,}";
+                       numero = 15;
+                       break;
+                   case "Apellidos":
+                       patron = "[A-Z a-z]{3,}";
+                       numero = 20;
+                       break;
+                   case "Email":
+                       patron = /^([\da-z_\.-]+)@([\da-z\.-]+)\.([a-z\.]{2,6})$/;
+                       numero = 50;
+                       break;
+                   case "Telefono":
+                       patron = /^((\+?34([ \t|\-])?)?[9|6|7]((\d{1}([ \t|\-])?[0-9]{3})|(\d{2}([ \t|\-])?[0-9]{2}))([ \t|\-])?[0-9]{2}([ \t|\-])?[0-9]{2})$/;
+                       numero = 12;
+                       break;
+                   case "IDCard":
+                       patron = "[0-9]{8}[A-Z]";
+                       numero = 9;
+                       break;
+               }
+
+               var exp = new RegExp(patron);
+               if( exp.test(this.contenido) == true && this.contenido.length <= numero && this.contenido.length > 0){this.validado = true;}
+               else{ this.validado = false;
+               }
+           }
+           
+           //Envio y grabacion
+                function Ajax()
+                {
+                    var objetoPet;
+                    if(window.XMLHttpRequest) {
+                        objetoPet = new XMLHttpRequest();
+                    } else { //poner código para crear pet.AJAX para navegadores IE Windows…
+                        ["MsXML2.XMLHTTP.6.0","MsXML2.XMLHTTP.5.0","MsXML2.XMLHTTP.4.0"].forEach(function(el,pos,ar){
+                            var objetoPet= new ActiveX(el)})
+                    }
+                    this.petAjax = objetoPet;
+
+                }
+                Ajax.prototype.send = function(url, parametros){
+                    var usuJSON =JSON.stringify( {
+                        "Tratamiento": document.getElementById("Tratamiento").value,
+                        "Passw": document.getElementById("cajapassw").value,
+                        "Nom": document.getElementById("Nombre").value,
+                        "Ape": document.getElementById("Apellidos").value,
+                        "ID": document.getElementById("IDCard").value,
+                        "dia": document.getElementById("Día").value,
+                        "mes": document.getElementById("Mes").value,
+                        "año": document.getElementById("anyo").value,
+                        "Dir": document.getElementById("cajadir").value,
+                        "CP": document.getElementById("cajacp").value,
+
+                        "Prov": document.getElementById("cajaprov").value,
+                    });
+                    var objetoPet=this.transport;
+                    var opciones = {
+                        metodo: "GET", callback: function () {
+                            if(this.readystate==4 && this.status==200){
+                                document.getElementById().value = this.ResponseText()}}
+                    , datos: null
+                    }; //inicializamos con valores basicos
+                    for(var key in parametros) {
+                        opciones[key] = parametros[key];
+                    }
+                    objetoPet.open(opciones.metodo,"http://localhost:55593/ComprobarServicio",true); //tendras que utilizara opciones.metodo y url
+                    objetoPet.onreadystatechange = function(){ opciones.callback(); }; // tendras que invocar opciones.callback()
+                    objetoPet.send(opciones.datos); //tendras que enviar opciones.datos
+                }       
+            
+            }
+   </script>
+</body>
+</html>

@@ -1,0 +1,17 @@
+<Libreria>
+    <Libro>
+        <Titulo>Programacion C#</Titulo><Autor>Pablo Martin</Autor><ISBN>123456789A</ISBN><Editorial>RAMA</Editorial>
+    </Libro>
+      <Libro>
+        <Titulo>Programacion Avanzada en javascript</Titulo><Autor>Mr Robot</Autor><ISBN>987654321B</ISBN><Editorial>RAMA</Editorial>
+    </Libro>
+    <Libro>
+        <Titulo>Oracle Develover</Titulo><Autor>Santiago Liron</Autor><ISBN>987654321B</ISBN><Editorial>McGraw Hill</Editorial>
+    </Libro>
+    <Libro>
+        <Titulo>HTML 5.0</Titulo><Autor>Federico Gomez</Autor><ISBN>11111111T</ISBN><Editorial>Anaya Multimedia</Editorial>
+    </Libro>
+	<Libro>
+        <Titulo>XML,XPath</Titulo><Autor>Teresa Sastre</Autor><ISBN>222222222W</ISBN><Editorial>Prentice Hall</Editorial>
+    </Libro>
+</Libreria>

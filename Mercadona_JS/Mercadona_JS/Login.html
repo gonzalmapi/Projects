@@ -1,0 +1,76 @@
+﻿<!DOCTYPE html>
+<html>
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8"/>
+    <title>Login Mercadona</title>
+	<meta charset="utf-8" />
+</head>
+<body>
+    <table style="width:100%;" align="left">
+    <tr>
+        <td colspan="3"><img src="Imagenes/head.png"/></td>
+        <td>&nbsp;</td>
+        <td>&nbsp;</td>
+        </tr>
+    <tr>
+        <td>&nbsp;</td>
+        <td><a href="Registro.html">Registrarse como cliente</a></td>
+        <td>&nbsp;</td>
+        </tr>
+    <tr>
+        <td>&nbsp;</td>
+        <td>Cliente Registrado</td>
+        <td>&nbsp;</td>
+        </tr>
+     <tr>
+            <td>&nbsp;</td>
+            <td>Condiciones de compra</td>
+            <td>&nbsp;</td>
+        </tr>
+    </table>
+    
+    <table style="width:70%;"align="right">
+    <tr>
+        <td>Email</td>
+        <td><input id="cajaemail" type="text" /></td>
+        <td>&nbsp;</td>
+        </tr>
+    <tr>
+        <td>Contraseña</td>
+        <td><input id="cajapassw" type="password"/>&nbsp;</td>
+        <td>&nbsp;</td>
+        </tr>
+    <tr>
+        <td><input id="BtnLogin" type="button" value="Login" />&nbsp;</td>
+        <td>&nbsp;</td>
+        <td>&nbsp;</td>
+        </tr>
+    </table>
+    <img src="Imagenes/tail.png"/>
+    <script>
+       var pet = new XMLHttpRequest();
+        document.getElementById("BtnLogin").addEventListener("click", hacerAjax, false);
+        function hacerAjax() {
+            var usuJSON = {
+                "email": document.getElementById("cajaemail").value,
+                "passw": document.getElementById("cajapassw").value,
+            };
+            pet.onreadystatechange = function () {
+                if (pet.readyState == 4 && pet.status == 200) {
+                    var respuesta = JSON.parse(pet.responseText);
+                    if (respuesta.codigo = 0) {
+                        alert(respuesta.mensaje + "," + respuesta.vista);
+                        location.href = "http://www.google.es"
+                    } else {
+                        alert(respuesta.mensaje +","+ respuesta.vista);
+                        location.href="Registro.html";
+                    }
+                }
+            }
+            pet.open("POST", "http://localhost:65026/ServidorLogin.aspx", true);
+            pet.setRequestHeader("Content-Type", "application/x-www-form-urlencoded");
+            pet.send("data=" + JSON.stringify(usuJSON));
+        }
+    </script>
+</body>
+</html>

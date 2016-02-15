@@ -1,0 +1,66 @@
+﻿<!DOCTYPE html>
+<html>
+<head>
+    <title></title>
+	<meta charset="utf-8" />
+    <script src="External_Scripts/jquery-2.1.4.js" type="text/javascript"></script>
+    <script src="External_Scripts/jquery.indexeddb.js"></script>
+    <script src="External_Scripts/IndexedDBShim.min.js"></script>
+</head>
+<body>
+    <h1>Nuevo Usuario</h1>
+    <form id="registro">
+    Email <input type='text' id='email' />
+    <br />
+    Confirmar Email <input type='text' id='confemail' />
+     <br />
+        Password <input type='password' id='pass' />
+        <br/>
+        Confirmar  Password <input type='password' id='confpass' />
+        <br/>
+        <input type="checkbox" id="politica" />Acepto las <a href="http://zonarfec.com/index.php/auth/condiciones_uso">Condiciones de Uso</a>
+        <br />
+        <input type="submit" id="btnCrear" value="Crear usuario"/>
+    <br />
+        </form>
+    <script>
+        $("#btnCrear").click(function () {
+            var json = {"Email" : $("#email").val(),
+                "Password": $("#pass").val()
+            };
+            $.indexedDB("DataBase").done(function (db, ev) {
+                db.transaction("Usuarios", "readwrite").objectStore("Usuarios").add(json).onsuccess = function () {
+                    alert("se ha introducido el usuario");
+                    window.location.href = "Inicio.html";
+                }
+            });
+            $.ajax({
+                type: "POST",
+                url: "./servidor.asmx/registraUsuario",
+                data: JSON.stringify({ usuario: json }),
+                dataType: "json",
+                contentType: "application/json; charset=utf-8",
+            })
+               .done(function (data) {
+
+                   alert(json.mensaje);
+
+                   if (json.codigo == 0) {
+                       $("#respuesta").html(json.mensaje);
+                       $('<br />').appendTo('#respuesta');
+                       $('<a/>', { href: json.vista, text: "Entrar" }).appendTo('#respuesta');
+                   }
+                   else if (json.codigo == 1) {
+                       window.location.href = json.vista;
+                   }
+
+               })
+               .fail(function (result) {
+
+                   alert("ERROR " + result.status + ' ' + result.statusText);
+               });
+               
+        })
+    </script>
+</body>
+</html>

@@ -1,0 +1,63 @@
+﻿<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8"/>
+    <title></title>
+</head>
+<body>
+    <div>
+        Buscar:<input id="txtBoxBuscar" type="text" maxlength="30" /><button id="enviar">BUSCAR LIBRO...</button><br />
+        Titulo<input type="radio" id="opcTitulo" checked="checked" name="opciones"/>
+        Autor<input type="radio" id="opcAutor"  name="opciones" />
+        ISBN<input type="radio" id="opcIsbn" name="opciones" />
+        Editorial<input type="radio" id="opcEditorial" name="opciones" />
+    </div>
+    <div id="mostrarLibro"></div>
+    <script>
+        function crearPeticionAjax() {
+            var url = 'http://localhost:6112/Respuesta.aspx?criterio=' +
+                    Array.prototype.slice.call(document.getElementsByName("opciones"), 0).find(function (e, p, a) {
+                        if (e.checked) { return e; };
+                    }).id.replace("opc", "") +
+                    '&valor=' +
+                    document.getElementById("txtBoxBuscar").value;
+
+            petAjax = new XMLHttpRequest();
+           
+            petAjax.open('GET', url , true);
+            petAjax.onreadystatechange = controlPeticion;
+            petAjax.setRequestHeader("Content-Type","application/xml");
+            petAjax.send(null);
+
+        }
+
+        function controlPeticion() {
+            if (petAjax.readyState==4 && petAjax.status==200){
+                if (petAjax.responseXML) {
+                            cargarDatos(petAjax.responseXML);
+                } else {
+                    var parseadorStringXml=new DOMParser();
+                    cargarDatos(parseadorStringXml.parseFromString(petAjax.responseText, "text/xml"));
+                }
+                }
+        }
+
+        function cargarDatos(xmlDoc){
+            var librosDevueltos = xmlDoc.getElementsByTagName("Libro");
+            var filas = "<table><tr><th>Titulo</th><th>Autor</th><th>ISBN</th><th>Editorial</th></tr>";
+
+            [].slice.call(librosDevueltos, 0).forEach(function (libro, pos, arr) {
+                                   filas+="<tr><td>"+libro.childNodes[0].childNodes[0].nodeValue + "</td><td>" + libro.childNodes[1].childNodes[0].nodeValue + "</td><td>" + libro.childNodes[2].childNodes[0].nodeValue + "</td><td>" + libro.childNodes[3].childNodes[0].nodeValue +"</td></tr>";
+            });
+            filas+="</table>";
+            result.innerHTML=filas;
+        }
+        //----------main----------------
+        var petAjax;
+        var result = document.getElementById("mostrarLibro");
+        document.getElementById("enviar").addEventListener("click", crearPeticionAjax, true);
+
+
+    </script>
+</body>
+</html>

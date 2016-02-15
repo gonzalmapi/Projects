@@ -1,0 +1,190 @@
+﻿<!DOCTYPE html>
+<html>
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8"/>
+    <title></title>
+	<meta charset="utf-8" />
+    <script src="jquery-1.11.3.min.js"></script>
+</head>
+<body>
+    <img src="Imagenes/headR.png" />
+    <table style="width:100%;">
+        <tr>
+            <td><p>*. - Campo Obligatorio</p></td>
+            <td>&nbsp;</td>
+            <td>&nbsp;</td>
+        </tr>
+        <tr>
+            <td>* Nombre</td>
+            <td>* Primer Apellido</td>
+            <td>* Segundo Apellido</td>
+        </tr>
+        <tr>
+            <td><input id="cajanom" type="text" /></td>
+            <td><input id="caja1ape" type="text" /></td>
+            <td><input id="caja2ape" type="text" /></td>
+        </tr>
+        <tr>
+            <td>* Tipo de Documento</td>
+            <td>* Numero de Documento</td>
+            <td>&nbsp;
+            <td>
+        </tr>
+        <tr>
+            <td>
+                <select id="Tipo_ID">
+                    <option>DNI</option>
+                </select>
+            </td>
+            <td><input id="cajaID" type="text" /></td>
+            <td><input id="InfoComercial" type="checkbox" value="NO" />Desea recibir informacion comercial</td>
+        </tr>
+        <tr>
+            <td>* Email</td>
+            <td>* Confirmar Email</td>
+            <td>* Fecha de Nacimiento</td>
+        </tr>
+        <tr>
+            <td><input id="cajaemail" type="text" /></td>
+            <td><input id="cajaemailc" type="text" /></td>
+            <td><input id="fecha" type="date" data-format="DD-MM-YYYY" data-template="DD MM YYYY" name="date" /></td>
+        </tr>
+        <tr>
+            <td>* Contraseña</td>
+            <td>* Confirmar Contraseña</td>
+            <td>&nbsp;</td>
+        </tr>
+        <tr>
+            <td><input id="cajapassw" type="password" /></td>
+            <td><input id="cajapasswc" type="password" /></td>
+            <td>&nbsp;</td>
+        </tr>
+        <tr>
+            <td>* Direccion</td>
+            <td><input id="cajadir" type="text" readonly="readonly" /></td>
+            <td><input id="BtnAltaDir" type="button" value="Alta" /><input id="BtnModDir" type="button" value="Modificar" /><input id="BtnBorrarDir" type="button" value="Borrar" /></td>
+        </tr>
+        <tr>
+            <td>* Telefonos</td>
+            <td><input id="cajatel" type="text" readonly="readonly" /></td>
+            <td><input id="BtnAltaTel" type="button" value="Alta" /><input id="BtnModTel" type="button" value="Modificar" /><input id="BtnBorrarTel" type="button" value="Borrar" /></td>
+        </tr>
+        <tr>
+            <td><input id="condicion" type="checkbox" /> Acepto las Condiciones Generales</td>
+        </tr>
+        <tr>
+            <td>&nbsp;</td>
+            <td>&nbsp;</td>
+            <td><input id="BtnAlta" type="button" value="Alta" /></td>
+        </tr>
+    </table>
+    <img src="Imagenes/tailR.png" />
+    <script>
+        $(document).ready(function () {
+            $("#BtnAltaTel").click(function(){
+                 window.open("TelefonoJQuery.html", "Alta Telefono", "width=900,height=200,menubar=no");
+            })
+            $("#BtnBorrarTel").click(function () {
+                $("#cajatel").val() = "";
+            });
+            $("#BtnModTel").click(function () {
+                $("#cajatel").value = "";
+                window.open("TelefonoJQuery.html", "Modifica Telefono", "width=900,height=200,menubar=no");
+            });
+            $("#BtnAltaDir").click(function () {
+                window.open("DireccionJQuery.html", "Alta Direccion", "width=900,height=400,menubar=no");
+            });
+            $("#BtnBorrarDir").click(function () {
+                $("#cajadir").val() = "";
+            });
+            $("#BtnModDir").click(function () {
+                $("#cajadir").val() = "";
+                window.open("DireccionJQuery.html", "Modifica Direccion", "width=900,height=400,menubar=no");
+            });
+            function validaTexto(valor) {
+                var reg = /^[a-zA-Z_áéíóúñ\s]*$/
+                if (reg.test(valor)) return true;
+                else return false;
+            }
+            function validaCorreo(valor) {
+                var reg = /^[_a-z0-9-]+(\.[_a-z0-9-]+)*@[a-z0-9-]+(\.[a-z0-9-]+)*(\.[a-z]{2,3})$/;
+                var rep = $("#cajaemailc").val();
+                if (reg.test(valor))
+                    if (reg.test(rep))
+                        if (valor == rep)
+                            return true;
+                        else return false;
+            }
+            function validaPassword(valor) {
+                var reg = /(?=^.{8,}$)((?=.*\d)|(?=.*\W+))(?![.\n])(?=.*[A-Z])(?=.*[a-z]).*$/
+                var rep = $("#cajapasswc").val();
+                if (reg.test(valor))
+                    if (reg.test(rep))
+                        if (valor == rep)
+                            return true;
+                        else return false;
+            }
+            function validaID(valor) {
+                var reg = /^(([X-Z]{1})([-]?)(\d{7})([-]?)([A-Z]{1}))|((\d{8})([-]?)([A-Z]{1}))$/
+                if (reg.test(valor)) return true;
+                else return false;
+            }
+            function validaCond() {
+                var el = $("#condicion");
+                if (el.checked)
+                    return true;
+                else return false;
+            }
+            $("#btnAlta").click(function () {
+                var error = 0;
+                var nom = $("#cajanom").val();
+                var ape1 = $("#caja1ape").val();
+                var ape2 = $("#caja2ape").val();
+                var ID = $("#cajaID").val();
+                var email = $("#cajaemail").val();
+                var pass = $("#cajapassw").val();
+                if (!validaTexto(nom)) { error = 1; alert("Nombre incorrecto"); }
+                if (!validaTexto(ape1)) { error = 1; alert("Apellido1 incorrecto") }
+                if (!validaTexto(ape2)) { error = 1; alert("Apellido2 incorrecto") }
+                if (!validaID(ID)) { error = 1; alert("ID incorrecto") }
+                if (!validaCorreo(email)) { error = 1; alert("Email incorrecto o no iguales") }
+                if (!validaPassword(pass)) { error = 1; alert("Contraseña no iguales o no le falta un numero, signo de puntuacion o caracter alfabético") }
+                if (!validaCond) { error = 1; alert("Checkbox no usado") }
+                if (error == 1)
+                    alert("Validaciones incorrectas");
+                else {
+                    var usuJSON = JSON.stringify({
+                        "nombre": $("#cajanom").val(),
+                        "ape1": $("#caja1ape").val(),
+                        "ape2": $("#caja2ape").val(),
+                        "tipo_ID": $("#Tipo_ID").val(),
+                        "ID": $("#cajaID").val(),
+                        "info": $("#InfoComercial").val(),
+                        "email": $("#cajaemail").val(),
+                        "fecha": $("#fecha").val(),
+                        "passw": $("#cajapassw").val(),
+                        "direc": $("#cajadir").val(),
+                        "telf": $("#cajatel").val()
+                    });
+                    var envio = new FormData();
+                    envio.append("cliente", usuJSON);
+                    $.ajax({
+                        type: "POST",
+                        url: "http://localhost:65026/ServidorRegistro.aspx",
+                        data: "cliente",
+                        contentType: "application/form-data; charset=utf-8",
+                        success: function (respuesta) {
+                            if (respuesta.codigo == 0) {
+                                alert(respuesta.mensaje + "," + respuesta.vista);
+                            }
+                            else {
+                                alert(respuesta.mensaje + "," + respuesta.vista);
+                            }
+                        },
+                    });
+                }
+            });
+        });
+    </script>
+</body>
+</html>

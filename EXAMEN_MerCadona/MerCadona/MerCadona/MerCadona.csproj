@@ -1,0 +1,236 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="12.0" DefaultTargets="Build" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <Import Project="$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props" Condition="Exists('$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props')" />
+  <PropertyGroup>
+    <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
+    <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
+    <ProductVersion>
+    </ProductVersion>
+    <SchemaVersion>2.0</SchemaVersion>
+    <ProjectGuid>{3D2C1C83-484D-4D2A-AAE6-95DAA806DD2C}</ProjectGuid>
+    <ProjectTypeGuids>{349c5851-65df-11da-9384-00065b846f21};{fae04ec0-301f-11d3-bf4b-00c04f79efbc}</ProjectTypeGuids>
+    <OutputType>Library</OutputType>
+    <AppDesignerFolder>Properties</AppDesignerFolder>
+    <RootNamespace>MerCadona</RootNamespace>
+    <AssemblyName>MerCadona</AssemblyName>
+    <TargetFrameworkVersion>v4.5</TargetFrameworkVersion>
+    <UseIISExpress>true</UseIISExpress>
+    <IISExpressSSLPort />
+    <IISExpressAnonymousAuthentication />
+    <IISExpressWindowsAuthentication />
+    <IISExpressUseClassicPipelineMode />
+    <UseGlobalApplicationHostFile />
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
+    <DebugSymbols>true</DebugSymbols>
+    <DebugType>full</DebugType>
+    <Optimize>false</Optimize>
+    <OutputPath>bin\</OutputPath>
+    <DefineConstants>DEBUG;TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
+    <DebugType>pdbonly</DebugType>
+    <Optimize>true</Optimize>
+    <OutputPath>bin\</OutputPath>
+    <DefineConstants>TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <ItemGroup>
+    <Reference Include="Microsoft.CSharp" />
+    <Reference Include="System.Web.DynamicData" />
+    <Reference Include="System.Web.Entity" />
+    <Reference Include="System.Web.ApplicationServices" />
+    <Reference Include="System.ComponentModel.DataAnnotations" />
+    <Reference Include="System" />
+    <Reference Include="System.Data" />
+    <Reference Include="System.Core" />
+    <Reference Include="System.Data.DataSetExtensions" />
+    <Reference Include="System.Web.Extensions" />
+    <Reference Include="System.Xml.Linq" />
+    <Reference Include="System.Drawing" />
+    <Reference Include="System.Web" />
+    <Reference Include="System.Xml" />
+    <Reference Include="System.Configuration" />
+    <Reference Include="System.Web.Services" />
+    <Reference Include="System.EnterpriseServices" />
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="ficheros\Reclamaciones.txt" />
+    <Content Include="ficheros\Supermercados.xml">
+      <SubType>Designer</SubType>
+    </Content>
+    <Content Include="imagenes\imagenes_CompraOnline\botonCarritoFormalizar.png" />
+    <Content Include="imagenes\imagenes_CompraOnline\botonCarritoGuardar.png" />
+    <Content Include="imagenes\imagenes_CompraOnline\imagenes_autentificacion\CabeceraRegistro.png" />
+    <Content Include="imagenes\imagenes_CompraOnline\imagenes_autentificacion\Login.png" />
+    <Content Include="imagenes\imagenes_CompraOnline\imagenes_autentificacion\Pie.png" />
+    <Content Include="imagenes\imagenes_CompraOnline\imagenes_autentificacion\Registro.png" />
+    <Content Include="imagenes\imagenes_NuestraEmpresa\AtencionAlCliente.png" />
+    <Content Include="imagenes\imagenes_NuestraEmpresa\CabeceraFormulario.png" />
+    <Content Include="imagenes\imagenes_NuestraEmpresa\Calidad.png" />
+    <Content Include="imagenes\imagenes_NuestraEmpresa\Donde.png" />
+    <Content Include="imagenes\imagenes_NuestraEmpresa\Empresa.png" />
+    <Content Include="imagenes\imagenes_NuestraEmpresa\Inicio.png" />
+    <Content Include="imagenes\imagenes_NuestraEmpresa\MDGchachara.png" />
+    <Content Include="imagenes\imagenes_NuestraEmpresa\ModeloDeGestion.png" />
+    <Content Include="imagenes\imagenes_NuestraEmpresa\Noticias.png" />
+    <Content Include="imagenes\imagenes_NuestraEmpresa\Surtido.png" />
+    <Content Include="imagenes\imagenes_NuestraEmpresa\Ventajas.png" />
+    <Content Include="MasterCompraOnLine.Master" />
+    <Content Include="Vista\Atencion_Cliente.aspx" />
+    <Content Include="Vista\CompraOnlineIni.aspx" />
+    <Content Include="Vista\Donde_Estamos.aspx" />
+    <Content Include="Vista\Inicio.aspx" />
+    <Content Include="Vista\NuestraEmpresa.aspx" />
+    <Content Include="Vista\Registro.aspx" />
+    <Content Include="__Controles_Usuario__\controlCarrito.ascx" />
+    <Content Include="__Controles_Usuario__\controlListaMiniProducto.ascx" />
+    <Content Include="ficheros\provincias.csv" />
+    <None Include="Web.Debug.config">
+      <DependentUpon>Web.config</DependentUpon>
+    </None>
+    <None Include="Web.Release.config">
+      <DependentUpon>Web.config</DependentUpon>
+    </None>
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="ficheros\SECCIONES_SUBSECCIONES.xml" />
+    <Content Include="imagenes\imagenes_CompraOnline\buscadorAlimentos.png" />
+    <Content Include="imagenes\imagenes_CompraOnline\cesta.png" />
+    <Content Include="imagenes\imagenes_CompraOnline\imagenes_autentificacion\BienvenidoCompraOnline.png" />
+    <Content Include="imagenes\imagenes_CompraOnline\imagenes_autentificacion\circulo1.gif" />
+    <Content Include="imagenes\imagenes_CompraOnline\imagenes_autentificacion\circulo2.gif" />
+    <Content Include="imagenes\imagenes_CompraOnline\imagenes_autentificacion\circulo3.gif" />
+    <Content Include="imagenes\imagenes_CompraOnline\imagenes_autentificacion\circulo4.gif" />
+    <Content Include="imagenes\imagenes_CompraOnline\imagenes_autentificacion\logos_certificados.jpg" />
+    <Content Include="imagenes\imagenes_CompraOnline\imagenes_autentificacion\mercadona_horizontal.gif" />
+    <Content Include="imagenes\imagenes_CompraOnline\imgfondo.png" />
+    <Content Include="imagenes\imagenes_CompraOnline\papelera.png" />
+    <Content Include="imagenes\imagenes_CompraOnline\portadainicioComprarOnLine.png" />
+    <Content Include="imagenes\imagenes_CompraOnline\recomendacionBajoCarrito.png" />
+    <Content Include="imagenes\imagenes_CompraOnline\serch_btn.png" />
+    <Content Include="imagenes\imagenes_CompraOnline\TramosEntregaCompra.png" />
+    <Content Include="imagenes\imagenes_Inicio\index_Cabecera.JPG" />
+    <Content Include="imagenes\imagenes_Inicio\index_Compra.JPG" />
+    <Content Include="imagenes\imagenes_Inicio\index_corp.JPG" />
+    <Content Include="imagenes\imagenes_Inicio\index_Factura.JPG" />
+    <Content Include="imagenes\imagenes_Inicio\index_trabaja.JPG" />
+    <Content Include="imagenes\imagenes_Inicio\logomercavertical.gif" />
+    <Content Include="imagenes\imagenes_NuestraEmpresa\logomercahorizontal325.gif" />
+    <Content Include="imagenes\imagenes_NuestraEmpresa\marcas.gif" />
+    <Content Include="imagenes\imagenes_NuestraEmpresa\modeloGestion.jpg" />
+    <Content Include="imagenes\imagenes_NuestraEmpresa\portadaInicioNuestraEmpresa.png" />
+    <Content Include="imagenes\imagenes_NuestraEmpresa\queEsMercadona.jpg" />
+    <Content Include="imagenes\imagenes_NuestraEmpresa\separadorMenu.png" />
+    <Content Include="imagenes\imagenes_NuestraEmpresa\servicios.jpg" />
+    <Content Include="imagenes\imagenes_NuestraEmpresa\spb.gif" />
+    <Content Include="imagenes\imagenes_NuestraEmpresa\surtidosingluten.jpg" />
+    <Content Include="imagenes\imagenes_NuestraEmpresa\ventajas.jpg" />
+    <Content Include="Web.config" />
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="App_Code\Modelo\Cliente.cs" />
+    <Content Include="App_Code\Controlador\Controlador_Fichero.cs" />
+    <Content Include="App_Code\Modelo\Reclamaciones.cs" />
+    <Compile Include="MasterCompraOnLine.Master.cs">
+      <DependentUpon>MasterCompraOnLine.Master</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="MasterCompraOnLine.Master.designer.cs">
+      <DependentUpon>MasterCompraOnLine.Master</DependentUpon>
+    </Compile>
+    <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="Vista\Atencion_Cliente.aspx.cs">
+      <DependentUpon>Atencion_Cliente.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Vista\Atencion_Cliente.aspx.designer.cs">
+      <DependentUpon>Atencion_Cliente.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Vista\CompraOnlineIni.aspx.cs">
+      <DependentUpon>CompraOnlineIni.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Vista\CompraOnlineIni.aspx.designer.cs">
+      <DependentUpon>CompraOnlineIni.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Vista\Donde_Estamos.aspx.cs">
+      <DependentUpon>Donde_Estamos.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Vista\Donde_Estamos.aspx.designer.cs">
+      <DependentUpon>Donde_Estamos.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Vista\Inicio.aspx.cs">
+      <DependentUpon>Inicio.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Vista\Inicio.aspx.designer.cs">
+      <DependentUpon>Inicio.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Vista\NuestraEmpresa.aspx.cs">
+      <DependentUpon>NuestraEmpresa.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Vista\NuestraEmpresa.aspx.designer.cs">
+      <DependentUpon>NuestraEmpresa.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Vista\Registro.aspx.cs">
+      <DependentUpon>Registro.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Vista\Registro.aspx.designer.cs">
+      <DependentUpon>Registro.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="__Controles_Usuario__\controlCarrito.ascx.cs">
+      <DependentUpon>controlCarrito.ascx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="__Controles_Usuario__\controlCarrito.ascx.designer.cs">
+      <DependentUpon>controlCarrito.ascx</DependentUpon>
+    </Compile>
+    <Compile Include="__Controles_Usuario__\controlListaMiniProducto.ascx.cs">
+      <DependentUpon>controlListaMiniProducto.ascx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="__Controles_Usuario__\controlListaMiniProducto.ascx.designer.cs">
+      <DependentUpon>controlListaMiniProducto.ascx</DependentUpon>
+    </Compile>
+  </ItemGroup>
+  <ItemGroup />
+  <PropertyGroup>
+    <VisualStudioVersion Condition="'$(VisualStudioVersion)' == ''">10.0</VisualStudioVersion>
+    <VSToolsPath Condition="'$(VSToolsPath)' == ''">$(MSBuildExtensionsPath32)\Microsoft\VisualStudio\v$(VisualStudioVersion)</VSToolsPath>
+  </PropertyGroup>
+  <Import Project="$(MSBuildBinPath)\Microsoft.CSharp.targets" />
+  <Import Project="$(VSToolsPath)\WebApplications\Microsoft.WebApplication.targets" Condition="'$(VSToolsPath)' != ''" />
+  <Import Project="$(MSBuildExtensionsPath32)\Microsoft\VisualStudio\v10.0\WebApplications\Microsoft.WebApplication.targets" Condition="false" />
+  <ProjectExtensions>
+    <VisualStudio>
+      <FlavorProperties GUID="{349c5851-65df-11da-9384-00065b846f21}">
+        <WebProjectProperties>
+          <UseIIS>True</UseIIS>
+          <AutoAssignPort>True</AutoAssignPort>
+          <DevelopmentServerPort>2243</DevelopmentServerPort>
+          <DevelopmentServerVPath>/</DevelopmentServerVPath>
+          <IISUrl>http://localhost:2243/</IISUrl>
+          <NTLMAuthentication>False</NTLMAuthentication>
+          <UseCustomServer>False</UseCustomServer>
+          <CustomServerUrl>
+          </CustomServerUrl>
+          <SaveServerSettingsInUserFile>False</SaveServerSettingsInUserFile>
+        </WebProjectProperties>
+      </FlavorProperties>
+    </VisualStudio>
+  </ProjectExtensions>
+  <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
+       Other similar extension points exist, see Microsoft.Common.targets.
+  <Target Name="BeforeBuild">
+  </Target>
+  <Target Name="AfterBuild">
+  </Target>
+  -->
+</Project>

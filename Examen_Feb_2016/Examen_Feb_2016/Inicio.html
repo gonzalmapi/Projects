@@ -1,0 +1,74 @@
+﻿<!DOCTYPE html>
+<html>
+<head>
+    <title></title>
+    <meta charset="utf-8" />
+    <script src="External_Scripts/jquery-2.1.4.js"></script>
+    <script src="External_Scripts/jquery.indexeddb.js"></script>
+    <script src="External_Scripts/IndexedDBShim.min.js"></script>
+</head>
+<body>
+    Email <input type='text' id='email' />
+    <br />
+    Password <input type='password' id='password' />
+    <br />
+    <input id='inicio' type='button' value='INICIO' />
+    <input id="registro" type="button" value="Registro" />
+    <script>
+        var Email = $("#email").val();
+        var pass = $("#password").val();
+        $("#registro").click(function () {
+            window.location.href = "Registro.html";
+        });
+        $("#inicio").click(function () {
+            var Email = $("#email").val();
+            var pass = $("#password").val();
+            var usu = {
+                "Email": Email,
+                "Password": pass
+            }
+            $.indexedDB("DataBase").objectStore("Usuarios").get(Email).done(function (result, event) {
+                if (result == undefined) {
+
+                    alert("Usuario NO existe");
+                    $.ajax({
+                        type: 'POST',
+                        url: '/Servidor.asmx/respuesta',
+                        data: Email,
+                        contentType: 'application/json; utf-8',
+                        success: function (respuesta) {
+                            var resp = JSON.parse(respuesta.d);
+                            window.alert(respuesta.d);
+                        },
+                        error: function (jqXHR, textStatus, errorThrown) {
+                            window.alert("error");
+                        }
+                    });
+                } else if (result.Password == pass && result.Email == Email) {
+                    window.alert("Bienvenido" + result.Email);
+                    sessionStorage.setItem("login", JSON.stringify(usu));
+                    window.location.href = "Licencias.html";
+                } else {
+                    alert("Revise la contraseña");}
+                });
+        });
+
+        $.indexedDB("DataBase", {
+            schema: {
+                "6": function (db) {
+                    var tablaUsuarios = db.createObjectStore("Usuarios", {
+                        'keyPath': 'Email', 'autoIncrement': false
+                    });
+                    tablaUsuarios.createIndex("Email", { unique: true });
+                    var tablasolicitudes = db.createObjectStore("Solicitudes", {
+                        'autoIncrement': true
+                    });
+                   
+                },
+   
+            }
+        }).done(function (db, even) {
+        });
+    </script>
+</body>
+</html>

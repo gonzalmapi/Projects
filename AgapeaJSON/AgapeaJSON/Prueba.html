@@ -1,0 +1,26 @@
+<html>
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8"/>
+    <title></title>
+	<meta charset="utf-8" />
+</head>
+<body>
+	<input type="file"accept="image/*" multiple id="selector"/>
+<div id="resultado"></div>
+<script>
+	var selector=document.getElementById("selector");
+	selector.addEventListener("change",mostrarMiniaturas,false);
+	function mostrarMiniaturas(){
+		var listaficheros=selector.files;
+		for (var a=0; a <listaficheros.length;a++){
+			var imagen=document.createElement("image");
+			imagen.setAttribute("src",listaficheros[a].getAsDataURL());
+			imagen.setAttribute("height",60);
+			imagen.setAttribute("wight",60);
+			document.getElementById("resultado").AppendChild(imagen)
+		
+var Texto = document.createTextNode("Nombre"+listaficheros[a]+Name +"Tamaño"+listaficheros[a].size);
+document.getElementByid("resultado").appendChild(Texto)
+document.getElementByid("resultado").appendChild(document.createElement("br"))}}
+</script>
+</body>

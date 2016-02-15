@@ -1,0 +1,11 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Libreria>
+  <Libro categoria="Test">
+    <Titulo>Algo</Titulo>
+    <Autor>Algo2</Autor>
+  </Libro>
+  <Libro categoria="Algo">
+    <Titulo>Test</Titulo>
+    <Autor>Test2</Autor>
+  </Libro>
+</Libreria>

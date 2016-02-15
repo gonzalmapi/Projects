@@ -1,0 +1,60 @@
+﻿<!DOCTYPE html>
+
+<html lang="en" xmlns="http://www.w3.org/1999/xhtml">
+<head>
+    <meta charset="utf-8" />
+    <title></title>
+</head>
+<body>
+    <div>
+        <table style="width:100%;">
+            <tr>
+                <td><h1>Busqueda:</h1></td>
+                <td>
+                    <input id="cajaBusqueda" type="text" />
+                </td>
+                <td>
+
+                    <input id="BtnBusqueda" type="button" value="Buscar.." onclick="loadDoc()"/>
+                </td>
+            </tr>
+            <tr>
+                <td>
+                    <input id="opcTitulo" name="opciones" type="radio" checked="checked" /> Titulo
+                </td>
+                <td>
+                    <input id="opcIsbn" name="opciones" type="radio" />ISBN
+                </td>
+                <td>
+                    <input id="opcAutor" name="opciones" type="radio" />Autor
+                </td>
+            </tr>
+        </table>
+    </div>
+    <div id="resultado"></div>
+    <script>
+        function loadDoc() {
+            var xhttp = new XMLHttpRequest();
+            xhttp.onreadystatechange = function () {
+                if (xhttp.readyState == 4 && xhttp.status == 200) {
+                    myFunction(xhttp);
+                }
+            }
+            xhttp.open("GET", "Libros.xml", true);
+            xhttp.send();
+        }
+        function myFunction(xml) {
+            var caja = document.getElementById("cajaBusqueda").value
+            var opc = Array.prototype.slice.call(document.getElementsByName("opciones"), 0).find(function (el, pos, arr) { if (el.checked == true) { return el } }).id.replace("opc", "");
+            var xmlDoc = xml.responseXML;
+            var listalibros = xmlDoc.evaluate("//Libro/[Titulo="+caja+"]/", xmlDoc, null, XPathResult.UNORDERED_NODE_ITERATOR_TYPE, null)
+            while (listaLibros.iteratorNext()) {
+                unlibro = listaLibros.iteratorNext()
+                Titulo = unlibro.childNodes[0].childNodes[0].nodeValue
+                Autor = unlibro.childNodes[1].childNodes[0].nodeValue
+            }
+            document.write(Titulo + autor);
+        }
+    </script>
+</body>
+</html>

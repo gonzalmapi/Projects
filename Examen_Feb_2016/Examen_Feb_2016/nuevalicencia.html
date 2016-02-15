@@ -1,0 +1,139 @@
+﻿<!DOCTYPE html>
+<html>
+<head>
+    <title></title>
+	<meta charset="utf-8" />
+    <script src="External_Scripts/jquery-2.1.4.js"></script>
+    <script src="External_Scripts/jquery.indexeddb.js"></script>
+    <script src="External_Scripts/IndexedDBShim.min.js"></script>
+    <script src="External_Scripts/jquery.validate.js"></script>
+</head>
+<body>
+    <div id="tipo">
+        <h3>Tipo de licencia</h3>
+        <input type="radio" id="tecnico" value="Tecnico" />Tecnico
+        <br/>
+        <input type="radio" id="adaptado" value="Adaptado" />Adaptado
+    </div>
+    <div id="equipo">
+        <h3>Estas en un equipo?</h3>
+        <input type="radio" id="SI" value="SI" />Si
+        <br />
+        <input type="radio" id="NO" value="NO" />No
+    </div>
+    <div id="formulario">
+        <form id="solicitud">
+                Nombre<input type="text" id="nombre" />
+            <br />
+                Apellidos<input type="text" id="apellidos" />
+            <br />
+                NIF<input type="text" id="nif" />
+            <br /> 
+             Foto  <input type="file" id="foto" accept="image/*" />
+            <br /> 
+            Direccion<input type="text" id="direccion" />
+            <br />
+            Fecha de nacimiento <input type="date" id="fecha" data-format="DD-MM-YYYY" data-template="DD MM YYYY" />
+            <br />
+            Codigo Postal<input type="text" id="cp" />
+            <br />
+            Sexo<select id="ssex"><option id="H">H</option>
+            <option id="M">M</option>
+             </select>
+            <br />
+            Email<input type="email" id="email" />
+            <br />
+            Localidad<select id="sloc"><option id="loc"></option></select>
+            <br />
+            Provincia<select id="sprov"><option id="prov"></option></select>
+            <br />
+            Telefono<input type="text" id="telefono" />
+            <br />
+            Movil<input type="text" id="movil" />
+            <br />
+            Equipo<input type="text" id="equipo" />
+            <br />
+            Categoria<select id="scat"><option value="cat"></option>
+            </select>
+            <br />
+            Especialidad<select id="sesp"><option value="esp"></option>
+            </select>
+            <br />
+            <input id="btEnviarAlta" type="submit" value="ENVIAR ALTA" />    
+            </form>
+    </div>
+    <script>
+        $("#equipo").hide();
+        $("#formulario").hide();
+        $("#tecnico").click(function () {
+            $("#tipo").hide();
+            $("#equipo").hide();
+            $("#formulario").show();
+        });
+        $("#adaptado").click(function () {
+            $("#tipo").hide();
+            $("#equipo").show();
+            $("#formulario").hide();
+        });
+        $("#NO").click(function () {
+            $("#tipo").hide();
+            $("#equipo").hide();
+            $("#formulario").show();
+        });
+        $("#SI").click(function () {
+            $("#tipo").hide();
+            $("#equipo").hide();
+            $("#formulario").show();
+        });
+        var cat = new Array("CUIDADOR", "DIRECTOR DEPORTIVO NACIONAL", "DIRECTOR DEPORTIVO NIVEL I", "DIRECTOR DEPORTIVO NIVEL II", "DIRECTOR ORG.DE CARRERAS", "DIRIGENTE", "FISIOTERAPEUTA", "MASAJISTA", "MEDICO", "MECANICO", "MONITOR", "PRACTICANTE NIVEL I", "PRACTICANTE NIVEL II", "PRACTICANTE NIVEL III");
+        for (var i = 0; i < cat.length; i++) {
+            $('<option/>', { value: i + 1 }).text(cat[i]).appendTo('#scat');
+        }
+        var esp = new Array("RUTA", "BTT", "CICLOCROSS", "PISTA", "BMX", "TRIAL", "CICLOTURISMO", "ADAPTADO");
+        for (var i = 0; i < esp.length; i++) {
+            $('<option/>', { value: i + 1 }).text(esp[i]).appendTo('#sesp');
+        }
+        $.getJSON("prov.json", function (json) {
+            $('#sprov').empty();
+            $('#sprov').append($('<option>').text("Select"));
+            $.each(json, function (i, obj) {
+                $('#sprov').append($('<option>').text(obj.Ciudad).attr('value', obj.Ciudad));
+            });
+        });
+        $.getJSON("mun.json", function (json) {
+            $('#sloc').empty();
+            $('#sloc').append($('<option>').text("Select"));
+            $.each(json, function (i, obj) {
+                $('#sloc').append($('<option>').text(obj.Localidad).attr('value', obj.Localidad));
+            });
+        });
+       
+        $("#btEnviarAlta").click(function () {
+            
+                var solicitud = {
+                    "nombre": $('#nombre').val(),
+                    "apellidos": $('#apellidos').val(),
+                    "NIF": $('#nif').val(),
+                    "direccion": $("#direccion").val(),
+                    "fecha": $("#fecha").val(),
+                    "codigo": $("#cp").val(),
+                    "sexo": $("#ssex option:selected").val(),
+                    "Email": $("#email").val(),
+                    "localidad": $('#sloc option:selected').val(),
+                    "provincia": $('#sprov option:selected').val(),
+                    "telefono": $('#telefono').val(),
+                    "movil": $('#movil').val(),
+                    "equipo": $('#equipo').val(),
+                    "categoria": $('#scat option:selected').val(),
+                    "especialidad": $('#sesp option:selected').val()
+                };
+                $.indexedDB("DataBase").done(function (db, ev) {
+                    db.transaction("Solicitudes", "readwrite").objectStore("Solicitudes").add(solicitud).onsuccess = function () {
+                        alert("se ha introducido la solictud");
+                        window.location.href = "Licencias.html";
+                    }
+                });
+        });
+     </script>
+</body>
+</html>

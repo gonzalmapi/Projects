@@ -1,0 +1,78 @@
+﻿<!DOCTYPE html>
+<html>
+<head>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+    <title>Login Mercadona</title>
+    <meta charset="utf-8" />
+    <script src="jquery-1.11.3.min.js"></script>
+</head>
+<body>
+    <table style="width:100%;" align="left">
+        <tr>
+            <td colspan="3"><img src="Imagenes/head.png" /></td>
+            <td>&nbsp;</td>
+            <td>&nbsp;</td>
+        </tr>
+        <tr>
+            <td>&nbsp;</td>
+            <td><a href="RegistroJQuery.html">Registrarse como cliente</a></td>
+            <td>&nbsp;</td>
+        </tr>
+        <tr>
+            <td>&nbsp;</td>
+            <td>Cliente Registrado</td>
+            <td>&nbsp;</td>
+        </tr>
+        <tr>
+            <td>&nbsp;</td>
+            <td>Condiciones de compra</td>
+            <td>&nbsp;</td>
+        </tr>
+    </table>
+
+    <table style="width:70%;" align="right">
+        <tr>
+            <td>Email</td>
+            <td><input id="cajaemail" type="text" /></td>
+            <td>&nbsp;</td>
+        </tr>
+        <tr>
+            <td>Contraseña</td>
+            <td><input id="cajapassw" type="password" />&nbsp;</td>
+            <td>&nbsp;</td>
+        </tr>
+        <tr>
+            <td><input id="BtnLogin" type="button" value="Login" />&nbsp;</td>
+            <td>&nbsp;</td>
+            <td>&nbsp;</td>
+        </tr>
+    </table>
+    <img src="Imagenes/tail.png" />
+    <script>
+        $(document).ready(function () {
+            $("button").click(function () {
+                var usuJSON = JSON.stringify({
+                    "email": $("#cajaemail").val(),
+                    "passw": $("#cajapassw").val(),
+                });
+                $.ajax({
+                    type: "POST",
+                    url: "http://localhost:65026/ServidorLogin.aspx",
+                    data: "data=" + usuJSON,
+                    contentType: "application/x-www-form-urlencoded; charset=utf-8",
+                    success: function (respuesta) {
+                        if (respuesta.codigo == 0) {
+                            alert(respuesta.mensaje + "," + respuesta.vista);
+                            location.href = "http://www.google.es"
+                        }
+                        else {
+                            alert(respuesta.mensaje + "," + respuesta.vista);
+                            location.href = "RegistroJQuery.html"
+                        }               
+                    },
+                });
+            });
+        });
+    </script>
+</body>
+</html>

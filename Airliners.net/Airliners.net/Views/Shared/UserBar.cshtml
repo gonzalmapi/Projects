@@ -1,0 +1,13 @@
+﻿@using System.Web;
+    @if (Session["usuario"] != null)
+    {
+                 <div class="navbar-collapse collapse">
+                    <ul class="nav navbar-nav navbar-left">
+                        <li>@Html.ActionLink("Perfil de Usuario", "PerfilUsuario", "Home")</li>
+                        <li>@Html.ActionLink("Subir Fotos","AñadirFoto","Foto")</li>
+                        <li>@Html.ActionLink("Tus Fotos", "TusFotos", "Foto")</li>
+                        <li>@Html.ActionLink("Fotos Favoritas", "Contact", "Home")</li>
+                    </ul>
+                </div>
+      
+    }

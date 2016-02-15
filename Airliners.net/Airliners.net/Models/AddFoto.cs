@@ -39,5 +39,6 @@ namespace Airliners.net.Models
 
         [Display(Name = "Notes")]
         public string notes { get; set; }
+        public List<AddFoto> LasFotos = new List<AddFoto>();
     }
 }

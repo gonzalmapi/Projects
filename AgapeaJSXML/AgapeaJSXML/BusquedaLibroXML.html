@@ -1,0 +1,57 @@
+﻿<!DOCTYPE html>
+<html>
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8"/>
+    <title></title>
+	<meta charset="utf-8" />
+</head>
+<body>
+    <div>
+            <h1>Busqueda:</h1>
+            <br/>
+            <input id="cajaBusqueda" type="text" />
+            </br>
+            <input id="BtnBusqueda" type="button" value="Buscar.." onclick="loadDoc()" />
+             <br/><br/>
+             <input id="opcTitulo" name="opciones" type="radio" checked="checked" /> Titulo
+             <input id="opcIsbn" name="opciones" type="radio" />ISBN
+             <input id="opcAutor" name="opciones" type="radio" />Autor
+            <input id="opcEditorial" name="opciones" type="radio" />Editorial
+    </div>
+    <div id="resultado"></div>
+    <script>
+        function crearPeticionAjax() {
+            var url = 'http://localhost:54839/Respuesta.aspx?criterio=' + Array.prototype.slice(document.getElementsByName("opciones"), 0).find(function (el, pos, arr) {
+                if (el.checked) { return el; };
+            }).id.replace("opc", "") + '&valor=' + document.getElementById("cajaBusqueda").value;
+            ajax = new XMLHttpRequest();
+            ajax.open("GET", url, true);
+            ajax.onreadystatechange = control;
+            ajax.setRequestHeader("Content-Type", "application/xml");
+            ajax.send(null);
+        }
+        function control() {
+            if (ajax.readyState == 4 && ajax.status == 200) {
+                if (ajax.responseXML) {
+                    cargar(ajax.responseXML);
+                } else {
+                    var parseador = new DOMParser();
+                    cargar(parseador.parseFromString(ajax.responseText, "text/xml"));
+                }
+            }
+        }
+        function cargar(xml) {
+            var libros = xml.getElementsByTagName("Libro");
+            var filas = "<table><tr><th>Titulo</th><th>Autor</th><th>ISBN</th><th>Editorial</th></tr>";
+
+            [].slice.call(librosDevueltos, 0).forEach(function (libro, pos, arr) {
+                filas+="<tr><td>"+libro.childNodes[0].childNodes[0].nodeValue + "</td><td>" + libro.childNodes[1].childNodes[0].nodeValue + "</td><td>" + libro.childNodes[2].childNodes[0].nodeValue + "</td><td>" + libro.childNodes[3].childNodes[0].nodeValue +"</td></tr>";
+            });
+            filas+="</table>";
+            result.innerHTML=filas;
+        }
+        var ajax;
+        var result = document.getElementById("enviar").addEventListener("click", crearPeticionAjax, true);
+    </script>
+</body>
+</html>

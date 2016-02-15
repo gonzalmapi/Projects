@@ -1,0 +1,56 @@
+﻿<!DOCTYPE html>
+<html>
+<head>
+    <title></title>
+	<meta charset="utf-8" />
+    <script src="jquery-1.12.0.min.js"></script>
+    <script src="jquery.indexeddb.js"></script>
+    <script src="IndexedDBShim.min.js"></script>
+</head>
+<body>
+    Nombre<input type='text' id='nom' />
+    <br />
+    Apellidos <input type='text' id='ape' />
+    <br />
+    NIF <input type='text' id='nif' />
+    Direccion <input type='text' id='dir' />
+    Localidad <input type='text' id='loc' />
+    Provincia<input type='text' id='pro' />
+    <br />
+    Email <input type='text' id='email' />
+    Password <input type='password' id='password' />
+    <br />
+    <input type="button" id="registro" value="Registro" />
+    <a href="LoginDB.html">Login</a>
+    <script>
+           
+        $("#registro").click(function () {
+            var cliente = {
+                "NIF": $("#nif").val(),
+                "Email": $("#email").val(),
+                "Password": $("#password").val(),
+                "Nombre": $("#nom").val(),
+                "apellido": $("#ape").val(),
+                "direccion": $("#dir").val(),
+                "localidad": $("#loc").val(),
+                "provincia": $("#pro").val()
+            };
+            var usuario = {
+                "Email": $("#email").val(),
+                "password": $("#password").val()
+            };
+                  $.indexedDB("DataBase").done(function (db, ev) {
+                      db.transaction("Usuarios", "readwrite").objectStore("Usuarios").add(usuario).onsuccess = function () {
+                          alert("se ha introducido el usuario");
+                      }
+                     
+                  });
+                  $.indexedDB("DataBase").done(function (db, ev) {
+                      db.transaction("Clientes", "readwrite").objectStore("Clientes").add(cliente).onsuccess = function () {
+                          alert("se ha introducido el cliente");
+                      }
+                  });
+              });
+    </script>
+</body>
+</html>

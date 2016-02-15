@@ -1,0 +1,34 @@
+﻿<!DOCTYPE html>
+<html manifest="Cache.manifest">
+<head>
+    <title></title>
+	<meta charset="utf-8" />
+</head>
+<body>
+    <h1>HEADER</h1>
+    <div>
+        <p>Hola soy un subnormal</p>
+        <p>algo mas</p>
+    </div>
+    <div>
+        <p>algo mas</p>
+    </div>
+       <script>
+           var estadoCache = window.applicationCache.status;
+           alert(estadoCache);
+
+            window.addEventListener("load", function () {
+            window.applicationCache.update();
+            //window.applicationCache.swapCache();
+        });
+        window.applicationCache.addEventListener("Update", function () {
+            alert('estas actualizando la cache');
+            alert(estadoCache);
+        })
+        window.applicationCache.addEventListener("NoUpdate", function () {
+            alert("no se actualizado la cache");
+            alert(estadoCache);
+        });
+    </script>
+</body>
+</html>

@@ -1,0 +1,101 @@
+﻿<!DOCTYPE html>
+<html>
+<head>
+    <title></title>
+    <meta charset="utf-8" />
+    <script src="jquery-1.12.0.min.js"></script>
+    <script src="jquery.indexeddb.js"></script>
+    <script src="IndexedDBShim.min.js"></script>
+</head>
+<body>
+    Email <input type='text' id='email' />
+    <br />
+    Password <input type='password' id='password' />
+    <br />
+    <input id='inicio' type='button' value='INICIO' />
+    <input id="registro" type="button" value="Registro" />
+    <script>
+        var Email = $("#email").val();
+        var pass = $("#password").val();
+        $("#registro").click(function () {
+            window.location.href = "RegistroDB.html";
+        });
+        $("#inicio").click(function () {
+            var Email = $("#email").val();
+            var pass = $("#password").val();
+            var usu = {
+                "Email": Email,
+                "Password": pass
+            }
+            $.indexedDB("DataBase").objectStore("Usuarios").get(Email).done(function (result, event) {
+                if (result == undefined) {
+                    alert("Usuario NO existe");
+                } else if (result.password == pass && result.Email == Email) {
+                    window.alert("Bienvenido" + result.Email);
+                    sessionStorage.setItem("login", JSON.stringify(usu));
+                    window.location.href = "BienvenidoDB.html";
+                } else {
+                    alert("Revise la contraseña");}
+                });
+        });
+
+        $.indexedDB("DataBase", {
+            schema: {
+                "1": function (db) {
+                    var tablaUsuarios = db.createObjectStore("Usuarios", {
+                        'keyPath': 'Email', 'autoIncrement': false
+                    });
+                    tablaUsuarios.createIndex("Email", { unique: true });
+                    var tablaClientes = db.createObjectStore("Clientes",
+                        {
+                            'keyPath': 'NIF', 'autoIncrement': false
+                        });
+                    tablaClientes.createIndex("Nombre", "Nombre", { unique: false });
+                    tablaClientes.createIndex("Email", { unique: true });
+                    tablaClientes.createIndex("Password", { unique: true });
+                    var tablaArticulos = db.createObjectStore("Articulos", {
+                        'keyPath': 'Nombre', 'autoIncrement': false
+                    });
+
+                    var tablaPedidos = db.createObjectStore("Pedidos", {
+                        'keyPath': 'IDPedido', 'autoIncrement': false
+                    })
+                }
+            }
+        }).done(function (db, even) {
+            var articulos = [
+{
+    "Nombre": "Leche Desnatada Pascual",
+    "Cantidad": "50",
+    "Precio": "1.12"
+},
+
+{
+    "Nombre": "Quinea ECO",
+    "Cantidad": "50",
+    "Precio": "4.95"
+},
+
+{
+    "Nombre": "Masa Bri",
+    "Cantidad": "50",
+    "Precio": "2.30"
+},
+
+{
+    "Nombre": "Zanahorias",
+    "Cantidad": "42",
+    "Precio": "0.23"
+}
+            ];
+            articulos.forEach(function (el, pos, arr) {         
+                db.transaction("Articulos", "readwrite").objectStore("Articulos").add(el).onsuccess = function () {
+                alert("Articulos Introducidos");
+            } }
+
+                )
+            
+        });
+    </script>
+</body>
+</html>

@@ -1,0 +1,190 @@
+﻿<!DOCTYPE html>
+<html>
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8"/>
+    <title></title>
+	<meta charset="utf-8" />
+</head>
+<body>
+    <img src="Imagenes/headR.png" />
+    <table style="width:100%;">
+    <tr>
+        <td><p>*. - Campo Obligatorio</p></td>
+        <td>&nbsp;</td>
+        <td>&nbsp;</td>
+        </tr>
+    <tr>
+        <td>* Nombre</td>
+        <td>* Primer Apellido</td>
+        <td>* Segundo Apellido</td>
+        </tr>
+    <tr>
+        <td><input id="cajanom" type="text" /></td>
+        <td><input id="caja1ape" type="text" /></td>
+        <td><input id="caja2ape" type="text" /></td>
+        </tr>
+        <tr>
+            <td>* Tipo de Documento</td>
+            <td>* Numero de Documento</td>
+            <td>&nbsp;<td>
+        </tr>
+        <tr>
+            <td><select id="Tipo_ID">
+    <option>DNI</option></select></td>
+            <td><input id="cajaID" type="text" /></td>
+            <td><input id="InfoComercial" type="checkbox" value="NO"/>Desea recibir informacion comercial</td>
+        </tr>
+        <tr>
+            <td>* Email</td>
+            <td>* Confirmar Email</td>
+            <td>* Fecha de Nacimiento</td>
+        </tr>
+        <tr>
+            <td><input id="cajaemail" type="text" /></td>
+            <td><input id="cajaemailc" type="text" /></td>
+            <td><input id="fecha" type="date" data-format="DD-MM-YYYY" data-template="DD MM YYYY" name="date"/></td>
+        </tr>
+        <tr>
+            <td>* Contraseña</td>
+            <td>* Confirmar Contraseña</td>
+            <td>&nbsp;</td>
+        </tr>
+        <tr>
+            <td><input id="cajapassw" type="password" /></td>
+            <td><input id="cajapasswc" type="password" /></td>
+            <td>&nbsp;</td>
+        </tr>
+        <tr>
+            <td>* Direccion</td>
+            <td><input id="cajadir" type="text" readonly="readonly"/></td>
+            <td><input id="BtnAltaDir" type="button" value="Alta"/><input id="BtnModDir" type="button" value="Modificar"/><input id="BtnBorrarDir" type="button" value="Borrar"/></td>
+        </tr>
+        <tr>
+            <td>* Telefonos</td>
+            <td><input id="cajatel" type="text" readonly="readonly"/></td>
+            <td><input id="BtnAltaTel" type="button" value="Alta" /><input id="BtnModTel" type="button" value="Modificar" /><input id="BtnBorrarTel" type="button" value="Borrar" /></td>
+        </tr>
+        <tr>
+            <td><input id="condicion" type="checkbox" /> Acepto las Condiciones Generales</td>
+        </tr>
+        <tr>
+        <td>&nbsp;</td>
+        <td>&nbsp;</td>
+        <td><input id="BtnAlta" type="button" value="Alta"/></td></tr>
+    </table>
+    <img src="Imagenes/tailR.png" />
+    <script>
+        var pet = new XMLHttpRequest();
+        document.getElementById("BtnAltaTel").addEventListener("click", crearTel, false);
+        function crearTel() {
+            window.open("Telefono.html", "Alta Telefono", "width=900,height=200,menubar=no");
+        }
+        document.getElementById("BtnBorrarTel").addEventListener("click",borrarTel, false);
+        function borrarTel() {
+            document.getElementById("cajatel").value = "";
+        }
+        document.getElementById("BtnModTel").addEventListener("click", modificaTel, false);
+        function modificaTel() {
+            document.getElementById("cajatel").value = "";
+            window.open("Telefono.html", "Modifica Telefono", "width=900,height=200,menubar=no");
+        }
+        document.getElementById("BtnAltaDir").addEventListener("click", crearDir, false);
+        function crearDir() {
+            window.open("Direccion.html", "Alta Direccion", "width=900,height=400,menubar=no");
+        }
+        document.getElementById("BtnBorrarDir").addEventListener("click", borrarDir, false);
+        function borrarDir() {
+            document.getElementById("cajadir").value = "";
+        }
+        document.getElementById("BtnModDir").addEventListener("click", modificaDir, false);
+        function modificaDir() {
+            document.getElementById("cajadir").value = "";
+            window.open("Direccion.html", "Modifica Direccion", "width=900,height=400,menubar=no");
+        }
+        function validaTexto(valor) {
+            var reg = /^[a-zA-Z_áéíóúñ\s]*$/
+            if (reg.test(valor)) return true;
+            else return false;
+        }
+        function validaCorreo(valor) {
+            var reg = /^[_a-z0-9-]+(\.[_a-z0-9-]+)*@[a-z0-9-]+(\.[a-z0-9-]+)*(\.[a-z]{2,3})$/;
+            var rep = document.getElementById("cajaemailc").value;
+            if (reg.test(valor))
+                if (reg.test(rep))
+                    if (valor == rep)
+                        return true;
+            else return false;
+        }
+        function validaPassword(valor) {
+            var reg=/(?=^.{8,}$)((?=.*\d)|(?=.*\W+))(?![.\n])(?=.*[A-Z])(?=.*[a-z]).*$/  
+            var rep = document.getElementById("cajapasswc").value;
+            if (reg.test(valor))
+                if(reg.test(rep))
+                    if (valor==rep)
+                        return true;
+            else return false;
+        }
+        function validaID(valor) {
+            var reg=/^(([X-Z]{1})([-]?)(\d{7})([-]?)([A-Z]{1}))|((\d{8})([-]?)([A-Z]{1}))$/
+            if (reg.test(valor)) return true;
+            else return false;}
+
+        function validaCond() {
+            var el = document.getElementById("condicion");
+            if (el.checked)
+                return true;
+            else return false;}       
+        function validar() {
+            var error = 0;
+            var nom = document.getElementById("cajanom").value;
+            var ape1 = document.getElementById("caja1ape").value;
+            var ape2 = document.getElementById("caja2ape").value;
+            var ID = document.getElementById("cajaID").value;
+            var email = document.getElementById("cajaemail").value;
+            var pass = document.getElementById("cajapassw").value;
+            if (!validaTexto(nom)) { error = 1; alert("Nombre incorrecto"); }
+            if (!validaTexto(ape1)) { error = 1; alert("Apellido1 incorrecto") }
+            if (!validaTexto(ape2)) { error = 1; alert("Apellido2 incorrecto") }
+            if (!validaID(ID)) { error = 1; alert("ID incorrecto") }
+            if (!validaCorreo(email)) { error = 1; alert("Email incorrecto") }
+            if (!validaPassword(pass)) { error = 1; alert("Contraseña incorrecto") }
+            if (!validaCond) { error = 1; alert("Checkbox no usado") }
+            if (error == 1)
+                alert("Validaciones incorrectas");
+            else {
+               
+                    //JSON.stringfy convierte el objeto json a texto plano directamente
+                    var usuJSON = JSON.stringify({
+                        "nombre": document.getElementById("cajanom").value,
+                        "ape1": document.getElementById("caja1ape").value,
+                        "ape2": document.getElementById("caja2ape").value,
+                        "tipo_ID": document.getElementById("Tipo_ID").value,
+                        "ID": document.getElementById("cajaID").value,
+                        "info": document.getElementById("InfoComercial").value,
+                        "email": document.getElementById("cajaemail").value,
+                        "fecha": document.getElementById("fecha").value,
+                        "passw": document.getElementById("cajapassw").value,
+                        "direc": document.getElementById("cajadir").value,
+                        "telf": document.getElementById("cajatel").value
+                    });
+                    var envio = new FormData();
+                    envio.append("cliente", usuJSON);
+                    pet.onreadystatechange = function () {
+                        if (pet.readyState == 4 && pet.status == 200) {
+                            var respuesta = JSON.parse(this.responseText);
+
+                            if (respuesta.codigo == 0) {
+                                alert(respuesta.mensaje + " " + respuesta.vista);
+                            } else if (respuesta.codigo == 1) {
+                                alert(respuesta.mensaje + " " + respuesta.vista);
+                            }
+                        }
+                    }
+                    pet.open("POST", "http://localhost:65026/ServidorRegistro.aspx", true);
+                    pet.send(envio);
+                }
+            }       
+        document.getElementById("BtnAlta").addEventListener("click", validar, false);
+    </script>
+</body>
+</html>

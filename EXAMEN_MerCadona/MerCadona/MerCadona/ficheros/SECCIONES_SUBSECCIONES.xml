@@ -1,0 +1,143 @@
+<Secciones>
+  <Seccion Nombre="Frutas">
+	<SubSeccion Nombre="Citricos y Manzanas">
+		<Producto Precio="0,36">LIMA ( VENTA POR UNIDADES ), , (PESO APROXIMADO DE LA UNIDAD 100 GR)</Producto>
+		<Producto Precio="1,49">LIMON, , MALLA 1 KG</Producto>
+		<Producto Precio="0,29">LIMON ( VENTA POR UNIDADES), , (PESO APROXIMADO DE LA UNIDAD 180 GR)</Producto>
+		<Producto Precio="2,99">MANDARINA, , MALLA 3 KG</Producto>
+		<Producto Precio="0,15">MANDARINA (VENTA POR UNIDADES), , (PESO APROXIMADO DE LA UNIDAD 120 GR)</Producto>
+		<Producto Precio="0,35">MANZANA AMARILLA (VENTA POR UNIDADES), , (PESO APROXIMADO DE LA UNIDAD 250 GR</Producto>
+		<Producto Precio="0,28">MANZANA FUJI (VENTA POR UNIDADES), , (PESO APROXIMADO DE LA UNIDAD 200 GR</Producto>
+		<Producto Precio="0,30">MANZANA GRANNY ( VENTA POR UNIDADES ), , (PESO APROXIMADO DE LA UNIDAD 200 GR)</Producto>
+		<Producto Precio="0,22">MANZANA JONAGORED (VENTA POR UNIDADES), , (PESO APROXIMADO DE LA UNIDAD 200 GR)</Producto>
+		<Producto Precio="0,26">MANZANA REINETA (VENTA POR UNIDADES), , (PESO APROXIMADO DE LA UNIDAD 210 GR</Producto>
+		<Producto Precio="0,35">NARANJA ( VENTA POR UNIDADES), , (PESO APROXIMADO DE LA UNIDAD 350 GR</Producto>
+		<Producto Precio="3,99">NARANJA ***LE RECOMENDAMOS***, , MALLA 5,5 KG</Producto>
+	</SubSeccion>
+	<SubSeccion Nombre="Peras y Platanos">
+		<Producto Precio="0,22">BANANA (VENTA POR UNIDADES), , (PESO APROXIMADO DE LA UNIDAD 200 GR</Producto>
+		<Producto Precio="0,26">PERA ALEJANDRINA (VENTA POR UNIDADES), , (PESO APROXIMADO DE LA UNIDAD 200 GR)</Producto>
+		<Producto Precio="1,50">PERA CONFERENCIA ***LE RECOMENDAMOS***, , BANDEJA 1500 G APROX.(PESO APROXIMADO DE LA UNIDAD 1500 GR</Producto>
+	</SubSeccion>
+	<SubSeccion Nombre="Fruta de Temporada">
+		<Producto Precio="1,25">CALABAZA A TROZOS, , PAQUETE 500 G APROX(PESO APROXIMADO DE LA UNIDAD 510 GR</Producto>
+		<Producto Precio="0,57">CAQUI MADURO (VENTA POR UNIDADES), , (PESO APROXIMADO DE LA UNIDAD 300 GR)</Producto>
+		<Producto Precio="0,38">CAQUI PERSIMON (VENTA POR UNIDADES), , (PESO APROXIMADO DE LA UNIDAD 300 GR)</Producto>
+		<Producto Precio="4,75">CASTAÑA, VALLE DEL JERTE, MALLA 750 G</Producto>
+		<Producto Precio="0,36">GRANADA ( VENTA POR UNIDADES ), , (PESO APROXIMADO DE LA UNIDAD 200 GR)</Producto>
+		<Producto Precio="2,55">MELON PIEL SAPO MEDIA PIEZA, , 1,5 KG APROX(PESO APROXIMADO DE LA UNIDAD 1500 GR)</Producto>
+		<Producto Precio="2,69">UVA BLANCA CON SEMILLAS, , GRANEL (MINIMO 250 G)(PESO APROXIMADO DE LA UNIDAD 250 GR)</Producto>
+	</SubSeccion>
+	<SubSeccion Nombre="Fruta Tropical">
+		<Producto Precio="2,16">AGUACATE, , PAQUETE 4 U - 600 G APROX(PESO APROXIMADO DE LA UNIDAD 600 GR)</Producto>
+		<Producto Precio="0,66">AGUACATE ( VENTA POR UNIDADES ), , (PESO APROXIMADO DE LA UNIDAD 170 GR)</Producto>
+		<Producto Precio="0,90">CHIRIMOYA (VENTA POR UNIDADES), , (PESO APROXIMADO DE LA UNIDAD 450 GR)</Producto>
+		<Producto Precio="2,50">KIWI AMARILLO, , BANDEJA 500 G APROX(PESO APROXIMADO DE LA UNIDAD 500 GR)</Producto>
+		<Producto Precio="0,32">KIWI MADURO ( VENTA POR UNIDADES ), , (PESO APROXIMADO DE LA UNIDAD 110 GR)</Producto>
+		<Producto Precio="1,40">MANGO (LISTO PARA CONSUMIR), , (PESO APROXIMADO DE LA UNIDAD 400 GR)</Producto>
+		<Producto Precio="2,44">MANGO (VENTA POR UNIDADES), , (PESO APROXIMADO DE LA UNIDAD 700 GR)</Producto>
+		<Producto Precio="2,28">PAPAYA MADURA ( VENTA POR UNIDADES ), , (PESO APROXIMADO DE LA UNIDAD 800 GR)</Producto>
+		<Producto Precio="1,43">PIÑA NATURAL ( VENTA POR UNIDADES ), , (PESO APROXIMADO DE LA UNIDAD 1200 GR)</Producto>
+	</SubSeccion>
+</Seccion>
+<Seccion Nombre="Verduras">
+	<SubSeccion Nombre="Ensaladas y Verduras Preparadas">
+		<Producto Precio="1,00">ACELGAS FRESCAS, , BOLSA 300 G</Producto>
+		<Producto Precio="1,20">BROCOLI VAPOR MICROONDAS, VERDIFRESH, BOLSA 230 G</Producto>
+		<Producto Precio="1,29">CANONIGOS, , BOLSA 125 G</Producto>
+		<Producto Precio="1,00">COGOLLOS LECHUGA, , PAQUETE 3 U</Producto>
+		<Producto Precio="1,35">ENSALADA BROTES TIERNOS (LECHUGA BATAVIA, LOLLO ROSSA, ESPINACA, RUCULA), , BOLSA 100 G</Producto>
+		<Producto Precio="2,50">ENSALADA CALIFORNIA (ESCAROLA, RADICCHIO, CANONIGOS, NUEZ, PASAS, CEBOLLA, BACON, PICATOSTES, SALSA MIEL/MOSTAZA Y TENEDOR), VERDIFRESH, TARRINA 192 G</Producto>
+		<Producto Precio="2,50">ENSALADA CESAR (ESCAROLA RIZADA, CANONIGOS, RADICCIO, POLLO, QUESO PARMESANO, SALSA CESAR, PICATOSTES Y TENEDOR), VERDIFRESH, TARRINA 210 G</Producto>
+		<Producto Precio="1,99">ENSALADA DUO CANONIGOS Y RUCULA, VERDIFRESH, BOLSA 100 G</Producto>
+		<Producto Precio="0,90">ENSALADA FRESCA (RUCULA, ESPINACA, ESCAROLA, COL, L.ROSSA), , BOLSA 150 G</Producto>
+		<Producto Precio="1,25">ENSALADA GOURMET (ESCAROLA RIZADA, CANONIGO, RADICCHIO), VERDIFRESH, BOLSA 175 G</Producto>
+		<Producto Precio="2,35">ENSALADA MIL ISLAS (LECHUGA ICEBERG,MAIZ, ZANAHORIA, SALSA ROSA ,SURIMI), VERDIFRESH, TARRINA 330 G</Producto>
+		<Producto Precio="2,50">ENSALADA RANCHERA (LECHUGA ICEBERG,COL,ZANAHORIA,CEBOLLA ROJA,MAIZ,POLLO FINAS HIERBAS,SALSA MAHONESA), VERDIFRESH, TARRINA 310 G</Producto>
+	</SubSeccion>
+	<SubSeccion Nombre="Patatas,Cebollas y Ajos">
+		<Producto Precio="0,42">AJO PUERRO, , GRANEL(PESO APROXIMADO DE LA UNIDAD 190 GR)</Producto>
+		<Producto Precio="1,30">AJO TIERNO, , MANOJO 150 G</Producto>
+		<Producto Precio="1,85">CEBOLLA DULCE, , MALLA 1 KG</Producto>
+		<Producto Precio="0,89">CEBOLLA TIERNA, , PAQUETE 3 U</Producto>
+		<Producto Precio="0,79">PATATA, , GRANEL (MINIMO 1000 G)(PESO APROXIMADO DE LA UNIDAD 1000 GR)</Producto>
+		<Producto Precio="2,80">PATATA NUEVA, , MALLA 3 KG)</Producto>
+		<Producto Precio="1,99">PATATA ROJA, VAL PICONES, MALLA 2 KG</Producto>
+	</SubSeccion>
+	<SubSeccion Nombre="Setas y Champiñones">
+		<Producto Precio="4,35">CHAMPIÑON FRESCO ENTERO GRANDE, , GRANEL (VENTA MINIMO 250 G)(PESO APROXIMADO DE LA UNIDAD 250 GR)</Producto>
+		<Producto Precio="1,00">CHAMPIÑON FRESCO LAMINADO LAVADO CULTIVADO, , BANDEJA 250 G APROX(PESO APROXIMADO DE LA UNIDAD 250 GR</Producto>
+		<Producto Precio="1,11">SETA FRESCA, , BANDEJA 185 G APROX(PESO APROXIMADO DE LA UNIDAD 185 GR</Producto>
+		<Producto Precio="1,13">SETA FRESCA LAMINADA, , BANDEJA 250 G APROX(PESO APROXIMADO DE LA UNIDAD 250 GR)</Producto>
+	</SubSeccion>
+	<SubSeccion Nombre="Tomates,Pimientos,Judias y Pepinos">
+		<Producto Precio="2,99">JUDIA VERDE PLANA, , GRANEL (MINIMO 250 G)(PESO APROXIMADO DE LA UNIDAD 250 GR</Producto>
+		<Producto Precio="1,00">JUDIA VERDE PLANA 2ª CATEGORIA, , PAQUETE 500 G APROX(PESO APROXIMADO DE LA UNIDAD 500 GR</Producto>
+		<Producto Precio="0,36">PEPINO (VENTA POR UNIDADES), , (PESO APROXIMADO DE LA UNIDAD 260 GR</Producto>
+		<Producto Precio="1,29">PIMIENTO PADRON SEMIPICANTE, , PAQUETE 200</Producto>
+		<Producto Precio="0,47">PIMIENTO ROJO (VENTA POR UNIDADES), , (PESO APROXIMADO DE LA UNIDAD 300 GR)</Producto>
+		<Producto Precio="0,57">PIMIENTO VERDE (VENTA POR UNIDADES), , (PESO APROXIMADO DE LA UNIDAD 300 GR)</Producto>
+		<Producto Precio="0,10">TOMATE CANARIO (VENTA POR UNIDADES) ***LE RECOMENDAMOS***, , (PESO APROXIMADO DE LA UNIDAD 100 GR)</Producto>
+		<Producto Precio="1,89">TOMATE CANARIO, VARIOS, MALLA 2 KG</Producto>
+		<Producto Precio="0,99">TOMATE CHERRY, , BANDEJA 250 G</Producto>
+		<Producto Precio="0,13">TOMATE PERA ( VENTA POR UNIDADES ), , (PESO APROXIMADO DE LA UNIDAD 90 GR</Producto>
+		<Producto Precio="1,65">TOMATE SECO, VARIOS, PAQUETE 80 G</Producto>
+	</SubSeccion>
+</Seccion>
+<Seccion Nombre="Lacteos">
+	<SubSeccion Nombre="Leches">
+		<Producto Precio="0,84">LECHE DESNATADA ***TAMAÑO AHORRO***, HACENDADO, BRICK PACK 12 X 1 L - 12 L</Producto>
+		<Producto Precio="0,60">LECHE DESNATADA, HACENDADO, BRICK 1 L</Producto>
+		<Producto Precio="4,74">LECHE DESNATADA, LAUKI, BRICK PACK 6 X 1 L - 6 L</Producto>
+		<Producto Precio="0,79">LECHE DESNATADA, LAUKI, BRICK 1 L</Producto>
+		<Producto Precio="0,99">LECHE DESNATADA, PASCUAL, BRICK 1 L</Producto>
+		<Producto Precio="0,61">LECHE SEMIDESNATADA, HACENDADO, BRICK 1 L</Producto>
+		<Producto Precio="6,96">LECHE SEMIDESNATADA ***TAMAÑO AHORRO***, HACENDADO, BRICK PACK 12 X 1 L - 12 L</Producto>
+		<Producto Precio="0,79">LECHE SEMIDESNATADA, LAUKI, BRICK 1 L</Producto>
+		<Producto Precio="0,99">LECHE SEMIDESNATADA, PASCUAL, BRICK 1 L</Producto>
+		<Producto Precio="7,08">LECHE ENTERA ***TAMAÑO AHORRO***, HACENDADO, BRICK PACK 12 X 1 L - 12 L</Producto>
+		<Producto Precio="0,62">LECHE ENTERA, HACENDADO, BRICK 1 L</Producto>
+		<Producto Precio="4,74">LECHE ENTERA, LAUKI, BRICK PACK 6 X 1 L - 6 </Producto>
+		<Producto Precio="0,79">LECHE ENTERA, LAUKI, BRICK 1 L </Producto>
+		<Producto Precio="5,94">LECHE ENTERA, PASCUAL, BRICK PACK 6 X 1 L - 6 L</Producto>
+		<Producto Precio="0,99">LECHE ENTERA, PASCUAL, BRICK 1 L</Producto>
+	</SubSeccion>
+	<SubSeccion Nombre="Mantequillas y Margarinas">
+		<Producto Precio="1,15">MANTEQUILLA CON SAL, HACENDADO, PASTILLA 250 Gr</Producto>
+		<Producto Precio="1,15">MANTEQUILLA LIGHT, HACENDADO, TARRINA 250 G</Producto>
+		<Producto Precio="1,10">MANTEQUILLA PORCIONES, HACENDADO, PAQUETE 12 X 12,5 G -150 G</Producto>
+		<Producto Precio="1,25">MANTEQUILLA, HACENDADO, TARRINA 250 G</Producto>
+		<Producto Precio="0,95">MARGARINA ACEITE OLIVA LIGERA, HACENDADO, TARRINA 250 G</Producto>
+		<Producto Precio="1,39">MARGARINA ACEITE OLIVA, FLORA, TARRINA 250 G</Producto>
+		<Producto Precio="0,85">MARGARINA LIGERA, HACENDADO, TARRINA 500 G</Producto>
+		<Producto Precio="0,95">MARGARINA OMEGA 3, HACENDADO, TARRINA 250 G</Producto>
+		<Producto Precio="2,50">MARGARINA PROACTIV, FLORA, TARRINA 250 G</Producto>
+	</SubSeccion>
+	<SubSeccion Nombre="Yogures">
+		<Producto Precio="1,00">YOGUR NATURAL AZUCARADO (AZUCAR DE CAÑA), HACENDADO, PACK 6 X 125 G - 750 GR</Producto>
+		<Producto Precio="1,45">YOGUR NATURAL AZUCARADO (TARRO CRISTAL), HACENDADO, PACK 4 X 130 G - 520 G</Producto>
+		<Producto Precio="1,55">YOGUR NATURAL AZUCARADO SIN LACTOSA, KAIKU, PACK 4 X 125 G - 500 G</Producto>
+		<Producto Precio="1,00">YOGUR NATURAL AZUCARADO, DANONE, PACK 4 X 125 G - 500 G</Producto>
+		<Producto Precio="2,65">YOGUR NATURAL AZUCARADO, DANONE, PACK 12 X 125 G - 1500 G</Producto>
+		<Producto Precio="1,47">YOGUR NATURAL AZUCARADO, HACENDADO, PACK 12 X 125 G - 1,5 KG</Producto>
+		<Producto Precio="1,05">YOGUR FRESA PLATANO, HACENDADO, PACK 8 X 125 G - 1 KG</Producto>
+		<Producto Precio="1,00">YOGUR FRESA, DANONE, PACK 4 X 125 G - 500 G</Producto>
+		<Producto Precio="1,65">YOGUR GRIEGO STRACCIATELLA, HACENDADO, PACK 6 X 125 G - 750 G</Producto>
+		<Producto Precio="1,00">YOGUR LIMON, DANONE, PACK 4 X 125 G - 500 G</Producto>
+		<Producto Precio="1,00">YOGUR MACEDONIA, DANONE, PACK 4 X 125 G - 500 G</Producto>
+		<Producto Precio="1,00">YOGUR NATURAL CON FRUTAS DEL BOSQUE (BICAPA), HACENDADO, PACK 2 X 150 G - 300 G</Producto>
+		<Producto Precio="2,00">YOGUR SABOR (2 GALLETA,2 VAINILLA,2 FRESA,2 PLATANO,2 FRAMBUESA,2 COCO,2 LIMON,2 PIÑA), HACENDADO, PACK 16 X 125 G - 2 KG</Producto>
+	</SubSeccion>
+	<SubSeccion Nombre="Postres Lacteos">
+		<Producto Precio="1,20">ARROZ CON LECHE ***NOVEDAD***, HACENDADO, U 450 G</Producto>
+		<Producto Precio="1,40">POSTRE LACTEO CREMOSO CHOCOLATE, HACENDADO, U 500 G</Producto>
+		<Producto Precio="0,71">POSTRE MOUSSE CHOCOLATE (DELICIOSAMENTE LIGERO), HACENDADO, PACK 4 X 62 G - 248 G</Producto>
+		<Producto Precio="1,90">CUAJADA OVEJA, GOSHUA, TARRINA 2 U - 293 G</Producto>
+		<Producto Precio="0,95">CUAJADA, DANONE, PACK 2 X 135 G - 270 G</Producto>
+		<Producto Precio="1,96">CREMA CATALANA, HACENDADO, PACK 4 X 100 G - 400 G</Producto>
+		<Producto Precio="1,00">CREMA CHOCOLATE Y VAINILLA, HACENDADO, PACK 4 X 130 G - 520 G</Producto>
+		<Producto Precio="0,70">FLAN VAINILLA, HACENDADO, PACK 6 X 100 G - 600 G</Producto>
+		<Producto Precio="2,00">FLANES SURTIDOS (2 HUEVO, 1 CAFE, 1 DULCE DE LECHE, 1 COCO, 1 QUESO), REINA, PACK 6 X 100 G - 600 G</Producto>
+	</SubSeccion>
+  </Seccion>
+</Secciones>

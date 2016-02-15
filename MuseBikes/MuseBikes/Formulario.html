@@ -1,0 +1,145 @@
+﻿<!DOCTYPE html>
+<html>
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8"/>
+    <title>MuseBikes</title>
+	<meta charset="utf-8" />
+</head>
+<body>
+    <label>Nombre:</label>
+    <input type="text" id="nombre" /><br /><br />
+    <label>Apellidos:</label>
+    <input type="text" id="apellido" />
+    <br/><br />
+    <label>E-mail:</label>
+    <input type="text" id="email" />
+    <br/><br />
+    <label>Telefono:</label>
+    <input type="text" id="telefono" />
+    <br/><br />
+    <label>Modelo de tu interes:</label>
+    <select id="modelos">
+        <option value="A" selected="selected">Modelo A</option>
+        <option value="B">Modelo B</option>
+        <option value="C">Modelo C</option>
+    </select>
+    <br/><br />
+    <label>Acabado de tu interes:</label>
+    <select id="acabado">
+        <option value="1" selected="selected">Acabado 1</option>
+        <option value="2">Acabado 2</option>
+        <option value="3">Acabado 3</option>
+    </select>
+    <br/><br/>
+    <label>Cometarios, preguntas...</label>
+    <textarea id="textarea" cols="40" rows="5">Deja aqui tu comentario que alguien lo leera... jajajajajaja</textarea>
+    <br/><br />
+    <label id="capcha"></label>
+    <input type="text" id="capcha" value="" />
+    <br/><br />
+    <input type="submit" id="enviar" value="Enviar" />
+    <input type="submit" id="reset" value="Resetear Formulario" />
+    <script>
+
+            var elemento, textBox, cajasValidar = new Array(), cuantasValidar = 0;
+
+            function cajaDeTexto(){
+                this.validado= false,
+                this.contenido= "";
+            }
+
+            //-- Metodo que genera un captcha de longitud N --------------
+
+            function generarCapcha() {
+            	var chars = "0123456789ABCDEFGHIJKLMNOPQRSTUVWXTZabcdefghiklmnopqrstuvwxyz";
+            	var string_length = 5;
+            	var randomstring = "";
+            	for (var i=0; i<string_length; i++) {
+            		var rnum = Math.floor(Math.random() * chars.length);
+            		randomstring += chars.substring(rnum,rnum+1);
+            	}
+            	return randomstring;
+            }
+
+            //-- funcion para validar una caja de texto usando una expresion regular -------------
+
+            cajaDeTexto.prototype.validar = function(expresion){
+                if( textBox.contenido == "" ){
+                     return false;
+                }else return RegExp(expresion).test(textBox.contenido);
+            };
+
+            //-- Funcion para saber que expresion regular usar -------------
+
+            cajaDeTexto.prototype.cual = function(id){
+                switch(id){
+                    case "nombre_Tx": return "(^[a-z]*|^[A-Z]*)";
+                    case "apellido_Tx": return "(^[a-z]*|^[A-Z]*)";
+                    case "email_Tx" : return "^(?=[A-Z0-9][A-Z0-9._%+-]{5,253}+$)[A-Z0-9._%+-]{1,64(?:(?=[A-Z0-9-]{1,63}+\.)[A-Z0-9]++(?:-[A-Z0-9]++)*+\.){1,8}+[A-Z]{2,63}+$";
+                    case "telefono_Tx" : return "^[9|6|7][0-9]{8}$";
+                }
+            };
+
+            //-- Funcion para validad Captcha ---------------
+
+            cajaDeTexto.prototype.validarCapcha = function(){
+                return document.getElementById("captcha").childNodes[0].value == textBox.contenido;
+            };
+
+             //-- Coloco el texto en el metodo captcha --------------
+
+                elemento = document.getElementById("capcha");
+                elemento.appendChild(document.createTextNode(generarCapcha()));
+
+            //-- Creo el evento click en el boton enviar para checkear todos los validadores ---------------
+
+            document.getElementById("enviar").addEventListener("click", function(){
+                var todoCorrecto = true;
+
+                //-- Recorro y mapeo cada caja de texto con la funcion cajaDeTexto --------------
+
+                Array.prototype.slice.call(document.getElementsByTagName("input"),0).forEach(function(el,pos,ar){
+                     if (el.getAttribute("type") == "text" && el.getAttribute("id") != "capcha_Tx"){
+                        textBox = new cajaDeTexto();
+                        textBox.contenido = el.value;
+                        var id = el.getAttribute("id");
+                        var expr = textBox.cual(id);
+                        textBox.validado = textBox.validar(expr);
+                        cajasValidar[cuantasValidar] = textBox;
+                        cuantasValidar++;
+                    }
+                });
+
+                textBox = new cajaDeTexto();
+                textBox.contenido = elemento.childNodes[0].value;
+                textBox.validado = textBox.validarCapcha();
+                cajasValidar[cuantasValidar] = textBox;
+
+                for (var i = 0; i < cajasValidar.length; i++) {
+                    if ( !cajasValidar[i].validado ){
+                        cajasValidar[i].contenido = "";
+                        todoCorrecto = false;
+                    }
+                }
+
+                if( todoCorrecto && cajasValidar[cajasValidar.length-1].validado ){
+                    document.getElementById("textarea").value = "Esta todo perfecto";
+                    window.alert("Esta todo perfecto");
+                }else
+                 window.alert("Esto no furula");
+            },false);
+
+            //-- Creo funcion para borrar todas las cajas de texto y lo asigno al boton reset --------------------
+
+            function borrarCajas(){
+                Array.prototype.slice.call(document.getElementsByTagName("input"),0).forEach(function(el,pos,ar){
+                     if (el.getAttribute("type") == "text"){
+                        el.value = "";
+                    }
+                });
+            }
+            document.getElementById("reset").addEventListener("click", borrarCajas, false);
+    </script>
+
+</body>
+</html>

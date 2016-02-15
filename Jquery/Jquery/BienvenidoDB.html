@@ -1,0 +1,112 @@
+﻿<!DOCTYPE html>
+<html>
+<head>
+    <title></title>
+	<meta charset="utf-8" />
+    <script src="IndexedDBShim.min.js"></script>
+    <script src="jquery-1.12.0.min.js"></script>
+    <script src="jquery.indexeddb.js"></script>
+</head>
+<body>
+    <div id="head"><h1>BIENVENIDO</h1></div>
+    <div id="datos">
+        <table id="pedidos" border="1">
+            <tr>
+                <th>Articulos</th>
+                <th>Precio</th>
+                <th>Unidades Disponibles</th>
+                <th></th>
+            </tr>
+        </table>
+        <input type="button" id="btnVer" class="btnVer" name="btnVer" value="Ver" />
+        <input type="button" id="btnrec" class="btnrec" name="btnrec" value="Recuperar Pedidos Anteriores"/>
+    </div>
+    <script>
+        var log = sessionStorage.getItem("login");
+        var usu = JSON.parse(log);
+        
+        if (usu != undefined) {
+            $("#head").append(usu.Email);
+        }
+        </script>
+    <script>
+        var articulos = [];
+        $(".btnVer").click(function (ev) {
+            var id = sessionStorage.getItem("IDPedido");
+            var carrito = {
+                "IDPedido": id,
+                "Articulos":articulos
+            };
+            $.indexedDB("DataBase").objectStore("Pedidos").add(carrito).done(function (ev) {
+                alert("Pedido insertado correctamente");
+            }).fail(function (ev) {
+                alert("Error")
+            });
+        })
+        $(".btnrec").click(function (ev) {
+            var nif;
+            sessionStorage.getItem("IDPedido").toString().split("$", 2).forEach(function (el, pos, arg) {
+                pos == 1 ? nif = el : nif = "000000"
+            });
+            ev.preventDefault();
+            var json = { "NIF": nif }
+            $.ajax({
+                type: 'POST',
+                url: '/Servidor.asmx/respuesta',
+                data: nif,
+                contentType: 'application/json; utf-8',
+                dataType: 'json',
+                success: function (respuesta) {
+                    var resp = JSON.parse(respuesta.d);
+                    window.alert(respuesta.d);
+                },
+                error: function (jqXHR, textStatus, errorThrown) {
+                    window.alert("error");
+                }
+            });
+        })
+        $("#pedidos").on('click', '.btnComprar', function (ev) {
+            var articulo = "";
+            var articulo = ev.target.id;
+            $.indexedDB("DataBase").objectStore("Articulos").get(articulo).done(function (result,event) {
+                if (result == undefined)
+                    alert("Producto no existe");
+                else if(result.Nombre==articulo ) {
+                    articulos.push(result);
+                }
+            })
+        })
+        $.indexedDB("DataBase").done(function (db,ev) {
+            cargar("Articulos");
+            var log = sessionStorage.getItem("login");
+            var usu = JSON.parse(log).Email;
+            $.indexedDB("DataBase").objectStore("Clientes").index("Email").each(function (item) {
+                if (item.key == usu) {
+                    var usuario = item.value;
+                    var hoy = fecha();
+                    var id = hoy + "$" + usuario.NIF;
+                    sessionStorage.setItem("IDPedido", id);
+                }
+            })
+        })
+        function cargar(tabla) {
+            $.indexedDB("DataBase").objectStore(tabla).each(function (item) {
+                dibujar(tabla,item.key,item.value)
+            })
+        }
+        function dibujar(tabla, key, value) {
+            $("#pedidos").append("<tr><td>"+key+"</td><td>"+value.Precio+"</td><td>"+value.Cantidad+
+                "</td><td><input type='button' id='"+key+"' class='btnComprar' value='Comprar'/></tr>")
+        }
+        function fecha() {
+            var hoy = new Date();
+            var dia = hoy.getDate();
+            var mes = hoy.getMonth() + 1;
+            var anyo = hoy.getFullYear();
+             hoy = dia + '' + mes + '' + anyo;
+             return hoy;
+        }
+       
+    </script>    
+</body>
+</html>

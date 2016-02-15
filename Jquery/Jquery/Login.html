@@ -1,0 +1,31 @@
+﻿<!DOCTYPE html>
+<html>
+<head>
+    <title></title>
+	<meta charset="utf-8" />
+    <script src="jquery-1.12.0.min.js"></script>
+</head>
+<body>
+<script>
+    $("body").append("Login <input type='text' id='login'/>");
+    $("body").append("<br/>");
+    $("body").append("Password <input type='password' id='password'/>");
+    $("body").append("<br/>");
+    $("body").append("<input id='inicio' type='button' value='INICIO'/>");
+    $("#inicio").click(function () {
+       // localStorage.setItem("nombre", $("#login").val());
+        //localStorage.setItem("contraseña", $("#password").val());
+         window.addEventListener("storage", function (ev) { }
+    );
+         //alert(localStorage.getItem("nombre") + "," + localStorage.getItem("contraseña"));
+        // Ahora hacerlo con objeto JSON
+         var json = {"nombre" : $("#login").val(),
+                                    "contraseña": $("#password").val()};
+         localStorage.setItem("usuario", JSON.stringify(json));
+         alert(localStorage.getItem("usuario"));
+    });
+    
+</script>
+</body>
+</html>
+

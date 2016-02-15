@@ -1,0 +1,6 @@
+C:\Users\Gonzalo\Documents\Visual Studio 2015\Projects\EXAMEN_MerCadona\MerCadona\MerCadona\obj\Debug\MerCadona.csprojResolveAssemblyReference.cache
+C:\Users\Gonzalo\Documents\Visual Studio 2015\Projects\EXAMEN_MerCadona\MerCadona\MerCadona\bin\MerCadona.dll.config
+C:\Users\Gonzalo\Documents\Visual Studio 2015\Projects\EXAMEN_MerCadona\MerCadona\MerCadona\bin\MerCadona.dll
+C:\Users\Gonzalo\Documents\Visual Studio 2015\Projects\EXAMEN_MerCadona\MerCadona\MerCadona\bin\MerCadona.pdb
+C:\Users\Gonzalo\Documents\Visual Studio 2015\Projects\EXAMEN_MerCadona\MerCadona\MerCadona\obj\Debug\MerCadona.dll
+C:\Users\Gonzalo\Documents\Visual Studio 2015\Projects\EXAMEN_MerCadona\MerCadona\MerCadona\obj\Debug\MerCadona.pdb

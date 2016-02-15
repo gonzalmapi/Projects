@@ -1,0 +1,1216 @@
+﻿<Provincias>
+<Provincia Nombre="MADRID">
+<Localidad Nombre="ALCALA DE HENARES">
+	<Supermercado>
+		<Direccion>c/ juan ramon jimenez s/n</Direccion>
+		<CP>28801</CP>
+		<Telefono>918781002</Telefono>
+		<Horario>09:00 - 21:30</Horario>
+		<Parking>si</Parking>
+	</Supermercado>
+	<Supermercado>
+		<Direccion>c/ rusia - c/ reino unido</Direccion>
+		<CP>28802</CP>
+		<Telefono>918796275</Telefono>
+		<Horario>09:00 - 21:30</Horario>
+		<Parking>si</Parking>
+	</Supermercado>
+	<Supermercado>
+		<Direccion>c/ via complutense s/n</Direccion>
+		<CP>28804</CP>
+		<Telefono>918812865</Telefono>
+		<Horario>09:00 - 21:30</Horario>
+		<Parking>si</Parking>
+	</Supermercado>
+	<Supermercado>
+		<Direccion>c/federico garcia lorca s/n</Direccion>
+		<CP>28805</CP>
+		<Telefono>912650005</Telefono>
+		<Horario>09:00 - 21:30</Horario>
+		<Parking>si</Parking>
+	</Supermercado>
+	<Supermercado>
+		<Direccion>avda miguel de unamuno,s/n</Direccion>
+		<CP>28806</CP>
+		<Telefono>918883496</Telefono>
+		<Horario>10:00 - 22:00</Horario>
+		<Parking>si</Parking>
+	</Supermercado>
+	<Supermercado>
+		<Direccion>c/ gonzalo torrente ballester</Direccion>
+		<CP>28806</CP>
+		<Telefono>918021530</Telefono>
+		<Horario>09:00 - 21:30</Horario>
+		<Parking>si</Parking>
+	</Supermercado>
+</Localidad>
+<Localidad Nombre="ALCORCÓN">
+	<Supermercado>
+		<Direccion>avda. los cantos s/n esq. c/ mayor</Direccion>
+		<CP>28922</CP>
+		<Telefono>916411711</Telefono>
+		<Horario>09:00 - 21:30</Horario>
+		<Parking>si</Parking>
+	</Supermercado>
+	<Supermercado>
+		<Direccion>c/ mediterráneo, 7</Direccion>
+		<CP>28922</CP>
+		<Telefono>917165499</Telefono>
+		<Horario>09:00 - 21:30</Horario>
+		<Parking>si</Parking>
+	</Supermercado>
+	<Supermercado>
+		<Direccion>c/ roma c/ bruselas (c.c. parque oeste)</Direccion>
+		<CP>28922</CP>
+		<Telefono>916891127</Telefono>
+		<Horario>09:00 - 22:00</Horario>
+		<Parking>si</Parking>
+	</Supermercado>
+	<Supermercado>
+		<Direccion>avda. de america, 7 (cc tres aguas)</Direccion>
+		<CP>28922</CP>
+		<Telefono>916427907</Telefono>
+		<Horario>10:00 - 22:00</Horario>
+		<Parking>si</Parking>
+	</Supermercado>
+	<Supermercado>
+		<Direccion>c/ las fraguas, 5</Direccion>
+		<CP>28923</CP>
+		<Telefono>916448824</Telefono>
+		<Horario>09:00 - 21:30</Horario>
+		<Parking>si</Parking>
+	</Supermercado>
+</Localidad>
+<Localidad Nombre="ARANJUEZ">
+	<Supermercado>
+		<Direccion>c/almansa, 17 c/ de lucas jordan</Direccion>
+		<CP>28300</CP>
+		<Telefono>918922914</Telefono>
+		<Horario>09:00 - 21:30</Horario>
+		<Parking>si</Parking>
+	</Supermercado>
+	<Supermercado>
+		<Direccion>c/ patrimonio mundial, 9</Direccion>
+		<CP>28922</CP>
+		<Telefono>918927570</Telefono>
+		<Horario>09:00 - 21:30</Horario>
+		<Parking>si</Parking>
+	</Supermercado>	
+</Localidad>	
+<Localidad Nombre="ARGANDA DEL REY">
+	<Supermercado>
+		<Direccion>avda. paris esq. c/ lisboa</Direccion>
+		<CP>28500</CP>
+		<Telefono>918790862</Telefono>
+		<Horario>09:00 - 21:30</Horario>
+		<Parking>si</Parking>
+	</Supermercado>
+	<Supermercado>
+		<Direccion>avda de madrid, 100 - c/ abedul s/n9</Direccion>
+		<CP>28922</CP>
+		<Telefono>918729071</Telefono>
+		<Horario>09:00 - 21:30</Horario>
+		<Parking>si</Parking>
+	</Supermercado>	
+</Localidad>
+<Localidad Nombre="ARROYOMOLINOS">
+	<Supermercado>
+		<Direccion>c/ cullera esq c/ alicante</Direccion>
+		<CP>28939</CP>
+		<Telefono>917165500</Telefono>
+		<Horario>09:00 - 21:30</Horario>
+		<Parking>si</Parking>
+	</Supermercado>
+	<Supermercado>
+		<Direccion>c/ francia s/n</Direccion>
+		<CP>28939</CP>
+		<Telefono>916013171</Telefono>
+		<Horario>09:00 - 21:30</Horario>
+		<Parking>si</Parking>
+	</Supermercado>	
+</Localidad>	
+<Localidad Nombre="BOADILLA DEL MONTE">
+	<Supermercado>
+		<Direccion>avda. del infante don luis, 20</Direccion>
+		<CP>28660</CP>
+		<Telefono>916337166</Telefono>
+		<Horario>09:00 - 21:30</Horario>
+		<Parking>si</Parking>
+	</Supermercado>
+</Localidad>	
+<Localidad Nombre="BRUNETE">
+	<Supermercado>
+		<Direccion>pº real de san sebastian c/ rio alberche</Direccion>
+		<CP>28690</CP>
+		<Telefono>918163451</Telefono>
+		<Horario>09:00 - 21:30</Horario>
+		<Parking>si</Parking>
+	</Supermercado>
+</Localidad>
+<Localidad Nombre="CIEMPOZUELOS">
+	<Supermercado>
+		<Direccion>avda. del consuelo, 25</Direccion>
+		<CP>28350</CP>
+		<Telefono>918933348</Telefono>
+		<Horario>09:00 - 21:30</Horario>
+		<Parking>si</Parking>
+	</Supermercado>
+</Localidad>
+<Localidad Nombre="COLLADO VILLALBA">
+	<Supermercado>
+		<Direccion>c/ el concejo s/n c/ san blas</Direccion>
+		<CP>28400</CP>
+		<Telefono>918515006</Telefono>
+		<Horario>09:00 - 21:30</Horario>
+		<Parking>si</Parking>
+	</Supermercado>
+	<Supermercado>
+		<Direccion>avda juan carlos I s/n</Direccion>
+		<CP>28400</CP>
+		<Telefono>918501348</Telefono>
+		<Horario>09:00 - 21:30</Horario>
+		<Parking>si</Parking>
+	</Supermercado>
+</Localidad>
+<Localidad Nombre="COLMENAR VIEJO">
+	<Supermercado>
+		<Direccion>avda. de la libertad, 91</Direccion>
+		<CP>28770</CP>
+		<Telefono>918455426</Telefono>
+		<Horario>09:00 - 21:30</Horario>
+		<Parking>si</Parking>
+	</Supermercado>
+	<Supermercado>
+		<Direccion>c/ del tinte, 38</Direccion>
+		<CP>28770</CP>
+		<Telefono>918461184</Telefono>
+		<Horario>09:00 - 21:30</Horario>
+		<Parking>si</Parking>
+	</Supermercado>
+</Localidad>
+<Localidad Nombre="COLMENAREJO">
+	<Supermercado>
+		<Direccion>carretera de galapagar, 32</Direccion>
+		<CP>28270</CP>
+		<Telefono>918404830</Telefono>
+		<Horario>09:00 - 21:30</Horario>
+		<Parking>si</Parking>
+	</Supermercado>
+</Localidad>
+<Localidad Nombre="COSLADA">
+	<Supermercado>
+		<Direccion>avda. de españa, 116</Direccion>
+		<CP>28820</CP>
+		<Telefono>916692926</Telefono>
+		<Horario>09:00 - 21:30</Horario>
+		<Parking>si</Parking>
+	</Supermercado>
+	<Supermercado>
+		<Direccion>c/ mar mediterraneo, 4</Direccion>
+		<CP>28821</CP>
+		<Telefono>913685461</Telefono>
+		<Horario>09:00 - 21:30</Horario>
+		<Parking>si</Parking>
+	</Supermercado>
+</Localidad>
+<Localidad Nombre="DAGANZO DE ARRIBA">
+	<Supermercado>
+		<Direccion>ctra de ajalvir - c/ ramon y cajal</Direccion>
+		<CP>28814</CP>
+		<Telefono>918848613</Telefono>
+		<Horario>09:00 - 21:30</Horario>
+		<Parking>si</Parking>
+	</Supermercado>
+</Localidad>
+<Localidad Nombre="EL ALAMO">
+	<Supermercado>
+		<Direccion>c/ libertad s/n</Direccion>
+		<CP>28607</CP>
+		<Telefono>918121791</Telefono>
+		<Horario>09:00 - 21:30</Horario>
+		<Parking>si</Parking>
+	</Supermercado>
+</Localidad>
+<Localidad Nombre="EL ESCORIAL">
+	<Supermercado>
+		<Direccion>c/ principal, 90 (urb.los arroyos)</Direccion>
+		<CP>28280</CP>
+		<Telefono>918533816</Telefono>
+		<Horario>09:00 - 21:30</Horario>
+		<Parking>si</Parking>
+	</Supermercado>
+</Localidad>	
+<Localidad Nombre="FUENLABRADA">
+	<Supermercado>
+		<Direccion>avda. portugal, 37</Direccion>
+		<CP>28941</CP>
+		<Telefono>916081979</Telefono>
+		<Horario>09:00 - 21:30</Horario>
+		<Parking>si</Parking>
+	</Supermercado>
+	<Supermercado>
+		<Direccion>c/ ramon y cajal, nº 6</Direccion>
+		<CP>28941</CP>
+		<Telefono>914984813</Telefono>
+		<Horario>09:00 - 21:30</Horario>
+		<Parking>si</Parking>
+	</Supermercado>	<Supermercado>
+		<Direccion>c/ mostoles 81</Direccion>
+		<CP>28942</CP>
+		<Telefono>916491911</Telefono>
+		<Horario>09:00 - 21:30</Horario>
+		<Parking>si</Parking>
+	</Supermercado>	<Supermercado>
+		<Direccion>c/ gazaperas, 22 cc el arroyo</Direccion>
+		<CP>28944</CP>
+		<Telefono>914921313</Telefono>
+		<Horario>09:00 - 21:30</Horario>
+		<Parking>si</Parking>
+	</Supermercado>	<Supermercado>
+		<Direccion>c/ lima, 3</Direccion>
+		<CP>28945</CP>
+		<Telefono>916152258</Telefono>
+		<Horario>09:00 - 21:30</Horario>
+		<Parking>no</Parking>
+	</Supermercado>	<Supermercado>
+		<Direccion>c/ brasil, 18 </Direccion>
+		<CP>28946</CP>
+		<Telefono>917577561</Telefono>
+		<Horario>09:00 - 21:30</Horario>
+		<Parking>si</Parking>
+	</Supermercado>
+</Localidad>
+<Localidad Nombre="FUENTE EL SAZ DE JARAMA">
+	<Supermercado>
+		<Direccion>ctra.casar de talamanca - c/ torrelaguna)</Direccion>
+		<CP>28140</CP>
+		<Telefono>916203796</Telefono>
+		<Horario>09:00 - 21:30</Horario>
+		<Parking>si</Parking>
+	</Supermercado>
+</Localidad>	
+<Localidad Nombre="GALAPAGAR">
+	<Supermercado>
+		<Direccion>ctra de galapagar a la navata s/n</Direccion>
+		<CP>28260</CP>
+		<Telefono>918581538</Telefono>
+		<Horario>09:00 - 21:30</Horario>
+		<Parking>si</Parking>
+	</Supermercado>
+</Localidad>
+<Localidad Nombre="GRIÑÓN">
+	<Supermercado>
+		<Direccion>c/ de los labradores s/n </Direccion>
+		<CP>28971</CP>
+		<Telefono>918149614</Telefono>
+		<Horario>09:00 - 21:30</Horario>
+		<Parking>si</Parking>
+	</Supermercado>
+</Localidad>	
+<Localidad Nombre="GETAFE">
+	<Supermercado>
+		<Direccion>c/ escaño, 31 c/ jose barrilero, 4</Direccion>
+		<CP>28901</CP>
+		<Telefono>916815774</Telefono>
+		<Horario>09:00 - 21:30</Horario>
+		<Parking>si</Parking>
+	</Supermercado>
+	<Supermercado>
+		<Direccion>c/ alcalde angel arroyo s/n</Direccion>
+		<CP>28903</CP>
+		<Telefono>916963820</Telefono>
+		<Horario>09:00 - 21:30</Horario>
+		<Parking>si</Parking>
+	</Supermercado>	<Supermercado>
+		<Direccion>c/ islas cies, 1-3 (cc capital m-50)</Direccion>
+		<CP>28905</CP>
+		<Telefono>914911852</Telefono>
+		<Horario>09:00 - 21:30</Horario>
+		<Parking>si</Parking>
+	</Supermercado>	<Supermercado>
+		<Direccion>av. sancho panza/av.ingenioso hidalgo</Direccion>
+		<CP>28906</CP>
+		<Telefono>913578165</Telefono>
+		<Horario>09:00 - 21:30</Horario>
+		<Parking>si</Parking>
+	</Supermercado>
+</Localidad>
+<Localidad Nombre="HUMANES DE MADRID">
+	<Supermercado>
+		<Direccion>ctra humanes - fuenlabrada s/n</Direccion>
+		<CP>28970</CP>
+		<Telefono>810510879</Telefono>
+		<Horario>09:00 - 21:30</Horario>
+		<Parking>si</Parking>
+	</Supermercado>
+</Localidad>		
+<Localidad Nombre="LAS ROZAS DE MADRID">
+	<Supermercado>
+		<Direccion>c/ jose echegaray c/ jacinto benavente</Direccion>
+		<CP>28231</CP>
+		<Telefono>917165504</Telefono>
+		<Horario>09:00 - 21:30</Horario>
+		<Parking>si</Parking>
+	</Supermercado>
+	<Supermercado>
+		<Direccion>c/ budapest s/n (cc europolis)</Direccion>
+		<CP>28231</CP>
+		<Telefono>917105195</Telefono>
+		<Horario>09:00 - 21:30</Horario>
+		<Parking>si</Parking>
+	</Supermercado>
+</Localidad>		
+<Localidad Nombre="LEGANÉS">
+	<Supermercado>
+		<Direccion>c/ el charco, 44 y 46</Direccion>
+		<CP>28911</CP>
+		<Telefono>916894105</Telefono>
+		<Horario>09:00 - 21:30</Horario>
+		<Parking>no</Parking>
+	</Supermercado>
+	<Supermercado>
+		<Direccion>c/ ramon y cajal, 27</Direccion>
+		<CP>28914</CP>
+		<Telefono>915687557</Telefono>
+		<Horario>09:00 - 21:30</Horario>
+		<Parking>si</Parking>
+	</Supermercado>	<Supermercado>
+		<Direccion>c/ trigo, 2 y 4</Direccion>
+		<CP>28914</CP>
+		<Telefono>915687784</Telefono>
+		<Horario>09:00 - 21:30</Horario>
+		<Parking>si</Parking>
+	</Supermercado>	<Supermercado>
+		<Direccion>c/ humanes de madrid nº 4</Direccion>
+		<CP>28914</CP>
+		<Telefono>916486550</Telefono>
+		<Horario>09:00 - 21:30</Horario>
+		<Parking>si</Parking>
+	</Supermercado>
+</Localidad>
+<Localidad Nombre="MADRID">
+	<Supermercado>
+		<Direccion>c/ villa de arbancón s/n</Direccion>
+		<CP>28005</CP>
+		<Telefono>915308007</Telefono>
+		<Horario>09:00 - 21:30</Horario>
+		<Parking>si</Parking>
+	</Supermercado>
+	<Supermercado>
+		<Direccion>paseo yeserias, 3 - 5 y 7</Direccion>
+		<CP>28005</CP>
+		<Telefono>914740222</Telefono>
+		<Horario>09:00 - 21:30</Horario>
+		<Parking>si</Parking>
+	</Supermercado>
+	<Supermercado>
+		<Direccion>c/ serrano,61</Direccion>
+		<CP>28006</CP>
+		<Telefono>917164862</Telefono>
+		<Horario>09:00 - 21:30</Horario>
+		<Parking>no</Parking>
+	</Supermercado>
+	<Supermercado>
+		<Direccion>plaza reyes magos s/n</Direccion>
+		<CP>28007</CP>
+		<Telefono>915515240</Telefono>
+		<Horario>09:00 - 21:30</Horario>
+		<Parking>no</Parking>
+	</Supermercado>
+	<Supermercado>
+		<Direccion>c/ adelfas, 38-40 - c/ pajaritos, 45-47</Direccion>
+		<CP>28007</CP>
+		<Telefono>913577718</Telefono>
+		<Horario>09:00 - 21:30</Horario>
+		<Parking>si</Parking>
+	</Supermercado>
+	<Supermercado>
+		<Direccion>c/ olivillo s/n</Direccion>
+		<CP>28011</CP>
+		<Telefono>913685291</Telefono>
+		<Horario>09:00 - 21:30</Horario>
+		<Parking>si</Parking>
+	</Supermercado>
+	<Supermercado>
+		<Direccion>c/ ronda de atocha 26,28,30</Direccion>
+		<CP>28012</CP>
+		<Telefono>917164871</Telefono>
+		<Horario>09:00 - 21:30</Horario>
+		<Parking>no</Parking>
+	</Supermercado>
+	<Supermercado>
+		<Direccion>c/ francisco de madariaga, 3</Direccion>
+		<CP>28017</CP>
+		<Telefono>917165505</Telefono>
+		<Horario>09:00 - 21:30</Horario>
+		<Parking>si</Parking>
+	</Supermercado>
+	<Supermercado>
+		<Direccion>avda. pablo neruda, 91</Direccion>
+		<CP>28018</CP>
+		<Telefono>913685291</Telefono>
+		<Horario>09:00 - 21:30</Horario>
+		<Parking>si</Parking>
+	</Supermercado>
+	<Supermercado>
+		<Direccion>camino viejo de leganes, 58</Direccion>
+		<CP>28019</CP>
+		<Telefono>914727755</Telefono>
+		<Horario>09:00 - 21:30</Horario>
+		<Parking>no</Parking>
+	</Supermercado>
+	<Supermercado>
+		<Direccion>c/ bravo murillo, 327</Direccion>
+		<CP>28020</CP>
+		<Telefono>915710836</Telefono>
+		<Horario>09:00 - 21:30</Horario>
+		<Parking>no</Parking>
+	</Supermercado>
+	<Supermercado>
+		<Direccion>c/ san enrique , 16 c/ lerida</Direccion>
+		<CP>28020</CP>
+		<Telefono>915719885</Telefono>
+		<Horario>09:00 - 21:30</Horario>
+		<Parking>si</Parking>
+	</Supermercado>
+	<Supermercado>
+		<Direccion>c/ hulla, 21</Direccion>
+		<CP>28021</CP>
+		<Telefono>917164874</Telefono>
+		<Horario>09:00 - 21:30</Horario>
+		<Parking>si</Parking>
+	</Supermercado>	
+	<Supermercado>
+		<Direccion>c/ alcocer, 39</Direccion>
+		<CP>28021</CP>
+		<Telefono>917165389</Telefono>
+		<Horario>09:00 - 21:30</Horario>
+		<Parking>si</Parking>
+	</Supermercado>	
+	<Supermercado>
+		<Direccion>avda. augustobriga c/v clara schuman</Direccion>
+		<CP>28021</CP>
+		<Telefono>917167768</Telefono>
+		<Horario>09:00 - 21:30</Horario>
+		<Parking>si</Parking>
+	</Supermercado>	
+	<Supermercado>
+		<Direccion>c/ san dalmacio, 2</Direccion>
+		<CP>28021</CP>
+		<Telefono>917978685</Telefono>
+		<Horario>09:00 - 21:30</Horario>
+		<Parking>si</Parking>
+	</Supermercado>	
+	<Supermercado>
+		<Direccion>avda. real de pinto, 91</Direccion>
+		<CP>28021</CP>
+		<Telefono>913685290</Telefono>
+		<Horario>09:00 - 21:30</Horario>
+		<Parking>si</Parking>
+	</Supermercado>	
+	<Supermercado>
+		<Direccion>c/ butrón, 31</Direccion>
+		<CP>28022</CP>
+		<Telefono>917754841</Telefono>
+		<Horario>09:00 - 21:30</Horario>
+		<Parking>si</Parking>
+	</Supermercado>	
+	<Supermercado>
+		<Direccion>glorieta eisenhower</Direccion>
+		<CP>28022</CP>
+		<Telefono>917473925</Telefono>
+		<Horario>09:00 - 21:30</Horario>
+		<Parking>si</Parking>
+	</Supermercado>	
+	<Supermercado>
+		<Direccion>c/ peñalara,151</Direccion>
+		<CP>28023</CP>
+		<Telefono>917164880</Telefono>
+		<Horario>09:00 - 21:30</Horario>
+		<Parking>si</Parking>
+	</Supermercado>	
+	<Supermercado>
+		<Direccion>avda de la victoria, 2</Direccion>
+		<CP>28023</CP>
+		<Telefono>913619959</Telefono>
+		<Horario>09:00 - 21:30</Horario>
+		<Parking>si</Parking>
+	</Supermercado>	
+	<Supermercado>
+		<Direccion>avda de los poblados 141 </Direccion>
+		<CP>28025</CP>
+		<Telefono>917165506</Telefono>
+		<Horario>09:00 - 21:30</Horario>
+		<Parking>si</Parking>
+	</Supermercado>	
+	<Supermercado>
+		<Direccion>c/ oca, 27 - 29</Direccion>
+		<CP>28025</CP>
+		<Telefono>914612958</Telefono>
+		<Horario>09:00 - 21:30</Horario>
+		<Parking>no</Parking>
+	</Supermercado>	
+	<Supermercado>
+		<Direccion>c/ travesia del pinzon 7,9 y 11</Direccion>
+		<CP>28025</CP>
+		<Telefono>917164863</Telefono>
+		<Horario>09:00 - 21:30</Horario>
+		<Parking>si</Parking>
+	</Supermercado>	
+	<Supermercado>
+		<Direccion>c/ antonio lópez, 115-117</Direccion>
+		<CP>28026</CP>
+		<Telefono>914766561</Telefono>
+		<Horario>09:00 - 21:30</Horario>
+		<Parking>si</Parking>
+	</Supermercado>	
+	<Supermercado>
+		<Direccion>c/ telemaco, 3</Direccion>
+		<CP>28027</CP>
+		<Telefono>913577700</Telefono>
+		<Horario>09:00 - 21:30</Horario>
+		<Parking>si</Parking>
+	</Supermercado>
+	<Supermercado>
+		<Direccion>c/ virgen de la paz, 16</Direccion>
+		<CP>28027</CP>
+		<Telefono>917164872</Telefono>
+		<Horario>09:00 - 21:30</Horario>
+		<Parking>no</Parking>
+	</Supermercado>
+	<Supermercado>
+		<Direccion>c/ cardenal belluga, 10 y 12</Direccion>
+		<CP>28028</CP>
+		<Telefono>917577560</Telefono>
+		<Horario>09:00 - 21:30</Horario>
+		<Parking>no</Parking>
+	</Supermercado>
+	<Supermercado>
+		<Direccion>c/ sinesio delgado, 44</Direccion>
+		<CP>28029</CP>
+		<Telefono>913447889</Telefono>
+		<Horario>09:00 - 21:30</Horario>
+		<Parking>si</Parking>
+	</Supermercado>
+	<Supermercado>
+		<Direccion>c/ arroyo de las pilillas, 16</Direccion>
+		<CP>28030</CP>
+		<Telefono>810512039</Telefono>
+		<Horario>09:00 - 21:30</Horario>
+		<Parking>no</Parking>
+	</Supermercado>
+	<Supermercado>
+		<Direccion>c/ manuel machado, 10</Direccion>
+		<CP>28030</CP>
+		<Telefono>913288291</Telefono>
+		<Horario>09:00 - 21:30</Horario>
+		<Parking>si</Parking>
+	</Supermercado>
+	<Supermercado>
+		<Direccion>avda santa eugenia 10</Direccion>
+		<CP>28031</CP>
+		<Telefono>913324780</Telefono>
+		<Horario>09:00 - 21:30</Horario>
+		<Parking>si</Parking>
+	</Supermercado>
+	<Supermercado>
+		<Direccion>c/ tineo, 5 c/ valderrebollo</Direccion>
+		<CP>28031</CP>
+		<Telefono>914947028</Telefono>
+		<Horario>09:00 - 21:30</Horario>
+		<Parking>si</Parking>
+	</Supermercado>
+	<Supermercado>
+		<Direccion>avda. de la democracia, 3</Direccion>
+		<CP>28031</CP>
+		<Telefono>917164877</Telefono>
+		<Horario>09:00 - 21:30</Horario>
+		<Parking>si</Parking>
+	</Supermercado>
+	<Supermercado>
+		<Direccion>c/crta.de vicálvaro-est. de o'donnell,19</Direccion>
+		<CP>28032</CP>
+		<Telefono>9177681948</Telefono>
+		<Horario>09:00 - 21:30</Horario>
+		<Parking>si</Parking>
+	</Supermercado>
+	<Supermercado>
+		<Direccion>avda. virgen del carmen nº 84o</Direccion>
+		<CP>28033</CP>
+		<Telefono>917645488</Telefono>
+		<Horario>09:00 - 21:30</Horario>
+		<Parking>si</Parking>
+	</Supermercado>
+	<Supermercado>
+		<Direccion>c/ monasterio de suso y yuso</Direccion>
+		<CP>28034</CP>
+		<Telefono>914275699</Telefono>
+		<Horario>09:00 - 21:30</Horario>
+		<Parking>si</Parking>
+	</Supermercado>
+	<Supermercado>
+		<Direccion>c/ monasterio de las huelgas, 17</Direccion>
+		<CP>28034</CP>
+		<Telefono>914273636</Telefono>
+		<Horario>09:00 - 21:30</Horario>
+		<Parking>si</Parking>
+	</Supermercado>
+	<Supermercado>
+		<Direccion>c/ angel mugica , 2</Direccion>
+		<CP>28034</CP>
+		<Telefono>913582850</Telefono>
+		<Horario>09:00 - 21:30</Horario>
+		<Parking>si</Parking>
+	</Supermercado>
+	<Supermercado>
+		<Direccion>c/ julián camarillo 13 y 15</Direccion>
+		<CP>28037</CP>
+		<Telefono>913685460</Telefono>
+		<Horario>09:00 - 21:30</Horario>
+		<Parking>si</Parking>
+	</Supermercado>
+	<Supermercado>
+		<Direccion>avda de la albufera, 153</Direccion>
+		<CP>28038</CP>
+		<Telefono>917165507</Telefono>
+		<Horario>09:00 - 21:30</Horario>
+		<Parking>si</Parking>
+	</Supermercado>
+	<Supermercado>
+		<Direccion>c/ lope de haro, 16</Direccion>
+		<CP>28039</CP>
+		<Telefono>914252772</Telefono>
+		<Horario>09:00 - 21:30</Horario>
+		<Parking>si</Parking>
+	</Supermercado>
+	<Supermercado>
+		<Direccion>c/ alfonso fernández, 18 - 20 y 22</Direccion>
+		<CP>28041</CP>
+		<Telefono>915085586</Telefono>
+		<Horario>09:00 - 21:30</Horario>
+		<Parking>si</Parking>
+	</Supermercado>
+	<Supermercado>
+		<Direccion>avda andalucia 20</Direccion>
+		<CP>28041</CP>
+		<Telefono>913182626</Telefono>
+		<Horario>09:00 - 21:30</Horario>
+		<Parking>si</Parking>
+	</Supermercado>
+	<Supermercado>
+		<Direccion>avda. de los rosales, 26 </Direccion>
+		<CP>28041</CP>
+		<Telefono>913685388</Telefono>
+		<Horario>09:00 - 21:30</Horario>
+		<Parking>si</Parking>
+	</Supermercado>
+	<Supermercado>
+		<Direccion>c/ de la bahia de gando, 1</Direccion>
+		<CP>28042</CP>
+		<Telefono>913121478</Telefono>
+		<Horario>09:00 - 21:30</Horario>
+		<Parking>si</Parking>
+	</Supermercado>
+	<Supermercado>
+		<Direccion>c/ playa del sardinero</Direccion>
+		<CP>28041</CP>
+		<Telefono>913057344</Telefono>
+		<Horario>09:00 - 21:30</Horario>
+		<Parking>si</Parking>
+	</Supermercado>
+	<Supermercado>
+		<Direccion>c/ sinfonia - c/ de la danza</Direccion>
+		<CP>28044</CP>
+		<Telefono>917165502</Telefono>
+		<Horario>09:00 - 21:30</Horario>
+		<Parking>si</Parking>
+	</Supermercado>
+	<Supermercado>
+		<Direccion>c/ ferrocarril, 37</Direccion>
+		<CP>28045</CP>
+		<Telefono>915273832</Telefono>
+		<Horario>09:00 - 21:30</Horario>
+		<Parking>si</Parking>
+	</Supermercado>
+	<Supermercado>
+		<Direccion>c/teniente coronel noreña nº 69</Direccion>
+		<CP>28045</CP>
+		<Telefono>9171648756</Telefono>
+		<Horario>09:00 - 21:30</Horario>
+		<Parking>si</Parking>
+	</Supermercado>
+	<Supermercado>
+		<Direccion>paseo sta. maria de la cabeza, 41</Direccion>
+		<CP>28045</CP>
+		<Telefono>915305627</Telefono>
+		<Horario>09:00 - 21:30</Horario>
+		<Parking>no</Parking>
+	</Supermercado>
+	<Supermercado>
+		<Direccion>c/ de latina,18</Direccion>
+		<CP>28047</CP>
+		<Telefono>9146377146</Telefono>
+		<Horario>09:00 - 21:30</Horario>
+		<Parking>si</Parking>
+	</Supermercado>
+	<Supermercado>
+		<Direccion>c/ maria tubau, 26</Direccion>
+		<CP>28050</CP>
+		<Telefono>915687476</Telefono>
+		<Horario>09:00 - 21:30</Horario>
+		<Parking>si</Parking>
+	</Supermercado>
+	<Supermercado>
+		<Direccion>c/ quintanavides,7 esq c/ foresta,4</Direccion>
+		<CP>28050</CP>
+		<Telefono>917326610</Telefono>
+		<Horario>09:00 - 21:30</Horario>
+		<Parking>si</Parking>
+	</Supermercado>
+	<Supermercado>
+		<Direccion>c/ la adrada,10</Direccion>
+		<CP>28051</CP>
+		<Telefono>913852402</Telefono>
+		<Horario>09:00 - 21:30</Horario>
+		<Parking>si</Parking>
+	</Supermercado>
+	<Supermercado>
+		<Direccion>c/ bernardino de pantorba, 22</Direccion>
+		<CP>28051</CP>
+		<Telefono>914940508</Telefono>
+		<Horario>09:00 - 21:30</Horario>
+		<Parking>si</Parking>
+	</Supermercado>
+	<Supermercado>
+		<Direccion>c/ cardenal vte enrique y tarancon, 16</Direccion>
+		<CP>28051</CP>
+		<Telefono>913853172</Telefono>
+		<Horario>09:00 - 21:30</Horario>
+		<Parking>si</Parking>
+	</Supermercado>
+	<Supermercado>
+		<Direccion>c/ martinez de la riva, 4</Direccion>
+		<CP>28053</CP>
+		<Telefono>914777195</Telefono>
+		<Horario>09:00 - 21:30</Horario>
+		<Parking>si</Parking>
+	</Supermercado>
+	<Supermercado>
+		<Direccion>c/ secoya, 6 - c/ reus</Direccion>
+		<CP>28054</CP>
+		<Telefono>917164870</Telefono>
+		<Horario>09:00 - 21:30</Horario>
+		<Parking>si</Parking>
+	</Supermercado>
+	<Supermercado>
+		<Direccion>c/ pinar de san jose s/n6</Direccion>
+		<CP>28054</CP>
+		<Telefono>913094796</Telefono>
+		<Horario>09:00 - 21:30</Horario>
+		<Parking>si</Parking>
+	</Supermercado>
+</Localidad>	
+<Localidad Nombre="MAJADAHONDA">
+	<Supermercado>
+		<Direccion>c/ del arcipreste s/n</Direccion>
+		<CP>28220</CP>
+		<Telefono>916385470</Telefono>
+		<Horario>09:00 - 21:30</Horario>
+		<Parking>si</Parking>
+	</Supermercado>
+	<Supermercado>
+		<Direccion>c/ alcalde julio labrandero s/na</Direccion>
+		<CP>28220</CP>
+		<Telefono>916390843</Telefono>
+		<Horario>09:00 - 21:30</Horario>
+		<Parking>si</Parking>
+	</Supermercado>
+	<Supermercado>
+		<Direccion>ctra. majadahonda - c/ del velero</Direccion>
+		<CP>282200</CP>
+		<Telefono>916029973</Telefono>
+		<Horario>09:00 - 21:30</Horario>
+		<Parking>si</Parking>
+	</Supermercado>
+</Localidad>
+<Localidad Nombre="MECO">
+	<Supermercado>
+		<Direccion>avda. union europea - c/ holanda</Direccion>
+		<CP>28880</CP>
+		<Telefono>918790253</Telefono>
+		<Horario>09:00 - 21:30</Horario>
+		<Parking>si</Parking>
+	</Supermercado>
+</Localidad>	
+<Localidad Nombre="MEJORADA DEL CAMPO">
+	<Supermercado>
+		<Direccion>ctra. de poveda a arganda m- 208</Direccion>
+		<CP>28840</CP>
+		<Telefono>917165503</Telefono>
+		<Horario>09:00 - 21:30</Horario>
+		<Parking>si</Parking>
+	</Supermercado>
+</Localidad>
+<Localidad Nombre="MORALZARZAL">
+	<Supermercado>
+		<Direccion>camino los linares y crta. m-615</Direccion>
+		<CP>28411</CP>
+		<Telefono>918404950</Telefono>
+		<Horario>09:00 - 21:30</Horario>
+		<Parking>si</Parking>
+	</Supermercado>
+</Localidad>	
+<Localidad Nombre="MÓSTOLES">
+	<Supermercado>
+		<Direccion>c/ del castaño esq. avda de los sauces</Direccion>
+		<CP>28935</CP>
+		<Telefono>916012606</Telefono>
+		<Horario>09:00 - 21:30</Horario>
+		<Parking>si</Parking>
+	</Supermercado>
+	<Supermercado>
+		<Direccion>c/ rio júcar, s/n</Direccion>
+		<CP>28935</CP>
+		<Telefono>916471829</Telefono>
+		<Horario>09:00 - 21:30</Horario>
+		<Parking>si</Parking>
+	</Supermercado>
+	<Supermercado>
+		<Direccion>c/ramon verea, 2 c/agustin de bentacourt</Direccion>
+		<CP>28935</CP>
+		<Telefono>917164879</Telefono>
+		<Horario>09:00 - 21:30</Horario>
+		<Parking>si</Parking>
+	</Supermercado>
+	<Supermercado>
+		<Direccion>avda. de la onu, c/ de la reguera</Direccion>
+		<CP>28936</CP>
+		<Telefono>916459001</Telefono>
+		<Horario>09:00 - 21:30</Horario>
+		<Parking>si</Parking>
+	</Supermercado>
+	<Supermercado>
+		<Direccion>c/ moraleja de enmedio s/n</Direccion>
+		<CP>28938</CP>
+		<Telefono>91716486</Telefono>
+		<Horario>09:00 - 21:30</Horario>
+		<Parking>si</Parking>
+	</Supermercado>
+</Localidad>
+<Localidad Nombre="NAVALCARNERO">
+	<Supermercado>
+		<Direccion>c/ pino silvestre - c/ pino piñonero</Direccion>
+		<CP>28600</CP>
+		<Telefono>918187160</Telefono>
+		<Horario>09:00 - 21:30</Horario>
+		<Parking>si</Parking>
+	</Supermercado>
+</Localidad>	
+<Localidad Nombre="PARACUELLOS DE JARAMA">
+	<Supermercado>
+		<Direccion>avda. juan pablo ii</Direccion>
+		<CP>28600</CP>
+		<Telefono>912688660</Telefono>
+		<Horario>09:00 - 21:30</Horario>
+		<Parking>si</Parking>
+	</Supermercado>
+</Localidad>		
+<Localidad Nombre="PARLA">
+	<Supermercado>
+		<Direccion>c/ maria zambrano s/n</Direccion>
+		<CP>28980</CP>
+		<Telefono>916055018</Telefono>
+		<Horario>09:00 - 21:30</Horario>
+		<Parking>si</Parking>
+	</Supermercado>
+	<Supermercado>
+		<Direccion>avda los leguarios, 53</Direccion>
+		<CP>28980</CP>
+		<Telefono>916981149</Telefono>
+		<Horario>09:00 - 21:30</Horario>
+		<Parking>si</Parking>
+	</Supermercado>
+	<Supermercado>
+		<Direccion>avda. de los planetas s/n</Direccion>
+		<CP>28980</CP>
+		<Telefono>916054736</Telefono>
+		<Horario>09:00 - 21:30</Horario>
+		<Parking>si</Parking>
+	</Supermercado>
+	<Supermercado>
+		<Direccion>c/ lago del retiro s/n</Direccion>
+		<CP>28980</CP>
+		<Telefono>916993558</Telefono>
+		<Horario>09:00 - 21:30</Horario>
+		<Parking>si</Parking>
+	</Supermercado>	
+	<Supermercado>
+		<Direccion>avda. berlin, 2 y 4</Direccion>
+		<CP>28980</CP>
+		<Telefono>916992862</Telefono>
+		<Horario>09:00 - 21:30</Horario>
+		<Parking>si</Parking>
+	</Supermercado>
+</Localidad>
+<Localidad Nombre="PINTO">
+	<Supermercado>
+		<Direccion>c/ buenos aires, 2</Direccion>
+		<CP>28320</CP>
+		<Telefono>916923927</Telefono>
+		<Horario>09:00 - 21:30</Horario>
+		<Parking>si</Parking>
+	</Supermercado>
+	<Supermercado>
+		<Direccion>avda. antonio lopez s/n</Direccion>
+		<CP>28320</CP>
+		<Telefono>916706184</Telefono>
+		<Horario>09:00 - 21:30</Horario>
+		<Parking>si</Parking>
+	</Supermercado>
+</Localidad>	
+<Localidad Nombre="POZUELO DE ALARCÓN">
+	<Supermercado>
+		<Direccion>ctra. pozuelo - majadahonda, km. 2,6</Direccion>
+		<CP>28223</CP>
+		<Telefono>913523944</Telefono>
+		<Horario>09:00 - 21:30</Horario>
+		<Parking>si</Parking>
+	</Supermercado>
+</Localidad>
+<Localidad Nombre="RIVAS VACÍAMADRID">
+	<Supermercado>
+		<Direccion>avda pilar miro - c/ adolfo marsillach</Direccion>
+		<CP>28529</CP>
+		<Telefono>914996325</Telefono>
+		<Horario>09:00 - 21:30</Horario>
+		<Parking>si</Parking>
+	</Supermercado>
+	<Supermercado>
+		<Direccion>c/ marie curie, 5</Direccion>
+		<CP>285293</CP>
+		<Telefono>917165501</Telefono>
+		<Horario>09:00 - 21:30</Horario>
+		<Parking>si</Parking>
+	</Supermercado>
+	<Supermercado>
+		<Direccion>c/ cesar manrique s/n</Direccion>
+		<CP>28529</CP>
+		<Telefono>917519704</Telefono>
+		<Horario>09:00 - 21:30</Horario>
+		<Parking>si</Parking>
+	</Supermercado>
+</Localidad>
+<Localidad Nombre="SAN AGUSTÍN DEL GUADALIX">
+	<Supermercado>
+		<Direccion>c/ felix rodriguez de la fuente, 1</Direccion>
+		<CP>28750</CP>
+		<Telefono>918419738</Telefono>
+		<Horario>09:00 - 21:30</Horario>
+		<Parking>si</Parking>
+	</Supermercado>
+</Localidad>
+<Localidad Nombre="SAN FERNANDO DE HENARES">
+	<Supermercado>
+		<Direccion>n-ii km. 16</Direccion>
+		<CP>28830</CP>
+		<Telefono>917164878</Telefono>
+		<Horario>10:00 - 22:00</Horario>
+		<Parking>si</Parking>
+	</Supermercado>
+</Localidad>
+<Localidad Nombre="SAN MARTÍN DE LA VEGA">
+	<Supermercado>
+		<Direccion>c/ navarra - c/ valencia - c/ sol</Direccion>
+		<CP>28330</CP>
+		<Telefono>918947086</Telefono>
+		<Horario>10:00 - 22:00</Horario>
+		<Parking>si</Parking>
+	</Supermercado>
+</Localidad>
+<Localidad Nombre="SAN MARTÍN DE VALDEIGLESIAS">
+	<Supermercado>
+		<Direccion>c/ mecanicos,3 crta. de toledo, 26</Direccion>
+		<CP>28680</CP>
+		<Telefono>918460999</Telefono>
+		<Horario>10:00 - 22:00</Horario>
+		<Parking>si</Parking>
+	</Supermercado>
+</Localidad>
+<Localidad Nombre="SAN SEBASTIÁN DE LOS REYES">
+	<Supermercado>
+		<Direccion>paseo de europa - c/ ciruelos</Direccion>
+		<CP>28701</CP>
+		<Telefono>916524766</Telefono>
+		<Horario>09:00 - 21:30</Horario>
+		<Parking>si</Parking>
+	</Supermercado>
+	<Supermercado>
+		<Direccion>avda. de la sierra,24 avda guadarrama</Direccion>
+		<CP>28701</CP>
+		<Telefono>9165160391</Telefono>
+		<Horario>09:00 - 21:30</Horario>
+		<Parking>si</Parking>
+	</Supermercado>
+	<Supermercado>
+		<Direccion>av. navarronda s/n - c/ isla de la palma</Direccion>
+		<CP>28701</CP>
+		<Telefono>916639034</Telefono>
+		<Horario>09:00 - 21:30</Horario>
+		<Parking>si</Parking>
+	</Supermercado>
+	<Supermercado>
+		<Direccion>avda. del juncal nº 3</Direccion>
+		<CP>28701</CP>
+		<Telefono>916593296</Telefono>
+		<Horario>09:00 - 21:30</Horario>
+		<Parking>si</Parking>
+	</Supermercado>
+</Localidad>	
+<Localidad Nombre="SEVILLA LA NUEVA">
+	<Supermercado>
+		<Direccion>c/ juan anton sevillano s/n</Direccion>
+		<CP>28609</CP>
+		<Telefono>918128131</Telefono>
+		<Horario>09:00 - 21:30</Horario>
+		<Parking>si</Parking>
+	</Supermercado>
+</Localidad>
+<Localidad Nombre="TORREJÓN DE ARDOZ">
+	<Supermercado>
+		<Direccion>c/ pozo de las nieves - c/ ebanisteria</Direccion>
+		<CP>28850</CP>
+		<Telefono>916761102</Telefono>
+		<Horario>09:00 - 21:30</Horario>
+		<Parking>si</Parking>
+	</Supermercado>
+	<Supermercado>
+		<Direccion>c/ san fernando, 9</Direccion>
+		<CP>28850</CP>
+		<Telefono>916769211</Telefono>
+		<Horario>09:00 - 21:30</Horario>
+		<Parking>si</Parking>
+	</Supermercado>
+	<Supermercado>
+		<Direccion>c/ del rio, 45 -ctra de loeches s/n</Direccion>
+		<CP>28850</CP>
+		<Telefono>916758612</Telefono>
+		<Horario>09:00 - 21:30</Horario>
+		<Parking>si</Parking>
+	</Supermercado>
+	<Supermercado>
+		<Direccion>avda constitucion 225</Direccion>
+		<CP>28850</CP>
+		<Telefono>916781280</Telefono>
+		<Horario>09:00 - 21:30</Horario>
+		<Parking>si</Parking>
+	</Supermercado>
+	<Supermercado>
+		<Direccion>c/ circunvalacion, 32 (cc la guitarra)</Direccion>
+		<CP>28850</CP>
+		<Telefono>916771421</Telefono>
+		<Horario>09:00 - 21:30</Horario>
+		<Parking>si</Parking>
+	</Supermercado>
+	<Supermercado>
+		<Direccion>c/ circunvalacion c/ lanzarote</Direccion>
+		<CP>28850</CP>
+		<Telefono>916569848</Telefono>
+		<Horario>09:00 - 21:30</Horario>
+		<Parking>si</Parking>
+	</Supermercado>
+</Localidad>	 	 				
+<Localidad Nombre="TORREJÓN DE LA CALZADA">
+	<Supermercado>
+		<Direccion>c/ real, s/n</Direccion>
+		<CP>28991</CP>
+		<Telefono>918166179</Telefono>
+		<Horario>09:00 - 21:30</Horario>
+		<Parking>si</Parking>
+	</Supermercado>
+</Localidad>
+<Localidad Nombre="TORRELODONES">
+	<Supermercado>
+		<Direccion>c/ luarca s/n</Direccion>
+		<CP>28250</CP>
+		<Telefono>918593517</Telefono>
+		<Horario>09:00 - 21:30</Horario>
+		<Parking>si</Parking>
+	</Supermercado>
+</Localidad>
+<Localidad Nombre="TRES CANTOS">
+	<Supermercado>
+		<Direccion>plaza de la estación s/n</Direccion>
+		<CP>28760</CP>
+		<Telefono>918046471</Telefono>
+		<Horario>09:00 - 21:30</Horario>
+		<Parking>si</Parking>
+	</Supermercado>
+</Localidad>
+<Localidad Nombre="VALDEMORILLO">
+	<Supermercado>
+		<Direccion>avda. plaza de toros, 4n</Direccion>
+		<CP>28210</CP>
+		<Telefono>9189785577</Telefono>
+		<Horario>09:00 - 21:30</Horario>
+		<Parking>si</Parking>
+	</Supermercado>
+</Localidad>
+<Localidad Nombre="VALDEMORO">
+	<Supermercado>
+		<Direccion>c/ estrella de elola, 11</Direccion>
+		<CP>28340</CP>
+		<Telefono>918082265</Telefono>
+		<Horario>09:00 - 21:30</Horario>
+		<Parking>si</Parking>
+	</Supermercado>
+	<Supermercado>
+		<Direccion>avda. europa s/n - glorieta de dinamarca</Direccion>
+		<CP>28340</CP>
+		<Telefono>918085548</Telefono>
+		<Horario>09:00 - 21:30</Horario>
+		<Parking>si</Parking>
+	</Supermercado>
+</Localidad>
+<Localidad Nombre="VILLALBILLA">
+	<Supermercado>
+		<Direccion>ctra.alcala de henares-loeches m300 km21</Direccion>
+		<CP>28210</CP>
+		<Telefono>9126517217</Telefono>
+		<Horario>09:00 - 21:30</Horario>
+		<Parking>si</Parking>
+	</Supermercado>
+</Localidad>
+<Localidad Nombre="VILLAREJO DE SALVANÉS">
+	<Supermercado>
+		<Direccion>c/ constitucion s/n</Direccion>
+		<CP>28590</CP>
+		<Telefono>918743979</Telefono>
+		<Horario>09:00 - 21:30</Horario>
+		<Parking>si</Parking>
+	</Supermercado>
+</Localidad>	
+<Localidad Nombre="VILLAVICIOSA DE ODÓN">
+	<Supermercado>
+		<Direccion>c/ del cortijo s/n</Direccion>
+		<CP>28670</CP>
+		<Telefono>916165448</Telefono>
+		<Horario>09:00 - 21:30</Horario>
+		<Parking>si</Parking>
+	</Supermercado>
+	<Supermercado>
+		<Direccion>c/ tera, 6</Direccion>
+		<CP>28670</CP>
+		<Telefono>916419192</Telefono>
+		<Horario>09:00 - 21:30</Horario>
+		<Parking>si</Parking>
+	</Supermercado>
+	<Supermercado>
+		<Direccion>crta. mostoles - villaviciosa</Direccion>
+		<CP>28670</CP>
+		<Telefono>916163970</Telefono>
+		<Horario>09:00 - 21:30</Horario>
+		<Parking>si</Parking>
+	</Supermercado>
+</Localidad>	
+</Provincia>
+</Provincias>

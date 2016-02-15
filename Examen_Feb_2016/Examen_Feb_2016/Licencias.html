@@ -1,0 +1,47 @@
+﻿<!DOCTYPE html>
+<html>
+<head>
+    <title></title>
+	<meta charset="utf-8" />
+    <script src="External_Scripts/jquery-2.1.4.js"></script>
+    <script src="External_Scripts/jquery.indexeddb.js"></script>
+    <script src="External_Scripts/IndexedDBShim.min.js"></script>
+</head>
+<body>
+<h1>Licencias</h1>
+    <table id="solicitudes">
+
+    </table>
+    <input type="button" id="btnModificar" class="btnMod" name="btnMod" value="Modificar" />
+    <input type="button" id="btnSolicitar" value="Solicitar licencia"  />
+    <br />
+    <script>
+       
+        $("#btnSolicitar").click(function () {
+            window.location.href="nuevalicencia.html";
+        })
+        $.indexedDB("DataBase").done(function (db, ev) {
+            cargar("Solicitudes");
+            var log = sessionStorage.getItem("login");
+            var usu = JSON.parse(log).Email;
+            
+            function cargar(tabla) {
+                $.indexedDB("DataBase").objectStore(tabla).each(function (item) {
+                    dibujar(tabla, item.key, item.value)
+                })
+            }
+            function dibujar(tabla, key, value) {
+                $("#solicitudes").append("<tr><td>"+key+"</td><td>"+value.Email+"</td><td>"+value.categoria+
+                   "</td><td>"+value.equipo+"</td><td>"+value.especialidad+"</td><td><input type='checkbox' id='"+key+"' class='btnBorrar' value='Borrar'/></tr>")
+            }
+        })
+        $("#btnModificar").click(function () {
+            window.location.href = "nuevalicencia.html";
+        })
+        $("checkbox").click(function () {
+            $.indexedDB("DataBase").objectStore("Solictudes").delete(/*iria la clave del checkbox correspondiente*/);
+
+        })
+      </script>
+</body>
+</html>

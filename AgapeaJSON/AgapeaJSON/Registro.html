@@ -1,0 +1,54 @@
+﻿<!DOCTYPE html>
+<html>
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8"/>
+    <title></title>
+	<meta charset="utf-8" />
+</head>
+<body>
+    <div id="Registro">
+    Login: <input type="text" id="cajalogin" /><br />
+    Password: <input type="password" id="cajapassw" /><br />
+        Nombre: <input type="text" id="cajanom" /><br />
+        Apellidos: <input type="text" id="cajaape" /><br />
+        Direccion: <input type="text" id="cajadir" /><br />
+        CP: <input type="text" id="cajacp" /><br />
+        NIF: <input type="text" id="cajanif" /><br />
+        Provincia: <input type="text" id="cajaprov" /><br />
+        Avatar: <input type="file" accept="image/*" id="avatar" /><br />
+          <input type="button" id="btnReg" value="Registro" />
+    </div>
+    <div id="respuestaServer"></div>
+    <script>
+        var pet = new XMLHttpRequest();
+        var fichero = document.getElementById("avatar");
+       /* document.getElementById("avatar").addEventListener("change", function () {
+            fichero = document.getElementById("avatar").files[0];}, false);*/
+        document.getElementById("btnReg").addEventListener("click", hacerAjax, false);
+        function hacerAjax() {
+             var usuJSON =JSON.stringify( {
+                "Login": document.getElementById("cajalogin").value,
+                "Passw": document.getElementById("cajapassw").value,
+                "Nom": document.getElementById("cajanom").value,
+                "Ape": document.getElementById("cajaape").value,
+                "Dir": document.getElementById("cajadir").value,
+                "CP": document.getElementById("cajacp").value,
+                "Nif": document.getElementById("cajanif").value,
+                "Prov": document.getElementById("cajaprov").value,
+             });
+             var datos = new FormData();
+             datos.append("usuario", usuJSON);
+             datos.append("fichero", fichero.files[0]);
+            pet.onreadystatechange = function () {
+                if (pet.readyState == 4 && pet.status == 200) {
+                    var resJSON = JSON.parse(this.responseText);
+                    document.getElementById("respuestaServer").appendChild(document.createTextNode(resJSON.mensaje));
+                }
+            }
+            pet.open("POST", "http://localhost:51791/Subida.aspx", true);
+            pet.setRequestHeader("Content-Type", "multipart/form-data");
+            pet.send(datos);
+        }
+    </script>
+</body>
+</html>

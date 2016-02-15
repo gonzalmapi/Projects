@@ -30,9 +30,9 @@ namespace Airliners.net.Models
 		
     #region Extensibility Method Definitions
     partial void OnCreated();
-    partial void InsertFoto(Foto instance);
-    partial void UpdateFoto(Foto instance);
-    partial void DeleteFoto(Foto instance);
+    partial void InsertFoto(Fotos instance);
+    partial void UpdateFoto(Fotos instance);
+    partial void DeleteFoto(Fotos instance);
     partial void InsertUsuario(Usuario instance);
     partial void UpdateUsuario(Usuario instance);
     partial void DeleteUsuario(Usuario instance);
@@ -76,11 +76,11 @@ namespace Airliners.net.Models
 			}
 		}
 		
-		public System.Data.Linq.Table<Foto> Fotos
+		public System.Data.Linq.Table<Fotos> Fotos
 		{
 			get
 			{
-				return this.GetTable<Foto>();
+				return this.GetTable<Fotos>();
 			}
 		}
 		
@@ -157,7 +157,7 @@ namespace Airliners.net.Models
 	}
 	
 	[global::System.Data.Linq.Mapping.TableAttribute(Name="dbo.Foto")]
-	public partial class Foto : INotifyPropertyChanging, INotifyPropertyChanged
+	public partial class Fotos : INotifyPropertyChanging, INotifyPropertyChanged
 	{
 		
 		private static PropertyChangingEventArgs emptyChangingEventArgs = new PropertyChangingEventArgs(String.Empty);
@@ -198,7 +198,7 @@ namespace Airliners.net.Models
     partial void OnNombreChanged();
     #endregion
 		
-		public Foto()
+		public Fotos()
 		{
 			this._Usuario = default(EntityRef<Usuario>);
 			OnCreated();
@@ -433,7 +433,7 @@ namespace Airliners.net.Models
 		
 		private string _Otros;
 		
-		private EntitySet<Foto> _Fotos;
+		private EntitySet<Fotos> _Fotos;
 		
     #region Extensibility Method Definitions
     partial void OnLoaded();
@@ -467,7 +467,7 @@ namespace Airliners.net.Models
 		
 		public Usuario()
 		{
-			this._Fotos = new EntitySet<Foto>(new Action<Foto>(this.attach_Fotos), new Action<Foto>(this.detach_Fotos));
+			this._Fotos = new EntitySet<Fotos>(new Action<Fotos>(this.attach_Fotos), new Action<Fotos>(this.detach_Fotos));
 			OnCreated();
 		}
 		
@@ -712,7 +712,7 @@ namespace Airliners.net.Models
 		}
 		
 		[global::System.Data.Linq.Mapping.AssociationAttribute(Name="Usuario_Foto", Storage="_Fotos", ThisKey="Nombre", OtherKey="Fotografo")]
-		public EntitySet<Foto> Fotos
+		public EntitySet<Fotos> Fotos
 		{
 			get
 			{
@@ -744,13 +744,13 @@ namespace Airliners.net.Models
 			}
 		}
 		
-		private void attach_Fotos(Foto entity)
+		private void attach_Fotos(Fotos entity)
 		{
 			this.SendPropertyChanging();
 			entity.Usuario = this;
 		}
 		
-		private void detach_Fotos(Foto entity)
+		private void detach_Fotos(Fotos entity)
 		{
 			this.SendPropertyChanging();
 			entity.Usuario = null;

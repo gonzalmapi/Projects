@@ -1,0 +1,27 @@
+﻿<%@ Master Language="C#" AutoEventWireup="true" CodeBehind="VistaCompras.Master.cs" Inherits="LibAgapea.VistasMaestras.Site1" %>
+
+<!DOCTYPE html>
+
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head runat="server">
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8"/>
+    <title></title>
+    <asp:ContentPlaceHolder ID="head" runat="server">
+    </asp:ContentPlaceHolder>
+</head>
+<body>
+    <form id="form1" runat="server">
+    <div id="Cabecera">
+        <asp:Image ID="Image1" runat="server" ImageUrl="~/Imagenes/head.PNG" />
+    </div>
+    <div id="ContenidoVariable">
+        <asp:ContentPlaceHolder ID="ContentPlaceHolder1" runat="server">
+        
+        </asp:ContentPlaceHolder>
+    </div>
+    <div id="pie">
+        <asp:Image ID="Image2" runat="server" ImageUrl="~/Imagenes/tail.png" />
+    </div>
+    </form>
+</body>
+</html>

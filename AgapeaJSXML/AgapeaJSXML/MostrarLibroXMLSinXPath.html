@@ -1,0 +1,51 @@
+﻿<!DOCTYPE html>
+
+<html lang="en" xmlns="http://www.w3.org/1999/xhtml">
+<head>
+    <meta charset="utf-8" />
+    <title></title>
+</head>
+<body>
+    <style>table,th,td {
+    border : 1px solid black;
+    border-collapse: collapse;
+    }
+    th,td {
+    padding: 5px;
+    }
+    </style>
+    <body>
+
+        <input id="buscar" type="button">Get my Boook</input>
+        <br><br>
+        <table id="demo"></table>
+
+        <script>
+function loadDoc() {
+  var xhttp = new XMLHttpRequest();
+  xhttp.onreadystatechange = function() {
+    if (xhttp.readyState == 4 && xhttp.status == 200) {
+      myFunction(xhttp);
+    }
+  }
+  xhttp.open("GET", "Libros.xml", true);
+  xhttp.send();
+}
+function myFunction(xml) {
+    var i;
+    var xmlDoc = xml.responseXML;
+    var table = "<tr><th>Titulo</th><th>Autor</th></tr>";
+    var x = xmlDoc.getElementsByTagName("Libro");
+    for (i = 0; i < x.length; i++) {
+        table += "<tr><td>" +
+        x[i].getElementsByTagName("Titulo")[0].childNodes[0].nodeValue +
+        "</td><td>" +
+        x[i].getElementsByTagName("Autor")[0].childNodes[0].nodeValue +
+        "</td></tr>";
+    }
+    document.getElementById("demo").innerHTML = table;
+}
+document.getElementById("buscar").addEventListener("click", loadDoc, true);
+</script>
+</body>
+</html>

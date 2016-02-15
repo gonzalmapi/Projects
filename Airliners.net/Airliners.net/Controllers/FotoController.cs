@@ -30,7 +30,7 @@ namespace Airliners.net.Controllers
             {
                 var fileName = Path.GetFileName(file.FileName);
                 Console.WriteLine(fileName);
-                var path = Path.Combine(Server.MapPath("~/App_Data/"), fileName);
+                var path = Path.Combine(Server.MapPath("~/Images/"), fileName);
                 file.SaveAs(path);
                 Session["nombreFoto"] = fileName;
                 
@@ -48,7 +48,7 @@ namespace Airliners.net.Controllers
                           where usu.Alias == (string)Session["usuario"]
                           select usu.Nombre).Single();
             
-            Foto nuevo = new Foto();
+            Fotos nuevo = new Fotos();
                  af.name = (string) nombre;
                 af.photo = (string)Session["nombreFoto"];
             nuevo.Aerolinea = af.airline;
