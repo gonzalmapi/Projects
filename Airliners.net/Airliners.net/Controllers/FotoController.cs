@@ -10,7 +10,11 @@ namespace Airliners.net.Controllers
 {
     public class FotoController : Controller
     {
-        
+        [HttpGet]
+        public ActionResult TusFotos()
+        {
+            return View();
+        }
         [HttpGet]
         public ActionResult AñadirFoto() {
             return View();
@@ -65,5 +69,6 @@ namespace Airliners.net.Controllers
                 }
             return View();
         }
-    } 
+    }
+    
 }
