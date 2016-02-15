@@ -23,7 +23,7 @@
                 <ul class="nav navbar-nav">
                     <li>@Html.ActionLink("Home", "Index", "Home")</li>
                     <li>@Html.ActionLink("About", "About", "Home")</li>
-                    <li>@Html.ActionLink("News", "http://flynews.es")</li>
+                    
                     @if (Session["usuario"] != null)
                     {
                         <li>@Html.ActionLink((String)@Session["usuario"],"")</li>
@@ -31,7 +31,7 @@
                     }
                 </ul>
                 @Html.Partial("_Loginpartial");
-                @Html.Partial("UserBar");                   
+                @Html.Partial("UserBar");                  
             </div>
         </div>
         
