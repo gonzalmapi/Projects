@@ -151,7 +151,7 @@
     <Content Include="packages.config" />
     <Content Include="Views\_ViewStart.cshtml" />
     <Content Include="Views\Shared\_Layout.cshtml" />
-    <Content Include="Views\Home\Index.cshtml" />
+    <Content Include="Views\Home\_Index.cshtml" />
     <Content Include="Views\Home\Registro.cshtml" />
     <Content Include="Views\Home\Login.cshtml" />
     <Content Include="Views\Shared\_Loginpartial.cshtml" />
@@ -161,6 +161,7 @@
     <Content Include="Views\Foto\MasInfo.cshtml" />
     <Content Include="Views\Home\PerfilUsuario.cshtml" />
     <Content Include="Views\Foto\TusFotos.cshtml" />
+    <Content Include="Views\Home\Index.cshtml" />
     <None Include="Web.Debug.config">
       <DependentUpon>Web.config</DependentUpon>
     </None>

@@ -34,7 +34,7 @@ namespace Airliners.net.Controllers
             return photoList;
         }
         [HttpGet]
-        public ActionResult TusFotos(AddFoto af)
+        public ActionResult TusFotos()
         {
           var  fotos = GetPhotos();
           return View(fotos);

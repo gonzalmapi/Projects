@@ -10,10 +10,33 @@ namespace Airliners.net.Controllers
 {
     public class HomeController : Controller
     {
+        public IEnumerable<AddFoto> GetPhotos()
+        {
+            AirlinersDBDataContext adb = new AirlinersDBDataContext();
+            IList<AddFoto> photoList = new List<AddFoto>();
+            var query = from photo in adb.Fotos
+                        select photo;
+            var photos = query.ToList();
+            foreach (var photoData in photos)
+            {
+                photoList.Add(new AddFoto()
+                {
+                    airline = photoData.Aerolinea,
+                    airplane = photoData.Avion,
+                    date = photoData.Fecha,
+                    name = photoData.Fotografo,
+                    photo = photoData.Nombre,
+                    place = photoData.Lugar,
+                    notes = photoData.Notas
+                });
+            }
+            return photoList;
+        }
         // GET: Home
         public ActionResult Index()
         {
-            return View();
+            var fotos = GetPhotos();
+            return View(fotos);
         }
         [HttpGet]
         public ActionResult Logout() {
