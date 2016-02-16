@@ -56,16 +56,15 @@
             @Html.DisplayFor(modelItem => item.name)
         </td>
         <td>
-            <img src="@Url.Content("~/Images/"+@item.photo))" alt="No Disponible" width="300px" height="200px"/>
+            <img src="@Url.Content("~/Images/"+item.photo)" alt="No Disponible" width="300px" height="200px"/>
             @Html.DisplayFor(modelItem => item.photo)
         </td>
         <td>
             @Html.DisplayFor(modelItem => item.notes)
         </td>
         <td>
-            @Html.ActionLink("Edit", "Edit", new { /* id=item.PrimaryKey */ }) |
-            @Html.ActionLink("Details", "Details", new { /* id=item.PrimaryKey */ }) |
-            @Html.ActionLink("Delete", "Delete", new { /* id=item.PrimaryKey */ })
+            @Html.ActionLink("Editar", "Edit", new { /* id=item.PrimaryKey */ }) |
+            @Html.ActionLink("Eliminar", "Delete", new { /* id=item.PrimaryKey */ })
         </td>
     </tr>
     }
