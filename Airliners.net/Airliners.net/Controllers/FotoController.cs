@@ -91,7 +91,7 @@ namespace Airliners.net.Controllers
                     throw;
                 }
             
-            return View();
+            return View("Login");
         }
     } 
 }
