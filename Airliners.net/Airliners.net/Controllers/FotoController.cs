@@ -65,8 +65,7 @@ namespace Airliners.net.Controllers
         [HttpPost]
         public ActionResult MasInfo(AddFoto af)
         {
-            if (ModelState.IsValid)
-            {
+            
                 AirlinersDBDataContext adb = new AirlinersDBDataContext();
                 var nombre = (from usu in adb.Usuarios
                               where usu.Alias == (string)Session["usuario"]
@@ -91,7 +90,7 @@ namespace Airliners.net.Controllers
                 {
                     throw;
                 }
-            }
+            
             return View();
         }
     } 

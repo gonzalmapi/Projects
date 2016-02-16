@@ -142,8 +142,6 @@
       <DesignTime>True</DesignTime>
       <DependentUpon>AirlinersDB.dbml</DependentUpon>
     </Compile>
-    <Compile Include="Models\RepoFoto.cs" />
-    <Compile Include="Models\RepoFotoModel.cs" />
     <Compile Include="Models\UsuarioLogin.cs" />
     <Compile Include="Models\UsuarioRegistro.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
