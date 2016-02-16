@@ -3,7 +3,9 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Web;
 using System.Web.Mvc;
-using Airliners.net.Models; 
+using Airliners.net.Models;
+using Airliners.net.ModelView;
+using System.IO;
 
 namespace Airliners.net.Controllers
 {
@@ -12,7 +14,14 @@ namespace Airliners.net.Controllers
         // GET: Home
         public ActionResult Index()
         {
-            //var model=
+          /*  AirlinersDBDataContext adb = new AirlinersDBDataContext();
+            var imagesModel = new AddFoto();
+            var imageFiles = Directory.GetFiles(Server.MapPath("~/Images/"));
+            foreach (var item in imageFiles)
+            {
+                imagesModel.LasFotos.Add(Path.GetFileName(item));
+            }
+            return View(imagesModel);*/
             return View();
         }
         [HttpGet]

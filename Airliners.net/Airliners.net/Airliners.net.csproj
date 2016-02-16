@@ -144,6 +144,7 @@
     </Compile>
     <Compile Include="Models\UsuarioLogin.cs" />
     <Compile Include="Models\UsuarioRegistro.cs" />
+    <Compile Include="ModelView\ListaFoto.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <ItemGroup>
@@ -160,6 +161,7 @@
     <Content Include="Views\Foto\AñadirFoto.cshtml" />
     <Content Include="Views\Foto\MasInfo.cshtml" />
     <Content Include="Views\Home\PerfilUsuario.cshtml" />
+    <Content Include="Views\Foto\TusFotos.cshtml" />
     <None Include="Web.Debug.config">
       <DependentUpon>Web.config</DependentUpon>
     </None>
@@ -167,7 +169,9 @@
       <DependentUpon>Web.config</DependentUpon>
     </None>
   </ItemGroup>
-  <ItemGroup />
+  <ItemGroup>
+    <Folder Include="Views\Image\" />
+  </ItemGroup>
   <ItemGroup>
     <Service Include="{3259AA49-8AA1-44D3-9025-A0B520596A8C}" />
   </ItemGroup>
