@@ -1,5 +1,5 @@
 ﻿@model IEnumerable<Airliners.net.Models.AddFoto>
-
+@using System.IO;
 @{
     ViewBag.Title = "Index";
     Layout = "~/Views/Shared/_Layout.cshtml";
@@ -17,12 +17,14 @@
         
             <img src="@Url.Content("~/Images/" + item.photo)" alt="No Disponible" width="300px" height="200px" />
         <br />
-        
-            @Html.ActionLink("Details", "Details", new { /* id=item.PrimaryKey */})
+            @{string extension = Path.GetExtension(item.photo);
+                string result = item.photo.Substring(0, item.photo.Length - extension.Length);
+            }
+            @Html.ActionLink("Detalles", "Detalles", new { photo=result})
             @if (Session["usuario"] != null)
             {
 
-           @Html.ActionLink("Añadir a tu album", "AñadirAlbum", new { /* id=item.PrimaryKey */ })
+           @Html.ActionLink("Añadir a tu album", "AñadirAlbum", new {photo=result})
             }
     </div>
     }

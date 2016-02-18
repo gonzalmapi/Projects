@@ -95,7 +95,7 @@ namespace Airliners.net.Controllers
                     throw;
                 }
             
-            return View("Index");
+            return RedirectToAction("Index","Home");
         }
     } 
 }

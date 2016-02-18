@@ -32,6 +32,31 @@ namespace Airliners.net.Controllers
             }
             return photoList;
         }
+        public AddFoto GetPhotoById(string photo)
+        {
+            AirlinersDBDataContext adb = new AirlinersDBDataContext();
+            var query = (from ph in adb.Fotos
+                        where ph.Nombre == photo+".jpg"
+                        select ph).Single();
+           // var det = query.FirstOrDefault();
+            var model = new AddFoto()
+            {
+                photo = query.Nombre,
+                name = query.Fotografo,
+                airline = query.Aerolinea,
+                airplane = query.Avion,
+                date = query.Fecha,
+                place = query.Lugar,
+                notes = query.Notas
+            };
+            return model;
+        }
+        public ActionResult Detalles(string photo)
+        {
+            AddFoto model = GetPhotoById(photo);
+            return View(model);
+        }
+
         // GET: Home
         public ActionResult Index()
         {
