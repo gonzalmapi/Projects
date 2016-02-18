@@ -1,7 +1,7 @@
 ﻿@using System.Web;
     @if (Session["usuario"] != null)
     {
-                 <div class="navbar-collapse collapse">
+                 <div class="">
                     <ul class="nav navbar-nav navbar-left">
                         <li>@Html.ActionLink("Perfil de Usuario", "PerfilUsuario", "Home")</li>
                         <li>@Html.ActionLink("Subir Fotos","AñadirFoto","Foto")</li>
@@ -9,5 +9,5 @@
                         <li>@Html.ActionLink("Fotos Favoritas", "Contact", "Home")</li>
                     </ul>
                 </div>
-      
+     
     }

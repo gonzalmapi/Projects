@@ -15,7 +15,11 @@ namespace Airliners.net.Controllers
         {
             AirlinersDBDataContext adb = new AirlinersDBDataContext();
             IList<AddFoto> photoList = new List<AddFoto>();
+            var tio = (from usu in adb.Usuarios
+                       where usu.Alias == (string)Session["usuario"]
+                       select usu.Nombre).Single();
             var query = from photo in adb.Fotos
+                        where photo.Fotografo==tio
                         select photo;
             var photos = query.ToList();
             foreach (var photoData in photos)
@@ -91,7 +95,7 @@ namespace Airliners.net.Controllers
                     throw;
                 }
             
-            return View("Login");
+            return View("Index");
         }
     } 
 }

@@ -5,25 +5,26 @@
     Layout = "~/Views/Shared/_Layout.cshtml";
 }
 
-<table class="table">
-    
+
+<br /> 
+<br />
+<div class="row">   
 @if (Model != null)
 {
     foreach (var item in Model)
     {
-    <tr>
-        <td>
+    <div class="col-md-4">
+        
             <img src="@Url.Content("~/Images/" + item.photo)" alt="No Disponible" width="300px" height="200px" />
-        </td>
-        <td>
+        <br />
+        
             @Html.ActionLink("Details", "Details", new { /* id=item.PrimaryKey */})
             @if (Session["usuario"] != null)
             {
 
            @Html.ActionLink("Añadir a tu album", "AñadirAlbum", new { /* id=item.PrimaryKey */ })
             }
-        </td>
-    </tr>
+    </div>
     }
 }
-</table>
+    </div>

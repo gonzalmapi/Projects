@@ -40,9 +40,10 @@ namespace Airliners.net.Controllers
         }
         [HttpGet]
         public ActionResult Logout() {
-            Session["usuario"] = null;
-            return View("Index");
+            Session.Clear(); 
+            return RedirectToAction("Index");
         }
+      
         [HttpGet]
         public ActionResult Login() {
             return View();
@@ -57,12 +58,13 @@ namespace Airliners.net.Controllers
                               where usu.Alias == usulog.username && usu.Contraseña == usulog.password
                               select usu).Single();
                  Session["usuario"] = usuario.Alias;
+                return RedirectToAction("Index");
             }
             else {
                 var err = ModelState.SelectMany(x => x.Value.Errors.Select(y => y.Exception));          
                 return View("Login");
             }
-            return View("Index");
+            
         }
         [HttpGet]
         public ActionResult Registro()
