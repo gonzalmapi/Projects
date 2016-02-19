@@ -5,7 +5,7 @@ using System.Web;
 using System.Web.Mvc;
 using Airliners.net.Models;
 using System.Data;
-
+using System.Net.Mail;
 namespace Airliners.net.Controllers
 {
     public class HomeController : Controller
@@ -178,10 +178,11 @@ namespace Airliners.net.Controllers
                 nuevo.URLPersonal = usureg.url_personal;
                 nuevo.Otros = usureg.other;
                 nuevo.Ciudad = usureg.city;
-                adb.Usuarios.InsertOnSubmit(nuevo);
+               adb.Usuarios.InsertOnSubmit(nuevo);
                 try
                 {
-                    adb.SubmitChanges();
+                adb.SubmitChanges();
+                    sendEmail(usureg);
                 }
                 catch
                 {
@@ -189,6 +190,29 @@ namespace Airliners.net.Controllers
             
             return RedirectToAction("Index");
         }
+
+        private void sendEmail(UsuarioRegistro usu)
+        {
+            MailMessage m = new MailMessage(
+            new MailAddress("proyectos.mvc.asp@gmail.com", "Airliners"),
+            new MailAddress(usu.email));
+            m.Subject = "Email confirmation";
+            m.Body = string.Format("Dear "+usu.name+"< BR /> Thank you for your registration,"+
+               "Info del registro:<br/>Login: "+usu.username+"<br/>Password: "+usu.confPassword
+                // "please click on the"+
+               /* "below link to complete your registration: /*< a href =\"{1}\"
+                        
+              /* title =\"User Email Confirm\">{1}</a>",
+               user.UserName, Url.Action("ConfirmEmail", "Account",
+               new { Token = user.Id, Email = user.Email }, Request.Url.Scheme)*/) ;
+            m.IsBodyHtml = true;
+            System.Net.Mail.SmtpClient smtp = new System.Net.Mail.SmtpClient("smtp.gmail.com");
+            smtp.Credentials = new System.Net.NetworkCredential("proyectos.mvc.asp@gmail.com", "quarantine");
+            smtp.Port = 587;
+            smtp.EnableSsl = true;
+            smtp.Send(m);
+        }
+
         public ActionResult EditarUsuario(string id)
         {
             UsuarioRegistro model = GetUserById(id);
