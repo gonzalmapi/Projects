@@ -2,9 +2,8 @@
   <Connection Mode="WebSettings" ConnectionString="Data Source=(localdb)\ProjectsV12;Initial Catalog=Airliners.net;Integrated Security=True;Connect Timeout=30" SettingsObjectName="System.Configuration.ConfigurationManager.ConnectionStrings" SettingsPropertyName="Airliners_netConnectionString" Provider="System.Data.SqlClient" />
   <Table Name="dbo.Album" Member="Albums">
     <Type Name="Album">
-      <Column Name="Nombre" Type="System.String" DbType="NVarChar(50) NOT NULL" CanBeNull="false" />
-      <Column Name="Nombre_Foto" Type="System.String" DbType="VarChar(50) NOT NULL" CanBeNull="false" />
-      <Column Name="Nombre_Usu" Type="System.String" DbType="VarChar(50) NOT NULL" CanBeNull="false" />
+      <Column Name="Nombre_Foto" Type="System.String" DbType="VarChar(50) NOT NULL" IsPrimaryKey="true" CanBeNull="false" />
+      <Column Name="Nombre_Usu" Type="System.String" DbType="VarChar(50) NOT NULL" IsPrimaryKey="true" CanBeNull="false" />
       <Association Name="Foto_Album" Member="Foto" ThisKey="Nombre_Foto" OtherKey="Nombre" Type="Foto" IsForeignKey="true" />
       <Association Name="Usuario_Album" Member="Usuario" ThisKey="Nombre_Usu" OtherKey="Nombre" Type="Usuario" IsForeignKey="true" />
     </Type>

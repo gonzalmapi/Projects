@@ -10,6 +10,7 @@ namespace Airliners.net.Controllers
 {
     public class HomeController : Controller
     {
+
         public IEnumerable<AddFoto> GetPhotos()
         {
             AirlinersDBDataContext adb = new AirlinersDBDataContext();
@@ -36,9 +37,9 @@ namespace Airliners.net.Controllers
         {
             AirlinersDBDataContext adb = new AirlinersDBDataContext();
             var query = (from ph in adb.Fotos
-                        where ph.Nombre == photo+".jpg"
-                        select ph).Single();
-           // var det = query.FirstOrDefault();
+                         where ph.Nombre == photo + ".jpg"
+                         select ph).Single();
+            // var det = query.FirstOrDefault();
             var model = new AddFoto()
             {
                 photo = query.Nombre,
@@ -51,26 +52,92 @@ namespace Airliners.net.Controllers
             };
             return model;
         }
+        public ActionResult AñadirAlbum(string photo)
+        {
+            AirlinersDBDataContext adb = new AirlinersDBDataContext();
+            var tio = (from usu in adb.Usuarios
+                       where usu.Alias == (string)Session["usuario"]
+                       select usu.Nombre).Single();
+            bool esta = (from alb in adb.Albums
+                         where alb.Nombre_Foto == photo + ".jpg" && alb.Nombre_Usu == tio
+                         select true).SingleOrDefault();
+            if (esta == false)
+            {
+                var query = (from ph in adb.Fotos
+                             where ph.Nombre == photo + ".jpg"
+                             select ph.Nombre).Single();
+                Album nuevo = new Album();
+                nuevo.Nombre_Foto = query;
+                nuevo.Nombre_Usu = tio;
+                adb.Albums.InsertOnSubmit(nuevo);
+                try
+                {
+                    adb.SubmitChanges();
+                }
+                catch
+                {
+                    throw;
+                }
+                return RedirectToAction("Index");
+            }
+            else
+            {
+                return RedirectToAction("Index");
+            }
+        }
+
         public ActionResult Detalles(string photo)
         {
             AddFoto model = GetPhotoById(photo);
             return View(model);
         }
+        public ActionResult PerfilUsuario()
+        {
+            UsuarioRegistro model = getInfo();
+            return View(model);
+        }
+
+        private UsuarioRegistro getInfo()
+        {
+            AirlinersDBDataContext adb = new AirlinersDBDataContext();
+            var query = (from ph in adb.Usuarios
+                         where ph.Alias == (string)Session["usuario"]
+                         select ph).Single();
+            var model = new UsuarioRegistro()
+            {
+                username = query.Alias,
+                email = query.Email,
+                confPassword = query.Contraseña,
+                name = query.Nombre,
+                age = query.Edad,
+                gender = query.Sexo,
+                country = query.Pais,
+                occupation = query.Ocupacion,
+                hobbies = query.Hobbies,
+                url_personal = query.URLPersonal,
+                other = query.Otros,
+                city = query.Ciudad
+            };
+            return model;
+        }
 
         // GET: Home
         public ActionResult Index()
         {
+            Session["hay"] = false;
             var fotos = GetPhotos();
             return View(fotos);
         }
         [HttpGet]
-        public ActionResult Logout() {
-            Session.Clear(); 
+        public ActionResult Logout()
+        {
+            Session.Clear();
             return RedirectToAction("Index");
         }
-      
+
         [HttpGet]
-        public ActionResult Login() {
+        public ActionResult Login()
+        {
             return View();
         }
         [HttpPost]
@@ -80,16 +147,16 @@ namespace Airliners.net.Controllers
             {
                 AirlinersDBDataContext adb = new AirlinersDBDataContext();
                 var usuario = (from usu in adb.Usuarios
-                              where usu.Alias == usulog.username && usu.Contraseña == usulog.password
-                              select usu).Single();
-                 Session["usuario"] = usuario.Alias;
+                               where usu.Alias == usulog.username && usu.Contraseña == usulog.password
+                               select usu).Single();
+                Session["usuario"] = usuario.Alias;
                 return RedirectToAction("Index");
             }
             else {
-                var err = ModelState.SelectMany(x => x.Value.Errors.Select(y => y.Exception));          
+                var err = ModelState.SelectMany(x => x.Value.Errors.Select(y => y.Exception));
                 return View("Login");
             }
-            
+
         }
         [HttpGet]
         public ActionResult Registro()
@@ -97,8 +164,10 @@ namespace Airliners.net.Controllers
             return View();
         }
         [HttpPost]
-        public ActionResult Registro(UsuarioRegistro usureg) {
-            if (ModelState.IsValid) {
+        public ActionResult Registro(UsuarioRegistro usureg)
+        {
+            if (ModelState.IsValid)
+            {
                 AirlinersDBDataContext adb = new AirlinersDBDataContext();
                 Usuario nuevo = new Usuario();
                 nuevo.Alias = usureg.username;
@@ -118,19 +187,16 @@ namespace Airliners.net.Controllers
                 {
                     adb.SubmitChanges();
                 }
-                catch {
+                catch
+                {
                 }
             }
             else
             {
-                var error= ModelState.SelectMany(x => x.Value.Errors.Select(y => y.Exception));
+                var error = ModelState.SelectMany(x => x.Value.Errors.Select(y => y.Exception));
                 return View("Index");
             }
             return View("Index");
-        }
-        [HttpGet]
-        public ActionResult PerfilUsuario() {
-            return View();
         }
     }
 }

@@ -140,6 +140,7 @@
     <Compile Include="Global.asax.cs">
       <DependentUpon>Global.asax</DependentUpon>
     </Compile>
+    <Compile Include="Models\AddAlbum.cs" />
     <Compile Include="Models\AddFoto.cs" />
     <Compile Include="Models\AirlinersDB.designer.cs">
       <AutoGen>True</AutoGen>
@@ -162,11 +163,11 @@
     <Content Include="Scripts\jquery-2.2.0.min.map" />
     <Content Include="Views\Foto\AñadirFoto.cshtml" />
     <Content Include="Views\Foto\MasInfo.cshtml" />
-    <Content Include="Views\Home\PerfilUsuario.cshtml" />
     <Content Include="Views\Foto\TusFotos.cshtml" />
     <Content Include="Views\Home\Index.cshtml" />
     <Content Include="Views\Home\Detalles.cshtml" />
     <Content Include="Views\Home\AñadirAlbum.cshtml" />
+    <Content Include="Views\Home\PerfilUsuario.cshtml" />
     <None Include="Web.Debug.config">
       <DependentUpon>Web.config</DependentUpon>
     </None>
@@ -174,14 +175,13 @@
       <DependentUpon>Web.config</DependentUpon>
     </None>
   </ItemGroup>
-  <ItemGroup />
-  <ItemGroup>
-    <Service Include="{3259AA49-8AA1-44D3-9025-A0B520596A8C}" />
-  </ItemGroup>
   <ItemGroup>
     <None Include="Models\AirlinersDB.dbml.layout">
       <DependentUpon>AirlinersDB.dbml</DependentUpon>
     </None>
+  </ItemGroup>
+  <ItemGroup>
+    <Service Include="{3259AA49-8AA1-44D3-9025-A0B520596A8C}" />
   </ItemGroup>
   <PropertyGroup>
     <VisualStudioVersion Condition="'$(VisualStudioVersion)' == ''">10.0</VisualStudioVersion>

@@ -30,9 +30,12 @@ namespace Airliners.net.Models
 		
     #region Extensibility Method Definitions
     partial void OnCreated();
-    partial void InsertFoto(Fotos instance);
-    partial void UpdateFoto(Fotos instance);
-    partial void DeleteFoto(Fotos instance);
+    partial void InsertAlbum(Album instance);
+    partial void UpdateAlbum(Album instance);
+    partial void DeleteAlbum(Album instance);
+    partial void InsertFoto(Foto instance);
+    partial void UpdateFoto(Foto instance);
+    partial void DeleteFoto(Foto instance);
     partial void InsertUsuario(Usuario instance);
     partial void UpdateUsuario(Usuario instance);
     partial void DeleteUsuario(Usuario instance);
@@ -76,11 +79,11 @@ namespace Airliners.net.Models
 			}
 		}
 		
-		public System.Data.Linq.Table<Fotos> Fotos
+		public System.Data.Linq.Table<Foto> Fotos
 		{
 			get
 			{
-				return this.GetTable<Fotos>();
+				return this.GetTable<Foto>();
 			}
 		}
 		
@@ -94,36 +97,37 @@ namespace Airliners.net.Models
 	}
 	
 	[global::System.Data.Linq.Mapping.TableAttribute(Name="dbo.Album")]
-	public partial class Album
+	public partial class Album : INotifyPropertyChanging, INotifyPropertyChanged
 	{
 		
-		private string _Nombre;
+		private static PropertyChangingEventArgs emptyChangingEventArgs = new PropertyChangingEventArgs(String.Empty);
 		
 		private string _Nombre_Foto;
 		
 		private string _Nombre_Usu;
 		
+		private EntityRef<Foto> _Foto;
+		
+		private EntityRef<Usuario> _Usuario;
+		
+    #region Extensibility Method Definitions
+    partial void OnLoaded();
+    partial void OnValidate(System.Data.Linq.ChangeAction action);
+    partial void OnCreated();
+    partial void OnNombre_FotoChanging(string value);
+    partial void OnNombre_FotoChanged();
+    partial void OnNombre_UsuChanging(string value);
+    partial void OnNombre_UsuChanged();
+    #endregion
+		
 		public Album()
 		{
+			this._Foto = default(EntityRef<Foto>);
+			this._Usuario = default(EntityRef<Usuario>);
+			OnCreated();
 		}
 		
-		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_Nombre", DbType="NVarChar(50) NOT NULL", CanBeNull=false)]
-		public string Nombre
-		{
-			get
-			{
-				return this._Nombre;
-			}
-			set
-			{
-				if ((this._Nombre != value))
-				{
-					this._Nombre = value;
-				}
-			}
-		}
-		
-		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_Nombre_Foto", DbType="VarChar(50) NOT NULL", CanBeNull=false)]
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_Nombre_Foto", DbType="VarChar(50) NOT NULL", CanBeNull=false, IsPrimaryKey=true)]
 		public string Nombre_Foto
 		{
 			get
@@ -134,12 +138,20 @@ namespace Airliners.net.Models
 			{
 				if ((this._Nombre_Foto != value))
 				{
+					if (this._Foto.HasLoadedOrAssignedValue)
+					{
+						throw new System.Data.Linq.ForeignKeyReferenceAlreadyHasValueException();
+					}
+					this.OnNombre_FotoChanging(value);
+					this.SendPropertyChanging();
 					this._Nombre_Foto = value;
+					this.SendPropertyChanged("Nombre_Foto");
+					this.OnNombre_FotoChanged();
 				}
 			}
 		}
 		
-		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_Nombre_Usu", DbType="VarChar(50) NOT NULL", CanBeNull=false)]
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_Nombre_Usu", DbType="VarChar(50) NOT NULL", CanBeNull=false, IsPrimaryKey=true)]
 		public string Nombre_Usu
 		{
 			get
@@ -150,14 +162,110 @@ namespace Airliners.net.Models
 			{
 				if ((this._Nombre_Usu != value))
 				{
+					if (this._Usuario.HasLoadedOrAssignedValue)
+					{
+						throw new System.Data.Linq.ForeignKeyReferenceAlreadyHasValueException();
+					}
+					this.OnNombre_UsuChanging(value);
+					this.SendPropertyChanging();
 					this._Nombre_Usu = value;
+					this.SendPropertyChanged("Nombre_Usu");
+					this.OnNombre_UsuChanged();
 				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.AssociationAttribute(Name="Foto_Album", Storage="_Foto", ThisKey="Nombre_Foto", OtherKey="Nombre", IsForeignKey=true)]
+		public Foto Foto
+		{
+			get
+			{
+				return this._Foto.Entity;
+			}
+			set
+			{
+				Foto previousValue = this._Foto.Entity;
+				if (((previousValue != value) 
+							|| (this._Foto.HasLoadedOrAssignedValue == false)))
+				{
+					this.SendPropertyChanging();
+					if ((previousValue != null))
+					{
+						this._Foto.Entity = null;
+						previousValue.Albums.Remove(this);
+					}
+					this._Foto.Entity = value;
+					if ((value != null))
+					{
+						value.Albums.Add(this);
+						this._Nombre_Foto = value.Nombre;
+					}
+					else
+					{
+						this._Nombre_Foto = default(string);
+					}
+					this.SendPropertyChanged("Foto");
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.AssociationAttribute(Name="Usuario_Album", Storage="_Usuario", ThisKey="Nombre_Usu", OtherKey="Nombre", IsForeignKey=true)]
+		public Usuario Usuario
+		{
+			get
+			{
+				return this._Usuario.Entity;
+			}
+			set
+			{
+				Usuario previousValue = this._Usuario.Entity;
+				if (((previousValue != value) 
+							|| (this._Usuario.HasLoadedOrAssignedValue == false)))
+				{
+					this.SendPropertyChanging();
+					if ((previousValue != null))
+					{
+						this._Usuario.Entity = null;
+						previousValue.Albums.Remove(this);
+					}
+					this._Usuario.Entity = value;
+					if ((value != null))
+					{
+						value.Albums.Add(this);
+						this._Nombre_Usu = value.Nombre;
+					}
+					else
+					{
+						this._Nombre_Usu = default(string);
+					}
+					this.SendPropertyChanged("Usuario");
+				}
+			}
+		}
+		
+		public event PropertyChangingEventHandler PropertyChanging;
+		
+		public event PropertyChangedEventHandler PropertyChanged;
+		
+		protected virtual void SendPropertyChanging()
+		{
+			if ((this.PropertyChanging != null))
+			{
+				this.PropertyChanging(this, emptyChangingEventArgs);
+			}
+		}
+		
+		protected virtual void SendPropertyChanged(String propertyName)
+		{
+			if ((this.PropertyChanged != null))
+			{
+				this.PropertyChanged(this, new PropertyChangedEventArgs(propertyName));
 			}
 		}
 	}
 	
 	[global::System.Data.Linq.Mapping.TableAttribute(Name="dbo.Foto")]
-	public partial class Fotos : INotifyPropertyChanging, INotifyPropertyChanged
+	public partial class Foto : INotifyPropertyChanging, INotifyPropertyChanged
 	{
 		
 		private static PropertyChangingEventArgs emptyChangingEventArgs = new PropertyChangingEventArgs(String.Empty);
@@ -175,6 +283,8 @@ namespace Airliners.net.Models
 		private string _Fotografo;
 		
 		private string _Nombre;
+		
+		private EntitySet<Album> _Albums;
 		
 		private EntityRef<Usuario> _Usuario;
 		
@@ -198,8 +308,9 @@ namespace Airliners.net.Models
     partial void OnNombreChanged();
     #endregion
 		
-		public Fotos()
+		public Foto()
 		{
+			this._Albums = new EntitySet<Album>(new Action<Album>(this.attach_Albums), new Action<Album>(this.detach_Albums));
 			this._Usuario = default(EntityRef<Usuario>);
 			OnCreated();
 		}
@@ -348,6 +459,19 @@ namespace Airliners.net.Models
 			}
 		}
 		
+		[global::System.Data.Linq.Mapping.AssociationAttribute(Name="Foto_Album", Storage="_Albums", ThisKey="Nombre", OtherKey="Nombre_Foto")]
+		public EntitySet<Album> Albums
+		{
+			get
+			{
+				return this._Albums;
+			}
+			set
+			{
+				this._Albums.Assign(value);
+			}
+		}
+		
 		[global::System.Data.Linq.Mapping.AssociationAttribute(Name="Usuario_Foto", Storage="_Usuario", ThisKey="Fotografo", OtherKey="Nombre", IsForeignKey=true)]
 		public Usuario Usuario
 		{
@@ -401,6 +525,18 @@ namespace Airliners.net.Models
 				this.PropertyChanged(this, new PropertyChangedEventArgs(propertyName));
 			}
 		}
+		
+		private void attach_Albums(Album entity)
+		{
+			this.SendPropertyChanging();
+			entity.Foto = this;
+		}
+		
+		private void detach_Albums(Album entity)
+		{
+			this.SendPropertyChanging();
+			entity.Foto = null;
+		}
 	}
 	
 	[global::System.Data.Linq.Mapping.TableAttribute(Name="dbo.Usuario")]
@@ -433,7 +569,9 @@ namespace Airliners.net.Models
 		
 		private string _Otros;
 		
-		private EntitySet<Fotos> _Fotos;
+		private EntitySet<Album> _Albums;
+		
+		private EntitySet<Foto> _Fotos;
 		
     #region Extensibility Method Definitions
     partial void OnLoaded();
@@ -467,7 +605,8 @@ namespace Airliners.net.Models
 		
 		public Usuario()
 		{
-			this._Fotos = new EntitySet<Fotos>(new Action<Fotos>(this.attach_Fotos), new Action<Fotos>(this.detach_Fotos));
+			this._Albums = new EntitySet<Album>(new Action<Album>(this.attach_Albums), new Action<Album>(this.detach_Albums));
+			this._Fotos = new EntitySet<Foto>(new Action<Foto>(this.attach_Fotos), new Action<Foto>(this.detach_Fotos));
 			OnCreated();
 		}
 		
@@ -711,8 +850,21 @@ namespace Airliners.net.Models
 			}
 		}
 		
+		[global::System.Data.Linq.Mapping.AssociationAttribute(Name="Usuario_Album", Storage="_Albums", ThisKey="Nombre", OtherKey="Nombre_Usu")]
+		public EntitySet<Album> Albums
+		{
+			get
+			{
+				return this._Albums;
+			}
+			set
+			{
+				this._Albums.Assign(value);
+			}
+		}
+		
 		[global::System.Data.Linq.Mapping.AssociationAttribute(Name="Usuario_Foto", Storage="_Fotos", ThisKey="Nombre", OtherKey="Fotografo")]
-		public EntitySet<Fotos> Fotos
+		public EntitySet<Foto> Fotos
 		{
 			get
 			{
@@ -744,13 +896,25 @@ namespace Airliners.net.Models
 			}
 		}
 		
-		private void attach_Fotos(Fotos entity)
+		private void attach_Albums(Album entity)
 		{
 			this.SendPropertyChanging();
 			entity.Usuario = this;
 		}
 		
-		private void detach_Fotos(Fotos entity)
+		private void detach_Albums(Album entity)
+		{
+			this.SendPropertyChanging();
+			entity.Usuario = null;
+		}
+		
+		private void attach_Fotos(Foto entity)
+		{
+			this.SendPropertyChanging();
+			entity.Usuario = this;
+		}
+		
+		private void detach_Fotos(Foto entity)
 		{
 			this.SendPropertyChanging();
 			entity.Usuario = null;

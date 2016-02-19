@@ -19,13 +19,14 @@
         <br />
             @{string extension = Path.GetExtension(item.photo);
                 string result = item.photo.Substring(0, item.photo.Length - extension.Length);
+               
             }
             @Html.ActionLink("Detalles", "Detalles", new { photo=result})
             @if (Session["usuario"] != null)
             {
-
-           @Html.ActionLink("Añadir a tu album", "AñadirAlbum", new {photo=result})
-            }
+               
+           @Html.ActionLink("Añadir a tu album", "AñadirAlbum", new { photo = result })
+                }
     </div>
     }
 }

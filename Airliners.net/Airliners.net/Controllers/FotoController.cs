@@ -75,7 +75,7 @@ namespace Airliners.net.Controllers
                               where usu.Alias == (string)Session["usuario"]
                               select usu.Nombre).Single();
 
-                Fotos nuevo = new Fotos();
+                Foto nuevo = new Foto();
                 af.name = (string)nombre;
                 af.photo = (string)Session["nombreFoto"];
                 nuevo.Aerolinea = af.airline;

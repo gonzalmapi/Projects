@@ -1,8 +1,115 @@
-﻿
+﻿@model Airliners.net.Models.UsuarioRegistro
+
 @{
-    ViewBag.Title = "Perfil Usuario";
+    ViewBag.Title = "PerfilUsuario";
     Layout = "~/Views/Shared/_Layout.cshtml";
 }
+<br />
+<h2>Perfil de Usuario</h2>
 
-<h2>PerfilUsuario</h2>
+<div>
+    
+    <hr />
+    <dl class="dl-horizontal">
+        <dt>
+            @Html.DisplayNameFor(model => model.email)
+        </dt>
 
+        <dd>
+            @Html.DisplayFor(model => model.email)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.username)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.username)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.password)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.confPassword)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.name)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.name)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.age)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.age)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.country)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.country)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.city)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.city)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.gender)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.gender)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.occupation)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.occupation)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.hobbies)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.hobbies)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.url_personal)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.url_personal)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.other)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.other)
+        </dd>
+
+    </dl>
+</div>
+<p>
+    @Html.ActionLink("Editar Informacion", "Editar", new { /* id = Model.PrimaryKey */ }) |
+    @Html.ActionLink("Volver", "Index")
+</p>
