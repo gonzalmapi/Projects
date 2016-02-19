@@ -4,13 +4,13 @@ using System.Linq;
 using System.Web;
 using System.Web.Mvc;
 using Airliners.net.Models;
-
+using System.Data;
 
 namespace Airliners.net.Controllers
 {
     public class HomeController : Controller
     {
-
+       private AirlinersDBDataContext adb = new AirlinersDBDataContext();
         public IEnumerable<AddFoto> GetPhotos()
         {
             AirlinersDBDataContext adb = new AirlinersDBDataContext();
@@ -35,7 +35,6 @@ namespace Airliners.net.Controllers
         }
         public AddFoto GetPhotoById(string photo)
         {
-            AirlinersDBDataContext adb = new AirlinersDBDataContext();
             var query = (from ph in adb.Fotos
                          where ph.Nombre == photo + ".jpg"
                          select ph).Single();
@@ -54,7 +53,6 @@ namespace Airliners.net.Controllers
         }
         public ActionResult AñadirAlbum(string photo)
         {
-            AirlinersDBDataContext adb = new AirlinersDBDataContext();
             var tio = (from usu in adb.Usuarios
                        where usu.Alias == (string)Session["usuario"]
                        select usu.Nombre).Single();
@@ -99,7 +97,6 @@ namespace Airliners.net.Controllers
 
         private UsuarioRegistro getInfo()
         {
-            AirlinersDBDataContext adb = new AirlinersDBDataContext();
             var query = (from ph in adb.Usuarios
                          where ph.Alias == (string)Session["usuario"]
                          select ph).Single();
@@ -145,7 +142,7 @@ namespace Airliners.net.Controllers
         {
             if (ModelState.IsValid)
             {
-                AirlinersDBDataContext adb = new AirlinersDBDataContext();
+                
                 var usuario = (from usu in adb.Usuarios
                                where usu.Alias == usulog.username && usu.Contraseña == usulog.password
                                select usu).Single();
@@ -191,6 +188,109 @@ namespace Airliners.net.Controllers
                 }
             
             return RedirectToAction("Index");
+        }
+        public ActionResult EditarUsuario(string id)
+        {
+            UsuarioRegistro model = GetUserById(id);
+            return View(model);
+        }
+
+
+        [HttpPost]
+        public ActionResult EditarUsuario(UsuarioRegistro usureg)
+        {
+            try
+            {
+                Usuario userData = (from usu in adb.Usuarios
+                                    where usu.Alias == (string)Session["usuario"]
+                                    select usu).Single();
+
+                userData.Alias = usureg.username;
+                userData.Email = usureg.email;
+                userData.Contraseña = usureg.confPassword;
+                userData.Edad = usureg.age;
+                userData.Sexo = usureg.gender;
+                userData.Pais = usureg.country;
+                userData.Ocupacion = usureg.occupation;
+                userData.Hobbies = usureg.hobbies;
+                userData.URLPersonal = usureg.url_personal;
+                userData.Otros = usureg.other;
+                userData.Ciudad = usureg.city;
+                adb.SubmitChanges();
+                return RedirectToAction("PerfilUsuario");
+                
+            }
+            catch (DataException)
+            {
+                ModelState.AddModelError("", "Unable to save changes.");
+            }
+            return View(usureg);
+        }
+
+        public ActionResult EliminarCuenta(string id, bool? saveChangesError)
+        {
+            if (saveChangesError.GetValueOrDefault())
+            {
+                ViewBag.ErrorMessage = "Unable to save changes";
+            }
+            UsuarioRegistro user = GetUserById(id);
+            return View(user);
+        }
+
+        private UsuarioRegistro GetUserById(string id)
+        {
+            var query = (from usu in adb.Usuarios
+                         where usu.Alias == id
+                         select usu).Single();
+            // var det = query.FirstOrDefault();
+            var model = new UsuarioRegistro()
+            {
+                name = query.Nombre,
+                 username= query.Alias,
+                city = query.Ciudad,
+                confPassword = query.Contraseña,
+                age = query.Edad,
+                email = query.Email,
+                hobbies = query.Hobbies,
+                occupation = query.Ocupacion,
+                other = query.Otros,
+                country = query.Pais,
+                gender = query.Sexo,
+                url_personal= query.URLPersonal
+            };
+            return model;
+        }
+
+        [HttpPost, ActionName("EliminarCuenta")]
+        public ActionResult DeleteConfirmed(string id)
+        {
+            try
+            {
+                UsuarioRegistro user = GetUserById(id);
+                DeleteUsuario(id);
+            }
+            catch (DataException)
+            {
+                return RedirectToAction("EliminarCuenta",
+                    new System.Web.Routing.RouteValueDictionary {
+                { "id", id },
+                { "saveChangesError", true } });
+            }
+            return RedirectToAction("Index");
+        }
+
+        private void DeleteUsuario(string id)
+        {
+            var nombre = (from usu in adb.Usuarios
+                          where usu.Alias == id
+                          select usu.Nombre).Single();
+            Usuario user = adb.Usuarios.Where(u => u.Alias == id).SingleOrDefault();
+            adb.Usuarios.DeleteOnSubmit(user);
+            Foto photoData = (from p in adb.Fotos
+                              where p.Fotografo == nombre
+                              select p).Single();
+            photoData.Fotografo = "admin";           
+            adb.SubmitChanges();
         }
     }
 }

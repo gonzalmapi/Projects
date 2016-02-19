@@ -1,12 +1,13 @@
 ﻿@model Airliners.net.Models.UsuarioRegistro
 
 @{
-    ViewBag.Title = "PerfilUsuario";
+    ViewBag.Title = "EliminarCuenta";
     Layout = "~/Views/Shared/_Layout.cshtml";
 }
-<br />
-<h2>Perfil de Usuario</h2>
 
+<h2>Eliminar tu Cuenta</h2>
+
+<h3>¿Estas seguro de eliminar tu cuenta?</h3>
 <div>
     
     <hr />
@@ -106,11 +107,16 @@
         <dd>
             @Html.DisplayFor(model => model.other)
         </dd>
-       
+
     </dl>
+
+    @using (Html.BeginForm()) {
+        @Html.AntiForgeryToken()
+
+        <div class="form-actions no-color">
+            <input type="submit" value="Eliminar" class="btn btn-default" /> 
+            <br />
+            @Html.ActionLink("Volver a Inicio", "Index")
+        </div>
+    }
 </div>
-<p>
-    @Html.ActionLink("Editar Informacion", "EditarUsuario", new {  id = (string)Session["usuario"] }) |
-    @Html.ActionLink("Eliminar Cuenta", "EliminarCuenta", new { id = (string)Session["usuario"] }) |
-    @Html.ActionLink("Volver", "Index")
-</p>

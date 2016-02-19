@@ -14,7 +14,6 @@ namespace Airliners.net.Controllers
         private AirlinersDBDataContext adb = new AirlinersDBDataContext();
         public IEnumerable<AddFoto> GetPhotos()
         {
-            
             IList<AddFoto> photoList = new List<AddFoto>();
             if ((string)Session["usuario"] != "admin")
             {
