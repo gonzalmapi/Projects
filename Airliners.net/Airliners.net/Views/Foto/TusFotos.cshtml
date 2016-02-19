@@ -67,7 +67,9 @@
     string result = item.photo.Substring(0, item.photo.Length - extension.Length);
 }
             @Html.ActionLink("Editar", "EditarFoto", new {  photo=result }) |
-            @Html.ActionLink("Eliminar", "Delete", new { /* id=item.PrimaryKey */} )
+            @if ((string)Session["usuario"] == "admin") {
+            @Html.ActionLink("Eliminar", "EliminarFoto", new { photo=result})
+            }
         </td>
     </tr>
         }

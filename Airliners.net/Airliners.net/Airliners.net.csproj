@@ -108,7 +108,10 @@
     <Content Include="Content\bootstrap.css.map" />
     <Content Include="Content\bootstrap-theme.min.css.map" />
     <Content Include="Content\bootstrap-theme.css.map" />
+    <Content Include="Images\0286597.jpg" />
     <Content Include="Images\0347673.jpg" />
+    <Content Include="Images\1149014.jpg" />
+    <Content Include="Images\2778356.jpg" />
     <Content Include="Models\AirlinersDB.dbml">
       <Generator>MSLinqToSQLGenerator</Generator>
       <LastGenOutput>AirlinersDB.designer.cs</LastGenOutput>
@@ -168,6 +171,7 @@
     <Content Include="Views\Home\Detalles.cshtml" />
     <Content Include="Views\Home\PerfilUsuario.cshtml" />
     <Content Include="Views\Foto\EditarFoto.cshtml" />
+    <Content Include="Views\Foto\EliminarFoto.cshtml" />
     <None Include="Web.Debug.config">
       <DependentUpon>Web.config</DependentUpon>
     </None>

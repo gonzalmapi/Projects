@@ -166,8 +166,7 @@ namespace Airliners.net.Controllers
         [HttpPost]
         public ActionResult Registro(UsuarioRegistro usureg)
         {
-            if (ModelState.IsValid)
-            {
+            
                 AirlinersDBDataContext adb = new AirlinersDBDataContext();
                 Usuario nuevo = new Usuario();
                 nuevo.Alias = usureg.username;
@@ -190,13 +189,8 @@ namespace Airliners.net.Controllers
                 catch
                 {
                 }
-            }
-            else
-            {
-                var error = ModelState.SelectMany(x => x.Value.Errors.Select(y => y.Exception));
-                return View("Index");
-            }
-            return View("Index");
+            
+            return RedirectToAction("Index");
         }
     }
 }
