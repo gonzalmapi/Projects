@@ -56,17 +56,20 @@
             @Html.DisplayFor(modelItem => item.name)
         </td>
         <td>
-            <img src="@Url.Content("~/Images/"+item.photo)" alt="No Disponible" width="300px" height="200px"/>
+            <img src="@Url.Content("~/Images/" + item.photo)" alt="No Disponible" width="300px" height="200px"/>
             @Html.DisplayFor(modelItem => item.photo)
         </td>
         <td>
             @Html.DisplayFor(modelItem => item.notes)
         </td>
         <td>
-            @Html.ActionLink("Editar", "Edit", new { /* id=item.PrimaryKey */ }) |
-            @Html.ActionLink("Eliminar", "Delete", new { /* id=item.PrimaryKey */ })
+@{string extension = Path.GetExtension(item.photo);
+    string result = item.photo.Substring(0, item.photo.Length - extension.Length);
+}
+            @Html.ActionLink("Editar", "EditarFoto", new {  photo=result }) |
+            @Html.ActionLink("Eliminar", "Delete", new { /* id=item.PrimaryKey */} )
         </td>
     </tr>
+        }
     }
-}
 </table>

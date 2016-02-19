@@ -37,6 +37,58 @@ namespace Airliners.net.Controllers
             }
             return photoList;
         }
+        public AddFoto GetPhotoById(string photo)
+        {
+            AirlinersDBDataContext adb = new AirlinersDBDataContext();
+            var query = (from ph in adb.Fotos
+                         where ph.Nombre == photo + ".jpg"
+                         select ph).Single();
+            // var det = query.FirstOrDefault();
+            var model = new AddFoto()
+            {
+                photo = query.Nombre,
+                name = query.Fotografo,
+                airline = query.Aerolinea,
+                airplane = query.Avion,
+                date = query.Fecha,
+                place = query.Lugar,
+                notes = query.Notas
+            };
+            return model;
+        }
+        public ActionResult EditarFoto(string photo)
+        {
+            AddFoto model = GetPhotoById(photo);
+            return View(model);
+        }
+
+
+        [HttpPost]
+        public ActionResult EditarFoto(AddFoto ph)
+        {
+            try
+            {
+                
+                    AirlinersDBDataContext adb = new AirlinersDBDataContext();
+                    Foto photoData = (from p in adb.Fotos
+                                 where p.Nombre == ph.photo + ".jpg"
+                                 select p).Single();
+                    //Foto photoData = adb.Fotos.Where(u => u.Nombre == (ph.photo+".jpg")).SingleOrDefault();
+                    photoData.Aerolinea = ph.airline;
+                    photoData.Avion = ph.airplane;
+                    photoData.Fecha = ph.date;
+                    photoData.Lugar = ph.place;
+                    photoData.Notas = ph.notes;
+                    adb.SubmitChanges();
+                    return RedirectToAction("TusFotos");
+                
+            }
+            catch (DataException)
+            {
+                ModelState.AddModelError("","Unable to save changes.");
+            }
+            return View(ph);
+        }
         [HttpGet]
         public ActionResult TusFotos()
         {

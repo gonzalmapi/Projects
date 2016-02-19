@@ -166,8 +166,8 @@
     <Content Include="Views\Foto\TusFotos.cshtml" />
     <Content Include="Views\Home\Index.cshtml" />
     <Content Include="Views\Home\Detalles.cshtml" />
-    <Content Include="Views\Home\AñadirAlbum.cshtml" />
     <Content Include="Views\Home\PerfilUsuario.cshtml" />
+    <Content Include="Views\Foto\EditarFoto.cshtml" />
     <None Include="Web.Debug.config">
       <DependentUpon>Web.config</DependentUpon>
     </None>
