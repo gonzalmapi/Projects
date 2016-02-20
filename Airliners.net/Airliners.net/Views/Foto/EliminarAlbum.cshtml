@@ -1,0 +1,35 @@
+﻿@model Airliners.net.Models.AddFoto
+
+@{
+    ViewBag.Title = "EliminarAlbum";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<h2>Eliminar Foto de tu Album</h2>
+
+<h3>¿Deseas eliminar esta foto de tu album?</h3>
+<div>
+    <h4>AddFoto</h4>
+    <hr />
+    <dl class="dl-horizontal">
+        <dt>
+            @Html.DisplayNameFor(model => model.photo)
+        </dt>
+
+        <dd>
+            @{
+                string name = Html.DisplayFor(model => model.photo).ToString();
+            }
+            <img src="@Url.Content("~/Images/"+name)" alt="No Disponible" width="300px" height="200px" />
+        </dd>
+    </dl>
+
+    @using (Html.BeginForm()) {
+        @Html.AntiForgeryToken()
+
+        <div class="form-actions no-color">
+            <input type="submit" value="SI" class="btn btn-default" /> |
+            @Html.ActionLink("NO", "Index","Home")
+        </div>
+    }
+</div>

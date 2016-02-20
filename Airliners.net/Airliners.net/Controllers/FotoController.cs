@@ -12,6 +12,41 @@ namespace Airliners.net.Controllers
     public class FotoController : Controller
     {
         private AirlinersDBDataContext adb = new AirlinersDBDataContext();
+        public IEnumerable<AddFoto> GetPhotosAlbum()
+        {
+            IList<AddFoto> photoList = new List<AddFoto>();
+
+            var usuu = (from usu in adb.Usuarios
+                        where usu.Alias == (string)Session["usuario"]
+                        select usu.Nombre).SingleOrDefault();
+            bool esta = (from usunom in adb.Albums
+                        where usunom.Nombre_Usu == usuu
+                        select true).SingleOrDefault();
+            if (esta)
+            {
+                var nomf = (from usua in adb.Albums
+                            where usua.Nombre_Usu == usuu
+                            select usua.Nombre_Foto).SingleOrDefault();
+                var query = from photo in adb.Fotos
+                            where photo.Nombre == nomf
+                            select photo;
+                var photos = query.ToList();
+                foreach (var photoData in photos)
+                {
+                    photoList.Add(new AddFoto()
+                    {
+                        airline = photoData.Aerolinea,
+                        airplane = photoData.Avion,
+                        date = photoData.Fecha,
+                        name = photoData.Fotografo,
+                        photo = photoData.Nombre,
+                        place = photoData.Lugar,
+                        notes = photoData.Notas
+                    });
+                }
+            }
+            return photoList;
+        }
         public IEnumerable<AddFoto> GetPhotos()
         {
             IList<AddFoto> photoList = new List<AddFoto>();
@@ -61,8 +96,7 @@ namespace Airliners.net.Controllers
         }
         public AddFoto GetPhotoById(string photo)
         {
-           
-            var query = (from ph in adb.Fotos
+               var query = (from ph in adb.Fotos
                          where ph.Nombre == photo + ".jpg"
                          select ph).Single();
             // var det = query.FirstOrDefault();
@@ -83,19 +117,14 @@ namespace Airliners.net.Controllers
             AddFoto model = GetPhotoById(photo);
             return View(model);
         }
-
-
         [HttpPost]
         public ActionResult EditarFoto(AddFoto ph)
         {
             try
             {
-
-
                 Foto photoData = (from p in adb.Fotos
                                   where p.Nombre == ph.photo + ".jpg"
                                   select p).Single();
-                //Foto photoData = adb.Fotos.Where(u => u.Nombre == (ph.photo+".jpg")).SingleOrDefault();
                 photoData.Aerolinea = ph.airline;
                 photoData.Avion = ph.airplane;
                 photoData.Fecha = ph.date;
@@ -103,13 +132,17 @@ namespace Airliners.net.Controllers
                 photoData.Notas = ph.notes;
                 adb.SubmitChanges();
                 return RedirectToAction("TusFotos");
-
             }
             catch (DataException)
             {
                 ModelState.AddModelError("", "Unable to save changes.");
             }
             return View(ph);
+        }
+        [HttpGet]
+        public ActionResult VerAlbum() { 
+            var fotos = GetPhotosAlbum();
+            return View(fotos);
         }
         [HttpGet]
         public ActionResult TusFotos()
@@ -195,7 +228,7 @@ namespace Airliners.net.Controllers
         }
 
         [HttpPost, ActionName("EliminarFoto")]
-        public ActionResult DeleteConfirmed(string photo)
+        public ActionResult DeleteFotoConfirmed(string photo)
         {
             try
             {
@@ -210,6 +243,46 @@ namespace Airliners.net.Controllers
                 { "saveChangesError", true } });
             }
             return RedirectToAction("TusFotos");
+        }
+        public void DeleteAlbum(string id)
+        {
+            var usuu = (from usu in adb.Usuarios
+                        where usu.Alias == (string)Session["usuario"]
+                        select usu.Nombre).Single();
+            var nomfoto = (from usua in adb.Albums
+                        where usua.Nombre_Usu ==  usuu && usua.Nombre_Foto==id+".jpg"
+                        select usua).Single();
+            Album alb = nomfoto;
+            adb.Albums.DeleteOnSubmit(alb);
+            adb.SubmitChanges();
+        }
+        public ActionResult EliminarAlbum(string photo, bool? saveChangesError)
+        {
+            if (saveChangesError.GetValueOrDefault())
+            {
+                ViewBag.ErrorMessage = "Unable to save changes. Try again, and if the problem persists see your system administrator.";
+            }
+
+            AddFoto foto = GetPhotoById(photo);
+            return View(foto);
+        }
+
+        [HttpPost, ActionName("EliminarAlbum")]
+        public ActionResult DeleteAlbumConfirmed(string photo)
+        {
+            try
+            {
+                AddFoto foto = GetPhotoById(photo);
+                DeleteAlbum(photo);
+            }
+            catch (DataException)
+            {
+                return RedirectToAction("EliminarAlbum",
+                    new System.Web.Routing.RouteValueDictionary {
+                { "id", photo },
+                { "saveChangesError", true } });
+            }
+            return RedirectToAction("Index","Home");
         }
     }
 }

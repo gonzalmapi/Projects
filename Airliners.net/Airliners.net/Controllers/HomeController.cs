@@ -80,10 +80,12 @@ namespace Airliners.net.Controllers
             }
             else
             {
-                return RedirectToAction("Index");
+                return RedirectToAction("Album");
             }
         }
-
+        public ActionResult Album() {
+            return View();
+        }
         public ActionResult Detalles(string photo)
         {
             AddFoto model = GetPhotoById(photo);
@@ -131,7 +133,6 @@ namespace Airliners.net.Controllers
             Session.Clear();
             return RedirectToAction("Index");
         }
-
         [HttpGet]
         public ActionResult Login()
         {
@@ -196,17 +197,12 @@ namespace Airliners.net.Controllers
             MailMessage m = new MailMessage(
             new MailAddress("proyectos.mvc.asp@gmail.com", "Airliners"),
             new MailAddress(usu.email));
-            m.Subject = "Email confirmation";
-            m.Body = string.Format("Dear "+usu.name+"< BR /> Thank you for your registration,"+
+            m.Subject = "INFO REGISTRO";
+            m.Body = string.Format("Dear "+usu.name+ ":<br/> Thank you for your registration:<br/>"+
                "Info del registro:<br/>Login: "+usu.username+"<br/>Password: "+usu.confPassword
-                // "please click on the"+
-               /* "below link to complete your registration: /*< a href =\"{1}\"
-                        
-              /* title =\"User Email Confirm\">{1}</a>",
-               user.UserName, Url.Action("ConfirmEmail", "Account",
-               new { Token = user.Id, Email = user.Email }, Request.Url.Scheme)*/) ;
+                ) ;
             m.IsBodyHtml = true;
-            System.Net.Mail.SmtpClient smtp = new System.Net.Mail.SmtpClient("smtp.gmail.com");
+           SmtpClient smtp = new SmtpClient("smtp.gmail.com");
             smtp.Credentials = new System.Net.NetworkCredential("proyectos.mvc.asp@gmail.com", "quarantine");
             smtp.Port = 587;
             smtp.EnableSsl = true;
@@ -266,7 +262,6 @@ namespace Airliners.net.Controllers
             var query = (from usu in adb.Usuarios
                          where usu.Alias == id
                          select usu).Single();
-            // var det = query.FirstOrDefault();
             var model = new UsuarioRegistro()
             {
                 name = query.Nombre,
