@@ -10,7 +10,7 @@ namespace Airliners.net.Controllers
 {
     public class HomeController : Controller
     {
-       private AirlinersDBDataContext adb = new AirlinersDBDataContext();
+        private AirlinersDBDataContext adb = new AirlinersDBDataContext();
         public IEnumerable<AddFoto> GetPhotos()
         {
             AirlinersDBDataContext adb = new AirlinersDBDataContext();
@@ -119,8 +119,41 @@ namespace Airliners.net.Controllers
             };
             return model;
         }
+        public ActionResult Error() {
+            return View();
+        }
+        public ActionResult Envio() {
+            return View();
+        }
+        [HttpGet]
         public ActionResult Forgot() {
             return View();
+        }
+        [HttpPost]
+        public ActionResult Forgot(RecuPass rp) {
+            if (ModelState.IsValid)
+            {
+               // bool existe = false;
+               bool existe = (from usu in adb.Usuarios
+                               where usu.Email == rp.Email 
+                               select true).SingleOrDefault();
+                if (existe==true)
+                {
+                    Usuario usuario = (from usu in adb.Usuarios
+                                  where usu.Email == rp.Email
+                                  select usu).Single();
+                    sendEmail(usuario);
+                    return RedirectToAction("Envio");
+                }
+                else {
+                    return RedirectToAction("Error");
+                }
+            }
+            else {
+                var err = ModelState.SelectMany(x => x.Value.Errors.Select(y => y.Exception));
+                return View("Login");
+            }
+           
         }
         public ActionResult CondicionesdeUso() {
             return View();
@@ -213,7 +246,23 @@ namespace Airliners.net.Controllers
             smtp.EnableSsl = true;
             smtp.Send(m);
         }
-
+        private void sendEmail(Usuario usu)
+        {
+            MailMessage m = new MailMessage(
+            new MailAddress("proyectos.mvc.asp@gmail.com", "Airliners"),
+            new MailAddress(usu.Email));
+            m.Subject = "INFO REGISTRO";
+            m.Body = string.Format("Dear " + usu.Nombre + ":<br/> Thank you for your registration:<br/>" +
+               "Info del registro:<br/>Login: " + usu.Alias + "<br/>Password: " + usu.Contraseña +"<br/>"+
+               "Vaya a: <br/>"+"http://localhost:2097/Home/Login"
+                );
+            m.IsBodyHtml = true;
+            SmtpClient smtp = new SmtpClient("smtp.gmail.com");
+            smtp.Credentials = new System.Net.NetworkCredential("proyectos.mvc.asp@gmail.com", "quarantine");
+            smtp.Port = 587;
+            smtp.EnableSsl = true;
+            smtp.Send(m);
+        }
         public ActionResult EditarUsuario(string id)
         {
             UsuarioRegistro model = GetUserById(id);

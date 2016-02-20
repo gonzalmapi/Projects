@@ -180,6 +180,8 @@
     <Content Include="Views\Foto\EliminarAlbum.cshtml" />
     <Content Include="Views\Home\CondicionesdeUso.cshtml" />
     <Content Include="Views\Home\Forgot.cshtml" />
+    <Content Include="Views\Home\Error.cshtml" />
+    <Content Include="Views\Home\Envio.cshtml" />
     <None Include="Web.Debug.config">
       <DependentUpon>Web.config</DependentUpon>
     </None>
