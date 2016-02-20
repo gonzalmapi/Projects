@@ -150,6 +150,7 @@
       <DesignTime>True</DesignTime>
       <DependentUpon>AirlinersDB.dbml</DependentUpon>
     </Compile>
+    <Compile Include="Models\RecuPass.cs" />
     <Compile Include="Models\UsuarioLogin.cs" />
     <Compile Include="Models\UsuarioRegistro.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
@@ -177,6 +178,8 @@
     <Content Include="Views\Home\Album.cshtml" />
     <Content Include="Views\Foto\VerAlbum.cshtml" />
     <Content Include="Views\Foto\EliminarAlbum.cshtml" />
+    <Content Include="Views\Home\CondicionesdeUso.cshtml" />
+    <Content Include="Views\Home\Forgot.cshtml" />
     <None Include="Web.Debug.config">
       <DependentUpon>Web.config</DependentUpon>
     </None>

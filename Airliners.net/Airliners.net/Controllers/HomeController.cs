@@ -119,7 +119,12 @@ namespace Airliners.net.Controllers
             };
             return model;
         }
-
+        public ActionResult Forgot() {
+            return View();
+        }
+        public ActionResult CondicionesdeUso() {
+            return View();
+        }
         // GET: Home
         public ActionResult Index()
         {
