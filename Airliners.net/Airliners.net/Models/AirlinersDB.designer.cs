@@ -22,7 +22,7 @@ namespace Airliners.net.Models
 	using System;
 	
 	
-	[global::System.Data.Linq.Mapping.DatabaseAttribute(Name="Airliners.net")]
+	[global::System.Data.Linq.Mapping.DatabaseAttribute(Name="Airliners")]
 	public partial class AirlinersDBDataContext : System.Data.Linq.DataContext
 	{
 		

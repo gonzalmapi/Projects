@@ -151,7 +151,7 @@ namespace Airliners.net.Controllers
             }
             else {
                 var err = ModelState.SelectMany(x => x.Value.Errors.Select(y => y.Exception));
-                return View("Login");
+                return View("Forgot");
             }
            
         }
@@ -182,11 +182,16 @@ namespace Airliners.net.Controllers
             if (ModelState.IsValid)
             {
                 
-                var usuario = (from usu in adb.Usuarios
+                bool usuario = (from usu in adb.Usuarios
                                where usu.Alias == usulog.username && usu.Contraseña == usulog.password
-                               select usu).Single();
-                Session["usuario"] = usuario.Alias;
-                return RedirectToAction("Index");
+                               select true).SingleOrDefault();
+                if (usuario==true) {
+                    Session["usuario"] = usulog.username;
+                    return RedirectToAction("Index");
+                }
+                else{
+                    return RedirectToAction("Login");
+                }
             }
             else {
                 var err = ModelState.SelectMany(x => x.Value.Errors.Select(y => y.Exception));
@@ -202,33 +207,40 @@ namespace Airliners.net.Controllers
         [HttpPost]
         public ActionResult Registro(UsuarioRegistro usureg)
         {
-            
-                AirlinersDBDataContext adb = new AirlinersDBDataContext();
-                Usuario nuevo = new Usuario();
-                nuevo.Alias = usureg.username;
-                nuevo.Email = usureg.email;
-                nuevo.Contraseña = usureg.confPassword;
-                nuevo.Nombre = usureg.name;
-                nuevo.Edad = usureg.age;
-                nuevo.Sexo = usureg.gender;
-                nuevo.Pais = usureg.country;
-                nuevo.Ocupacion = usureg.occupation;
-                nuevo.Hobbies = usureg.hobbies;
-                nuevo.URLPersonal = usureg.url_personal;
-                nuevo.Otros = usureg.other;
-                nuevo.Ciudad = usureg.city;
-               adb.Usuarios.InsertOnSubmit(nuevo);
-                try
+            if (ModelState.IsValid)
+            {
+                bool usuario = (from usu in adb.Usuarios
+                                where usu.Alias == usureg.username || usu.Email == usureg.email || usu.Nombre == usureg.name
+                                select true).Any();
+                if (usuario==false)
                 {
-                adb.SubmitChanges();
+                    Usuario nuevo = new Usuario();
+                    nuevo.Alias = usureg.username;
+                    nuevo.Email = usureg.email;
+                    nuevo.Contraseña = usureg.confPassword;
+                    nuevo.Nombre = usureg.name;
+                    nuevo.Edad = usureg.age;
+                    nuevo.Sexo = usureg.gender;
+                    nuevo.Pais = usureg.country;
+                    nuevo.Ocupacion = usureg.occupation;
+                    nuevo.Hobbies = usureg.hobbies;
+                    nuevo.URLPersonal = usureg.url_personal;
+                    nuevo.Otros = usureg.other;
+                    nuevo.Ciudad = usureg.city;
+                    adb.Usuarios.InsertOnSubmit(nuevo);
+                    adb.SubmitChanges();
                     sendEmail(usureg);
+                    return RedirectToAction("Index");
                 }
-                catch
-                {
+                else {
+                    return RedirectToAction("Registro");
                 }
-            
-            return RedirectToAction("Index");
-        }
+            }
+            else {
+                var err = ModelState.SelectMany(x => x.Value.Errors.Select(y => y.Exception));
+                return View("Registro");
+            }
+            } 
 
         private void sendEmail(UsuarioRegistro usu)
         {
@@ -236,8 +248,9 @@ namespace Airliners.net.Controllers
             new MailAddress("proyectos.mvc.asp@gmail.com", "Airliners"),
             new MailAddress(usu.email));
             m.Subject = "INFO REGISTRO";
-            m.Body = string.Format("Dear "+usu.name+ ":<br/> Thank you for your registration:<br/>"+
-               "Info del registro:<br/>Login: "+usu.username+"<br/>Password: "+usu.confPassword
+            m.Body = string.Format("Estimado "+usu.name+ ":<br/> Gracias por tu registro:<br/>"+
+               "Info del registro:<br/>Login: "+usu.username+"<br/>Password: "+usu.confPassword+
+               "<br/>Que pases un feliz vuelo en esta web" + "<br/>POR FAVOR NO CONTESTE ESTE CORREO"
                 ) ;
             m.IsBodyHtml = true;
            SmtpClient smtp = new SmtpClient("smtp.gmail.com");
@@ -251,10 +264,11 @@ namespace Airliners.net.Controllers
             MailMessage m = new MailMessage(
             new MailAddress("proyectos.mvc.asp@gmail.com", "Airliners"),
             new MailAddress(usu.Email));
-            m.Subject = "INFO REGISTRO";
-            m.Body = string.Format("Dear " + usu.Nombre + ":<br/> Thank you for your registration:<br/>" +
+            m.Subject = "INFO LOGIN";
+            m.Body = string.Format("Estimado " + usu.Nombre + ":<br/> Este email es para logearte en esta pagina:<br/>" +
                "Info del registro:<br/>Login: " + usu.Alias + "<br/>Password: " + usu.Contraseña +"<br/>"+
-               "Vaya a: <br/>"+"http://localhost:2097/Home/Login"
+               "Vaya a: <br/>"+"http://localhost:2097/Home/Login"+"<br/>E Ingrese los datos ofrecidos en este email en el login"+
+               "<br/>POR FAVOR NO CONTESTE ESTE CORREO"
                 );
             m.IsBodyHtml = true;
             SmtpClient smtp = new SmtpClient("smtp.gmail.com");
