@@ -173,7 +173,6 @@
     <Content Include="Views\Home\PerfilUsuario.cshtml" />
     <Content Include="Views\Foto\EditarFoto.cshtml" />
     <Content Include="Views\Foto\EliminarFoto.cshtml" />
-    <Content Include="Views\Home\EditarUsuario.cshtml" />
     <Content Include="Views\Home\EliminarCuenta.cshtml" />
     <Content Include="Views\Home\Album.cshtml" />
     <Content Include="Views\Foto\VerAlbum.cshtml" />
@@ -182,6 +181,7 @@
     <Content Include="Views\Home\Forgot.cshtml" />
     <Content Include="Views\Home\Error.cshtml" />
     <Content Include="Views\Home\Envio.cshtml" />
+    <Content Include="Views\Home\EditarUsuario.cshtml" />
     <None Include="Web.Debug.config">
       <DependentUpon>Web.config</DependentUpon>
     </None>

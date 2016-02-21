@@ -124,8 +124,10 @@ namespace Airliners.net.Controllers
         [HttpPost]
         public ActionResult EditarFoto(AddFoto ph)
         {
-           
-                try
+
+            try
+            {
+                if (ModelState.IsValid)
                 {
                     Foto photoData = (from p in adb.Fotos
                                       where p.Nombre == ph.photo + ".jpg"
@@ -138,10 +140,16 @@ namespace Airliners.net.Controllers
                     adb.SubmitChanges();
                     return RedirectToAction("TusFotos");
                 }
-                catch (DataException)
-                {
-                    ModelState.AddModelError("", "Unable to save changes.");
+                else {
+                    var err = ModelState.SelectMany(x => x.Value.Errors.Select(y => y.Exception));
+                    return View("EditarFoto");
                 }
+
+            }
+            catch (DataException)
+            {
+                ModelState.AddModelError("", "Unable to save changes.");
+            }
             return View(ph);
         }
         [HttpGet]
@@ -179,6 +187,10 @@ namespace Airliners.net.Controllers
                     var path = Path.Combine(Server.MapPath("~/Images/"), fileName);
                     file.SaveAs(path);
                     Session["foto"]= fileName;
+                var nombre = (from usu in adb.Usuarios
+                              where usu.Alias == (string)Session["usuario"]
+                              select usu.Nombre).Single();
+                Session["fotografo"] = nombre;
                 return RedirectToAction("MasInfo");
             }
                             
@@ -186,16 +198,17 @@ namespace Airliners.net.Controllers
         [HttpPost]
         public ActionResult MasInfo(AddFoto af)
         {
-              
-                    bool foto = (from ph in adb.Fotos
-                                 where ph.Nombre == (string)Session["foto"]
-                                 select true).SingleOrDefault();
-                    var nombre = (from usu in adb.Usuarios
-                                  where usu.Alias == (string)Session["usuario"]
-                                  select usu.Nombre).Single();
+
+            bool foto = (from ph in adb.Fotos
+                         where ph.Nombre == (string)Session["foto"]
+                         select true).SingleOrDefault();
+            var nombre = (from usu in adb.Usuarios
+                          where usu.Alias == (string)Session["usuario"]
+                          select usu.Nombre).Single();
             if (foto == false)
             {
-               
+                if (ModelState.IsValid)
+                {
                     Foto nuevo = new Foto();
                     af.name = (string)nombre;
                     af.photo = (string)Session["foto"];
@@ -206,13 +219,14 @@ namespace Airliners.net.Controllers
                     nuevo.Lugar = af.place;
                     nuevo.Notas = af.notes;
                     nuevo.Nombre = af.photo;
-                if (nuevo.Aerolinea != null || nuevo.Avion != null || nuevo.Lugar != null)
-                {
                     adb.Fotos.InsertOnSubmit(nuevo);
                     adb.SubmitChanges();
                     return RedirectToAction("Index", "Home");
                 }
-                else return RedirectToAction("MasInfo");
+                else {
+                    var err = ModelState.SelectMany(x => x.Value.Errors.Select(y => y.Exception));
+                    return View("MasInfo");
+                }
             }
             else {
                 return RedirectToAction("AñadirFoto");

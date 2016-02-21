@@ -289,24 +289,31 @@ namespace Airliners.net.Controllers
         {
             try
             {
-                Usuario userData = (from usu in adb.Usuarios
-                                    where usu.Alias == (string)Session["usuario"]
-                                    select usu).Single();
-
-                userData.Alias = usureg.username;
-                userData.Email = usureg.email;
-                userData.Contraseña = usureg.confPassword;
-                userData.Edad = usureg.age;
-                userData.Sexo = usureg.gender;
-                userData.Pais = usureg.country;
-                userData.Ocupacion = usureg.occupation;
-                userData.Hobbies = usureg.hobbies;
-                userData.URLPersonal = usureg.url_personal;
-                userData.Otros = usureg.other;
-                userData.Ciudad = usureg.city;
-                adb.SubmitChanges();
-                return RedirectToAction("PerfilUsuario");
-                
+                if (ModelState.IsValid)
+                {
+                       Usuario userData = (from usu in adb.Usuarios
+                                        where usu.Alias == (string)Session["usuario"]
+                                        select usu).Single();
+                   
+                    userData.Alias = usureg.username;
+                    userData.Email = usureg.email;
+                    userData.Contraseña = usureg.confPassword;
+                    userData.Edad = usureg.age;
+                    userData.Sexo = usureg.gender;
+                    userData.Pais = usureg.country;
+                    userData.Ocupacion = usureg.occupation;
+                    userData.Hobbies = usureg.hobbies;
+                    userData.URLPersonal = usureg.url_personal;
+                    userData.Otros = usureg.other;
+                    userData.Ciudad = usureg.city;
+                    userData.Nombre = usureg.name;
+                    adb.SubmitChanges();
+                    return RedirectToAction("PerfilUsuario");
+                }
+                else { 
+                    var err = ModelState.SelectMany(x => x.Value.Errors.Select(y => y.Exception));
+                            return View("EditarUsuario");
+                        }             
             }
             catch (DataException)
             {
@@ -330,21 +337,21 @@ namespace Airliners.net.Controllers
             var query = (from usu in adb.Usuarios
                          where usu.Alias == id
                          select usu).Single();
-            var model = new UsuarioRegistro()
-            {
-                name = query.Nombre,
-                 username= query.Alias,
-                city = query.Ciudad,
-                confPassword = query.Contraseña,
-                age = query.Edad,
-                email = query.Email,
-                hobbies = query.Hobbies,
-                occupation = query.Ocupacion,
-                other = query.Otros,
-                country = query.Pais,
-                gender = query.Sexo,
-                url_personal= query.URLPersonal
-            };
+                var model = new UsuarioRegistro()
+                {
+                    name = query.Nombre,
+                    username = query.Alias,
+                    city = query.Ciudad,
+                    confPassword = query.Contraseña,
+                    age = query.Edad,
+                    email = query.Email,
+                    hobbies = query.Hobbies,
+                    occupation = query.Ocupacion,
+                    other = query.Otros,
+                    country = query.Pais,
+                    gender = query.Sexo,
+                    url_personal = query.URLPersonal
+                };
             return model;
         }
 
